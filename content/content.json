@@ -16,10 +16,10 @@
     "cv": "assets/Fardin_Huq_CV.pdf",
     "profiles": {
       "linkedin": "https://www.linkedin.com/in/fardin-huq-2350361a5/",
-      "scholar": "",
-      "researchgate": "",
-      "orcid": "",
-      "github": ""
+      "scholar": "https://scholar.google.com/citations?user=wiauzDsAAAAJ&hl=en",
+      "researchgate": "https://www.researchgate.net/profile/Fardin-Huq",
+      "orcid": "https://www.researchgate.net/profile/Fardin-Huq",
+      "github": "https://github.com/FardinHuq"
     },
     "googleVerification": ""
   },
@@ -339,6 +339,15 @@
               "Tested builds before the showcase"
             ],
             "video": "https://youtu.be/4OyQEXcdEag",
+            "image": ""
+          },
+          {
+            "title": "",
+            "client": "",
+            "desc": "",
+            "tech": [],
+            "role": [],
+            "video": "",
             "image": ""
           }
         ],
