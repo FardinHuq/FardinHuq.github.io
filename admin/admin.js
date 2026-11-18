@@ -43,7 +43,7 @@
     'projects.categories.*.model': '3D model (.glb) shown beside this category on computers. Upload a new .glb to replace it (smaller files load faster; under 10 MB is best).',
     'projects.categories.*.modelCredit': 'Required by the model’s CC BY licence: model name, author and licence.',
     'projects.categories.*.modelCreditUrl': 'Link to the model’s page (e.g. on Sketchfab).',
-    'projects.categories.*.modelView': 'Optional starting angle, e.g. "30deg 75deg auto". Leave empty for automatic.',
+    'projects.categories.*.modelView': 'Optional starting angle. Empty = exact front (0deg 90deg auto). First number turns left/right, second tilts (90deg = straight on, smaller = from above).',
     'clients.logos.*.logo': 'PNG with a transparent background works best (white backgrounds are fine too). Margins are trimmed automatically.',
     'clients.logos.*.name': 'Used for screen readers and Google, and shown as text if there is no logo.',
     'clients.fullList': 'Hidden sentence for Google and screen readers. Leave empty to list the names above automatically.',
@@ -248,7 +248,8 @@
       redraw(arr.length - 1);
     }
     function draw() {
-      const g = h('div', { class: 'grp' });
+      const g = h('div', { class: 'grp', 'data-dnd': pk });
+      g.__list = { arr, redraw: (f) => redraw(f) };
       const actions = [h('button', { class: 'btn sm', type: 'button', onclick: add }, '+ Add')];
       if (/^clients\.logos$/.test(pk)) actions.unshift(bulkLogos(arr, redraw));
       g.appendChild(h('div', { class: 'gh' },
@@ -257,7 +258,9 @@
         h('span', { class: 'sp' }, actions, extraTools || [])));
       const body = h('div', { class: 'gb lst' });
       arr.forEach((it, i) => {
+        const handle = h('button', { class: 'ico drag', type: 'button', title: 'Drag to move', 'aria-label': 'Drag to move', onpointerdown: (e) => startDrag(e, { arr, i, pk, redraw, label: itemTitle(it, i) || String(it) || 'Item' }) }, '⠿');
         const tools = [
+          handle,
           h('button', { class: 'ico', type: 'button', title: 'Move up', 'aria-label': 'Move up', onclick: () => { if (i > 0) { [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]]; redraw(); } } }, '↑'),
           h('button', { class: 'ico', type: 'button', title: 'Move down', 'aria-label': 'Move down', onclick: () => { if (i < arr.length - 1) { [arr[i + 1], arr[i]] = [arr[i], arr[i + 1]]; redraw(); } } }, '↓'),
           h('button', { class: 'ico del', type: 'button', title: 'Remove', 'aria-label': 'Remove', onclick: () => { if (confirm('Remove this item?')) { arr.splice(i, 1); redraw(); } } }, '✕'),
@@ -268,6 +271,8 @@
           const toggle = () => { const c = card.classList.toggle('collapsed'); if (c) openItems.delete(it); else openItems.add(it); };
           const head = h('div', { class: 'gh' }, h('button', { class: 'ico tg', type: 'button', 'aria-label': 'Expand', onclick: toggle }, '▸'), itemThumb(it), h('b', { style: 'cursor:pointer', onclick: toggle }, itemTitle(it, i)), h('span', { class: 'sp' }, tools));
           const cb = h('div', { class: 'gb' });
+          card.__drops = {}; card.__redraw = () => redraw(); card.__name = itemTitle(it, i);
+          Object.keys(it).forEach((k) => { if (Array.isArray(it[k])) card.__drops[pathKey(path.concat(i, k))] = it[k]; });
           Object.keys(it).forEach((k) => renderValue(it[k], path.concat(i, k), cb, (v) => { it[k] = v; }, it));
           card.append(head, cb);
           body.appendChild(card);
@@ -286,6 +291,64 @@
       g.appendChild(body);
       return g;
     }
+  }
+  // ---------- drag & drop (mouse and touch) ----------
+  // Drag an item by its ⠿ handle within its list, into the same kind of list elsewhere (e.g. a project into
+  // another category's projects), or onto a collapsed card that holds such a list (e.g. a closed category).
+  function startDrag(e, src) {
+    if (e.button != null && e.button !== 0) return;
+    e.preventDefault();
+    const srcEl = e.currentTarget.closest('[data-i]');
+    const ghost = h('div', { class: 'dnd-ghost' }, '⠿ ' + String(src.label).replace(/==|\*\*/g, '').slice(0, 60));
+    const line = h('div', { class: 'dnd-line', hidden: true });
+    document.body.append(ghost, line);
+    document.body.classList.add('dnd-on');
+    if (srcEl) srcEl.classList.add('dragging');
+    let target = null, hot = null, y = e.clientY, raf = 0, alive = true;
+    const listFor = (el) => { let g = el && el.closest('.grp[data-dnd]'); while (g && g.dataset.dnd !== src.pk) g = g.parentElement && g.parentElement.closest('.grp[data-dnd]'); return g; };
+    const cardFor = (el) => { let c = el && el.closest('[data-i]'); while (c && !(c.__drops && c.__drops[src.pk])) c = c.parentElement && c.parentElement.closest('[data-i]'); return c; };
+    const setHot = (c) => { if (hot === c) return; if (hot) hot.classList.remove('drop-into'); hot = c; if (hot) hot.classList.add('drop-into'); };
+    const move = (ev) => {
+      y = ev.clientY;
+      ghost.style.left = ev.clientX + 'px'; ghost.style.top = ev.clientY + 'px';
+      const el = document.elementFromPoint(ev.clientX, ev.clientY);
+      const L = listFor(el);
+      if (L && L.__list) {
+        setHot(null);
+        const items = [...L.querySelectorAll(':scope > .gb > [data-i]')];
+        let idx = items.length;
+        for (let k = 0; k < items.length; k++) { const r = items[k].getBoundingClientRect(); if (ev.clientY < r.top + r.height / 2) { idx = k; break; } }
+        const gb = L.querySelector(':scope > .gb').getBoundingClientRect();
+        const ref = items[idx] ? items[idx].getBoundingClientRect().top - 5 : (items.length ? items[items.length - 1].getBoundingClientRect().bottom + 2 : gb.top + 4);
+        line.hidden = false; line.style.left = gb.left + 'px'; line.style.width = gb.width + 'px'; line.style.top = ref + 'px';
+        target = { list: L.__list, idx };
+        return;
+      }
+      line.hidden = true;
+      const c = cardFor(el);
+      if (c && c.__drops[src.pk] !== src.arr) { setHot(c); target = { card: c }; return; }
+      setHot(null); target = null;
+    };
+    const tick = () => { if (!alive) return; const edge = 70; if (y < edge) window.scrollBy(0, -Math.ceil((edge - y) / 5)); else if (y > innerHeight - edge) window.scrollBy(0, Math.ceil((y - innerHeight + edge) / 5)); raf = requestAnimationFrame(tick); };
+    const end = (drop) => {
+      alive = false; cancelAnimationFrame(raf);
+      window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); window.removeEventListener('pointercancel', cancel); window.removeEventListener('keydown', key);
+      ghost.remove(); line.remove(); setHot(null); document.body.classList.remove('dnd-on'); if (srcEl) srcEl.classList.remove('dragging');
+      if (!drop || !target) return;
+      const item = src.arr[src.i];
+      if (target.list) {
+        const dst = target.list.arr; let idx = target.idx;
+        if (dst === src.arr) { if (idx === src.i || idx === src.i + 1) return; src.arr.splice(src.i, 1); if (idx > src.i) idx--; dst.splice(idx, 0, item); src.redraw(idx); }
+        else { src.arr.splice(src.i, 1); dst.splice(idx, 0, item); src.redraw(); target.list.redraw(idx); toast('Moved.', 1500); }
+      } else if (target.card) {
+        src.arr.splice(src.i, 1); target.card.__drops[src.pk].push(item); src.redraw(); target.card.__redraw();
+        toast('Moved to “' + target.card.__name + '”.', 2200);
+      }
+      setDirty(true);
+    };
+    const up = () => end(true), cancel = () => end(false), key = (ev) => { if (ev.key === 'Escape') end(false); };
+    window.addEventListener('pointermove', move); window.addEventListener('pointerup', up); window.addEventListener('pointercancel', cancel); window.addEventListener('keydown', key);
+    move(e); raf = requestAnimationFrame(tick);
   }
   function guessObjects(path) { const k = pathKey(path); return /(nav|panels|items|bigStats|smallStats|categories|projects|steps|papers|buttons|logos)$/.test(k) && !/toolbox\.steps$/.test(k); }
   function templateFor(path) {

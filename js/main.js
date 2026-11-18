@@ -232,7 +232,16 @@
   // then quietly preload the next one. Only the visible model keeps rotating.
   showModel(devs, k) {
     const mvs = devs.map((d) => d.querySelector('model-viewer'));
-    mvs.forEach((mv, i) => { if (mv) mv.toggleAttribute('auto-rotate', i === k); });
+    // Every model starts exactly front-facing, holds for a moment, then turns slowly. Coming back to a category resets it to the front.
+    clearTimeout(this.mvSpinT);
+    mvs.forEach((mv) => { if (mv) mv.removeAttribute('auto-rotate'); });
+    const front = () => {
+      const mv = mvs[k];
+      if (!mv || this.pjCat !== k) return;
+      try { if (mv.resetTurntableRotation) mv.resetTurntableRotation(0); if (mv.jumpCameraToGoal) mv.jumpCameraToGoal(); } catch (e) {}
+      clearTimeout(this.mvSpinT);
+      this.mvSpinT = setTimeout(() => { if (this.pjCat === k) mv.setAttribute('auto-rotate', ''); }, 2500);
+    };
     const load = (i) => new Promise((done) => {
       const dev = devs[i], mv = mvs[i];
       if (!mv || mv.hasAttribute('src')) return done();
@@ -244,7 +253,7 @@
         mv.setAttribute('src', mv.getAttribute('data-src'));
       });
     });
-    load(k).then(() => load(k + 1));
+    load(k).then(() => { front(); return load(k + 1); });
   }
   updateProcess(anim) {
     const sec = this.prEl, track = this.prTrackEl, map = this.prMapEl, done = this.prDoneEl, panda = this.prPandaEl, stamp = this.prStampEl;

@@ -162,11 +162,9 @@ function projects() {
   // Each category shows its 3D model (loaded by main.js only when that category is on screen); the drawing stays as a fallback until the model is ready.
   const devs = J.categories.map((c, i) => {
     const svg = (P.devices[c.device] || P.devices.web).replace(/id="pjs(\d)"/g, `id="pjs$1c${i}"`).replace(/url\(#pjs(\d)\)/g, `url(#pjs$1c${i})`);
-    const model = c.model ? `<model-viewer class="pj-model" data-src="${esc(c.model)}" alt="" aria-hidden="true" auto-rotate auto-rotate-delay="0" rotation-per-second="16deg" interaction-prompt="none" disable-zoom disable-pan disable-tap environment-image="neutral" exposure="1.05" shadow-intensity="0.9" shadow-softness="1"${c.modelView ? ` camera-orbit="${esc(c.modelView)}"` : ''}></model-viewer>` : '';
-    const credit = c.model && c.modelCredit ? `<a class="pj-credit" href="${esc(c.modelCreditUrl || '#')}" target="_blank" rel="noopener" tabindex="-1">3D: ${esc(c.modelCredit)}</a>` : '';
-    return `<div class="pj-dev${i === 0 ? ' is-on' : ''}${c.model ? ' has-model' : ''}" data-k="${i}"><div class="pj-svg">${svg}</div>${model}${credit}</div>`;
+    const model = c.model ? `<model-viewer class="pj-model" data-src="${esc(c.model)}" alt="" aria-hidden="true" rotation-per-second="16deg" interaction-prompt="none" disable-zoom disable-pan disable-tap environment-image="neutral" exposure="1.05" shadow-intensity="0.9" shadow-softness="1" camera-orbit="${esc(c.modelView || '0deg 90deg auto')}"></model-viewer>` : '';
+    return `<div class="pj-dev${i === 0 ? ' is-on' : ''}${c.model ? ' has-model' : ''}" data-k="${i}"><div class="pj-svg">${svg}</div>${model}</div>`;
   }).join('\n          ');
-  const credits = J.categories.filter((c) => c.model && c.modelCredit).map((c) => `<a href="${esc(c.modelCreditUrl || '#')}" target="_blank" rel="noopener">${esc(c.modelCredit)}</a>`).join(', ');
   const cards = J.categories.map((c, ci) => c.projects.map((p) => {
     n += 1;
     const img = projectThumb(p);
@@ -207,7 +205,6 @@ function projects() {
         <div class="pj-cards">
 ${cards}
         </div>
-        ${credits ? `<p class="cl-sr">${esc(J.modelCreditsLabel || '3D models')}: ${credits}</p>` : ''}
       </div>
     </div>
   </section>`;
@@ -333,6 +330,10 @@ function footer() {
   const social = links.length ? `<ul class="ft-social" aria-label="${esc(F.socialLabel || 'Profiles')}">
         ${links.map(([k, u]) => `<li><a class="ft-ico" href="${esc(u)}" target="_blank" rel="noopener me" aria-label="${esc(B[k].title)}" title="${esc(B[k].title)}" style="--b:${B[k].hex}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${B[k].path}"/></svg></a></li>`).join('\n        ')}
       </ul>` : '';
+  const seen = new Set();
+  const mc = (C.projects.categories || []).filter((c) => c.model && c.modelCredit && !seen.has(c.model) && seen.add(c.model))
+    .map((c) => `<a href="${esc(c.modelCreditUrl || '#')}" target="_blank" rel="noopener">${esc(c.modelCredit.replace(/\s*\(CC BY[^)]*\)\s*$/, ''))}</a>`);
+  const modelCredits = mc.length ? `<p class="ft-credits">${esc(C.projects.modelCreditsLabel || '3D models')} (CC BY 4.0): ${mc.join(' · ')}</p>` : '';
   return `<footer class="ft">
     <div class="ft-row">
       <div class="ft-name">${esc(S.name)}<span>${esc(S.jobTitle)}</span></div>
@@ -342,6 +343,7 @@ function footer() {
       <button type="button" class="ft-top">Back to top ↑</button>
     </div>
     ${social}
+    ${modelCredits}
     <div class="ft-bot"><span>${esc(F.left)}</span><span>${esc(F.right)} <b>${esc(F.rightBold)}</b></span></div>
   </footer>`;
 }
