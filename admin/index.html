@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin — Portfolio content</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+  :root{--bg:#EAEAEA;--ink:#111;--y:#FFE14D;--muted:#5a5a5a;--card:#fff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif}
+  h1,h2,h3,.brand{font-family:'Space Grotesk',Inter,sans-serif;letter-spacing:-0.02em}
+  a{color:var(--ink)}
+  button,input,textarea,select{font:inherit;color:inherit}
+  .btn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border:2px solid var(--ink);border-radius:999px;background:#fff;font-weight:700;cursor:pointer;text-decoration:none}
+  .btn:hover{background:var(--ink);color:#fff}
+  .btn.y{background:var(--y)}.btn.y:hover{background:var(--ink);color:#fff}
+  .btn.sm{min-height:32px;padding:0 12px;font-size:13px;border-width:1.5px}
+  .btn.ghost{border-color:transparent;background:transparent}.btn.ghost:hover{background:#0001;color:var(--ink)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .hl{background:linear-gradient(transparent 60%,var(--y) 60%);padding:0 .1em}
+  /* login */
+  .login{max-width:620px;margin:6vh auto;padding:32px;background:#fff;border:2px solid var(--ink);border-radius:20px;box-shadow:8px 8px 0 var(--ink)}
+  .login h1{margin:0 0 6px;font-size:34px}
+  .login p{color:#333}
+  label.f{display:block;margin:14px 0 4px;font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+  .in{width:100%;padding:10px 12px;border:1.5px solid var(--ink);border-radius:10px;background:#fff}
+  textarea.in{min-height:80px;resize:vertical}
+  .in:focus{outline:3px solid var(--y);outline-offset:1px}
+  .row{display:flex;gap:12px;flex-wrap:wrap}.row>*{flex:1 1 160px}
+  details.help{margin-top:18px;background:#f6f6f3;border-radius:12px;padding:12px 16px}
+  details.help summary{cursor:pointer;font-weight:700}
+  .err{color:#b00020;font-weight:600;margin-top:12px}
+  /* app */
+  .top{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 20px;background:rgba(234,234,234,.92);backdrop-filter:blur(8px);border-bottom:2px solid var(--ink)}
+  .brand{font-weight:700;font-size:20px;margin-right:auto}
+  .status{font-size:13px;color:var(--muted)}
+  .status.dirty{color:#b45f00;font-weight:700}
+  .wrap{display:grid;grid-template-columns:230px 1fr;gap:24px;max-width:1240px;margin:0 auto;padding:24px 20px 120px}
+  .side{position:sticky;top:84px;align-self:start;display:flex;flex-direction:column;gap:4px}
+  .side button{text-align:left;padding:10px 14px;border:0;border-radius:12px;background:transparent;font-weight:600;cursor:pointer}
+  .side button:hover{background:#0000000d}
+  .side button.on{background:var(--ink);color:#fff}
+  .panel{background:var(--card);border:2px solid var(--ink);border-radius:20px;box-shadow:6px 6px 0 var(--ink);padding:24px 26px}
+  .panel>h2{margin:0 0 4px;font-size:28px}
+  .tip{font-size:13px;color:var(--muted);margin:0 0 14px}
+  .fld{margin:0 0 16px}
+  .fld>.lab{display:flex;align-items:center;gap:8px;margin:0 0 5px;font-weight:600;font-size:13px;letter-spacing:.03em}
+  .grp{border:1.5px solid #0002;border-radius:14px;padding:14px 16px 4px;margin:0 0 16px;background:#fbfbf9}
+  .grp>.gh{display:flex;align-items:center;gap:8px;margin:-2px 0 10px}
+  .grp>.gh b{font-family:'Space Grotesk',Inter,sans-serif;font-size:16px}
+  .grp>.gh .sp{margin-left:auto;display:flex;gap:6px}
+  .grp.collapsed>.gb{display:none}
+  .lst .li{display:flex;gap:6px;align-items:flex-start;margin:0 0 6px}
+  .lst .li .in{flex:1}
+  .ico{width:32px;height:32px;display:inline-grid;place-items:center;border:1.5px solid var(--ink);border-radius:8px;background:#fff;cursor:pointer;flex:none;font-size:14px}
+  .ico:hover{background:var(--y)}
+  .ico.del:hover{background:#ffd6d6}
+  .file{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .file .in{flex:1 1 240px}
+  .thumb{max-height:64px;max-width:120px;border:1.5px solid var(--ink);border-radius:8px;background:#eee}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--y);padding:12px 20px;border-radius:999px;font-weight:700;opacity:0;transition:opacity .2s;pointer-events:none;z-index:50;max-width:90vw;text-align:center}
+  .toast.on{opacity:1}
+  .chk{display:flex;align-items:center;gap:8px;font-weight:600}
+  .chk input{width:18px;height:18px}
+  @media (max-width:820px){.wrap{grid-template-columns:1fr}.side{position:static;flex-direction:row;flex-wrap:wrap}.side button{padding:8px 12px}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="admin.js"></script>
+</body>
+</html>

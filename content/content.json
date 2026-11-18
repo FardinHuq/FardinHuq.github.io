@@ -1,0 +1,785 @@
+{
+  "site": {
+    "url": "https://fardinhuq.github.io/",
+    "title": "Fardin Huq — Project Coordinator | Web, App, XR & Simulation Delivery",
+    "description": "Fardin Huq is a Project Coordinator in Dhaka, Bangladesh with 2.5+ years delivering 40+ web, mobile, VR/AR, simulation and game projects for clients like GIZ, UNICEF and Unilever. 3 ACM papers in HCI.",
+    "keywords": "Fardin Huq, Fardin Huq Project Coordinator, Fardin Huq BRAC University, Fardin Huq ACM, Project Coordinator Bangladesh, XR project manager Dhaka",
+    "ogImage": "assets/og-image.jpg",
+    "name": "Fardin Huq",
+    "alternateName": "Huq",
+    "jobTitle": "Project Coordinator",
+    "worksFor": "Battery Low Interactive Ltd.",
+    "alumniOf": "BRAC University",
+    "location": "Dhaka, Bangladesh",
+    "email": "huqfardin7887@gmail.com",
+    "whatsapp": "8801706975656",
+    "cv": "assets/Fardin_Huq_CV.pdf",
+    "profiles": {
+      "linkedin": "https://www.linkedin.com/in/fardin-huq-2350361a5/",
+      "scholar": "",
+      "researchgate": "",
+      "orcid": "",
+      "github": ""
+    },
+    "googleVerification": ""
+  },
+  "nav": [
+    {
+      "label": "About Me",
+      "href": "#about"
+    },
+    {
+      "label": "Experience",
+      "href": "#experience"
+    },
+    {
+      "label": "Projects",
+      "href": "#projects"
+    },
+    {
+      "label": "Process",
+      "href": "#process"
+    },
+    {
+      "label": "Publications",
+      "href": "#publications"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    }
+  ],
+  "hero": {
+    "name": "Fardin Huq",
+    "role": "Project Coordinator",
+    "pronouns": "He/Him",
+    "highlight": "2.5 yrs running design & delivery of web, mobile app,\nXR & simulation projects. Counting more to go...",
+    "bubble": "Konnichiwa!\nHave a Good Day",
+    "video": "assets/hero-panda.mp4",
+    "poster": "assets/hero-poster.jpg"
+  },
+  "about": {
+    "portrait": "assets/portrait.webp",
+    "portraitAlt": "Pencil-sketch portrait of Fardin Huq, laughing, with round glasses and curly hair",
+    "panels": [
+      {
+        "style": "intro",
+        "heading": "Hi, this is ==Huq== — better known as ==Panda== among friends.",
+        "body": [
+          "They started calling me that partly for the size, but mostly because I’m the calmest guy in the room when everything’s on fire. *(Haters gonna call it couch-potato energy!)*",
+          "Off the clock, I’m a late-night chef, an anime-and-series binger, and the friend who sends you memes at 2 AM. I draw cartoons, capture moments on my phone, and I’m a recovering procrastinator who somehow always ships on time."
+        ],
+        "bullets": [],
+        "bigLine": "",
+        "cta": {
+          "label": "",
+          "href": ""
+        }
+      },
+      {
+        "style": "statement",
+        "heading": "Okay, enough about bamboo.\nLet’s talk ==serious business==.",
+        "body": [],
+        "bullets": [],
+        "bigLine": "",
+        "cta": {
+          "label": "",
+          "href": ""
+        }
+      },
+      {
+        "style": "pitch",
+        "heading": "==I’m the person== who makes sure your project actually ships.",
+        "body": [
+          "For 2.5 years at Battery Low Interactive, I’ve been running design and delivery for web, mobile app, XR, simulation and game projects — for clients like **GIZ, UNICEF, Unilever, CMP, The Financial Express** and **Bangladesh’s Public Works Department**."
+        ],
+        "bullets": [
+          "**40+ projects delivered**, from news websites and government systems to VR safety trainings and driving simulators",
+          "**Your one point of contact**, from kickoff to sign-off",
+          "**I test every build** before it ever reaches you"
+        ],
+        "bigLine": "",
+        "cta": {
+          "label": "",
+          "href": ""
+        }
+      },
+      {
+        "style": "quote",
+        "heading": "==3 ACM papers in HCI==, so I care about",
+        "body": [],
+        "bullets": [],
+        "bigLine": "how real people use what we build.",
+        "cta": {
+          "label": "",
+          "href": ""
+        }
+      },
+      {
+        "style": "cta",
+        "heading": "Need a Project Coordinator who talks fluently to both clients and developers?",
+        "body": [],
+        "bullets": [],
+        "bigLine": "",
+        "cta": {
+          "label": "Let’s talk.",
+          "href": "#contact"
+        }
+      }
+    ]
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "heading": "From intern to the guy\non ==clients’ speed dial==.",
+    "intro": "Same studio, three roles, a lot of shipped projects. Here’s the short version.",
+    "items": [
+      {
+        "badge": "LV 0",
+        "side": true,
+        "role": "News Media Head",
+        "company": "Forecast",
+        "dates": "Nov 2020 – Apr 2022 · Dhaka",
+        "tagline": "Before tech, I ran a newsroom. Deadlines haven’t scared me since.",
+        "bullets": [
+          "Supervised editorial content and led the production team",
+          "Built the content strategy and coordinated every stage of production"
+        ]
+      },
+      {
+        "badge": "LV 1",
+        "side": false,
+        "role": "Project Coordinator Intern",
+        "company": "Battery Low Interactive Ltd.",
+        "dates": "May – Jul 2024",
+        "tagline": "Day one: notebooks, bug lists and a lot of questions.",
+        "bullets": [
+          "Supported coordination of game and interactive projects, documentation and manual testing"
+        ]
+      },
+      {
+        "badge": "LV 2",
+        "side": false,
+        "role": "Jr. Project Coordinator",
+        "company": "Battery Low Interactive Ltd.",
+        "dates": "Oct 2024 – Jan 2026",
+        "tagline": "Where I learned to juggle 10+ projects without dropping one.",
+        "bullets": [
+          "Coordinated 10+ web, mobile, enterprise, simulation and AR/VR projects",
+          "Documented requirements and helped shape product design and tech choices",
+          "Ran 24/7 client support for a live national news platform",
+          "Manual and automated QA (Selenium, Cypress)"
+        ]
+      },
+      {
+        "badge": "LV 3",
+        "side": false,
+        "role": "Project Coordinator",
+        "company": "Battery Low Interactive Ltd.",
+        "dates": "Jan 2026 – Present · Dhaka",
+        "tagline": "Now I run the whole show, from the first client call to final sign-off.",
+        "bullets": [
+          "Lead delivery of web, mobile, simulation, VR and game projects for corporate, government and international clients",
+          "Run daily Scrum for teams",
+          "Own requirements, plans, timelines and tech choices, with everything tracked in Jira and GitHub Projects",
+          "Main client contact for scope, updates, change requests and sign-off",
+          "Test every release before it reaches the client"
+        ]
+      }
+    ],
+    "toolbox": {
+      "eyebrow": "Toolbox",
+      "heading": "Fluent in Jira.\nConversational in code.\n==Allergic to missed deadlines.==",
+      "steps": [
+        "Plan it in Jira & GitHub Projects",
+        "Sprint it with daily Scrum",
+        "Test it before the client ever sees it",
+        "Ship it, then measure it with Google Analytics"
+      ],
+      "tools": [
+        "Jira",
+        "GitHub Projects",
+        "Trello",
+        "Scrum",
+        "Agile",
+        "Sprint Planning",
+        "Figma",
+        "Google Stitch",
+        "Google Workspace",
+        "Microsoft Office",
+        "Google Analytics",
+        "Google Ad Manager",
+        "Selenium",
+        "Cypress",
+        "Manual QA",
+        "Git",
+        "GitHub",
+        "Python",
+        "Java",
+        "JavaScript",
+        "React",
+        "Laravel",
+        "Unity",
+        "Bootstrap",
+        "LaTeX",
+        "SDLC",
+        "STLC",
+        "Requirements",
+        "Stakeholder Mgmt",
+        "LLM Prompting",
+        "Data Annotation",
+        "Kanban Boards"
+      ],
+      "highlighted": [
+        "Agile",
+        "Scrum",
+        "Sprint Planning",
+        "Requirements",
+        "Stakeholder Mgmt",
+        "Selenium",
+        "Cypress",
+        "Jira",
+        "GitHub Projects",
+        "Figma",
+        "Google Workspace"
+      ]
+    }
+  },
+  "clients": {
+    "eyebrow": "Clients",
+    "heading": "I’ve shipped for names\nyou’ve ==probably heard of==.",
+    "rows": [
+      [
+        "GIZ",
+        "UNICEF",
+        "Unilever",
+        "The Financial Express",
+        "Public Works Department",
+        "TechVital Systems"
+      ],
+      [
+        "United Group",
+        "CIMMYT",
+        "Abedin Group",
+        "Light of Hope",
+        "World Without Hate",
+        "CMP Training Center"
+      ],
+      [
+        "HLV Health",
+        "Brand Review.AI",
+        "Chashi-Square",
+        "GIZ",
+        "UNICEF",
+        "Unilever"
+      ]
+    ],
+    "fullList": "GIZ, UNICEF, Unilever, The Financial Express, Bangladesh Public Works Department, TechVital Systems (United Group), CIMMYT, Abedin Group, Light of Hope, World Without Hate, CMP Training Center, HLV Health, Brand Review.AI and Chashi-Square."
+  },
+  "projects": {
+    "eyebrow": "Projects",
+    "heading": "Things I helped ==bring to life==.",
+    "bigStats": [
+      {
+        "value": 2.5,
+        "decimals": 1,
+        "line": "Long enough to know exactly where projects go sideways.",
+        "label": "Years of experience"
+      },
+      {
+        "value": 40,
+        "decimals": 0,
+        "line": "From newsrooms to VR headsets, every one of them shipped.",
+        "label": "Projects delivered"
+      }
+    ],
+    "smallStats": [
+      {
+        "icon": "vr",
+        "value": 10,
+        "label": "VR projects"
+      },
+      {
+        "icon": "sim",
+        "value": 6,
+        "label": "Simulations"
+      },
+      {
+        "icon": "ar",
+        "value": 10,
+        "label": "AR projects"
+      },
+      {
+        "icon": "web",
+        "value": 10,
+        "label": "Web projects"
+      },
+      {
+        "icon": "app",
+        "value": 8,
+        "label": "Apps"
+      }
+    ],
+    "categories": [
+      {
+        "name": "VR",
+        "label": "Virtual Reality",
+        "projects": [
+          {
+            "title": "TechVital VR Healthcare",
+            "client": "TechVital Systems (United Group)",
+            "desc": "Interactive VR healthcare simulations, shown as Bangladesh’s first VR healthcare showcase: hands-on 3D demos instead of paper brochures.",
+            "tech": [
+              "C#",
+              "Unity",
+              "Meta Quest"
+            ],
+            "role": [
+              "Coordinated end-to-end delivery",
+              "Main client contact",
+              "Tested builds before the showcase"
+            ],
+            "video": "https://youtu.be/4OyQEXcdEag",
+            "image": ""
+          }
+        ],
+        "device": "vr"
+      },
+      {
+        "name": "Simulation",
+        "label": "Simulation",
+        "projects": [
+          {
+            "title": "GIZ Construction Safety VR Training",
+            "client": "GIZ",
+            "desc": "VR training modules that help construction workers spot hazards and prevent accidents on site.",
+            "tech": [
+              "C#",
+              "Unity",
+              "Meta Quest"
+            ],
+            "role": [
+              "Coordinated requirements",
+              "Managed timelines & delivery"
+            ],
+            "video": "https://youtu.be/MxxRTQQHq08",
+            "image": ""
+          },
+          {
+            "title": "GIZ Fire Safety VR Simulation",
+            "client": "GIZ",
+            "desc": "VR fire-response training with interactive tutorials, quizzes and real-life scenario simulations.",
+            "tech": [
+              "C#",
+              "Unity",
+              "Meta Quest"
+            ],
+            "role": [
+              "Requirements analysis",
+              "Task priorities & timeline",
+              "Overall coordination"
+            ],
+            "video": "",
+            "image": ""
+          },
+          {
+            "title": "Unilever Truck Driving Simulator",
+            "client": "Unilever",
+            "desc": "A real-life truck driving simulator for driver training.",
+            "tech": [
+              "C#",
+              "Unity",
+              "Wheel & pedal rig"
+            ],
+            "role": [
+              "Product designer & coordinator",
+              "Led a cross-functional team of 8",
+              "Planning & client communication"
+            ],
+            "video": "",
+            "image": ""
+          },
+          {
+            "title": "Combine Harvester Simulator",
+            "client": "CIMMYT & Abedin Group",
+            "desc": "Hardware simulator that trains operators on a real combine harvester safely, cutting training costs.",
+            "tech": [
+              "C#",
+              "Unity",
+              "Harvester hardware rig"
+            ],
+            "role": [
+              "Software requirements analysis",
+              "Project tracking"
+            ],
+            "video": "https://youtu.be/Ukm4cISSp48",
+            "image": ""
+          }
+        ],
+        "device": "sim"
+      },
+      {
+        "name": "AR",
+        "label": "Augmented Reality",
+        "projects": [
+          {
+            "title": "TechVital AR Print Campaign",
+            "client": "TechVital Systems (United Group)",
+            "desc": "Print ads readers scan to unlock interactive content, featured in Prothom Alo and The Business Standard.",
+            "tech": [
+              "C#",
+              "Unity AR",
+              "Android & iOS"
+            ],
+            "role": [
+              "Project coordinator",
+              "Campaign delivery & client comms"
+            ],
+            "video": "https://youtu.be/26P1Pf06MDI",
+            "image": ""
+          },
+          {
+            "title": "Drone AR",
+            "client": "SteamBotix",
+            "desc": "AR mobile game that mixes real-world surroundings with drone missions and timed modes.",
+            "tech": [
+              "C#",
+              "Unity AR",
+              "Android"
+            ],
+            "role": [
+              "Requirements & product design",
+              "Development coordination",
+              "Manual testing & client comms"
+            ],
+            "video": "",
+            "image": ""
+          }
+        ],
+        "device": "ar"
+      },
+      {
+        "name": "Game",
+        "label": "Games",
+        "projects": [
+          {
+            "title": "UNICEF Change Agent",
+            "client": "UNICEF",
+            "desc": "Serious game and e-learning portal helping adolescents aged 11–16 understand the changes of growing up.",
+            "tech": [
+              "C#",
+              "Unity",
+              "Web & mobile"
+            ],
+            "role": [
+              "Coordinated development",
+              "Quality assurance"
+            ],
+            "video": "https://youtu.be/t3rj7bnn5tQ",
+            "image": ""
+          }
+        ],
+        "device": "game"
+      },
+      {
+        "name": "Web",
+        "label": "Web",
+        "projects": [
+          {
+            "title": "The Financial Express",
+            "client": "The Financial Express (News Website)",
+            "desc": "News website for one of Bangladesh’s leading newspapers.",
+            "tech": [
+              "PHP",
+              "Laravel",
+              "Web & mobile"
+            ],
+            "role": [
+              "Work plans & priorities",
+              "Manual testing",
+              "24/7 client support"
+            ],
+            "video": "",
+            "image": ""
+          },
+          {
+            "title": "World Without Hate",
+            "client": "WWH (Non-profit Organization)",
+            "desc": "Website in English, Spanish and Arabic with donations, store, events and impact pages.",
+            "tech": [
+              "JavaScript",
+              "React",
+              "Web & mobile"
+            ],
+            "role": [
+              "Product designer",
+              "Project coordinator"
+            ],
+            "video": "",
+            "image": ""
+          },
+          {
+            "title": "PWD BIMH",
+            "client": "Public Works Department (Government)",
+            "desc": "Asset and workflow management system that centralises asset data and automates work for PWD’s Civil and E/M divisions.",
+            "tech": [
+              "PHP",
+              "Laravel",
+              "Web"
+            ],
+            "role": [
+              "Requirements from gov. stakeholders",
+              "Timelines & milestone delivery"
+            ],
+            "video": "",
+            "image": ""
+          },
+          {
+            "title": "PWD DMS",
+            "client": "Public Works Department (Government)",
+            "desc": "Document management system that stores project files, tracks actions and speeds up approvals.",
+            "tech": [
+              "PHP",
+              "Laravel",
+              "Web"
+            ],
+            "role": [
+              "Requirements analysis",
+              "Client communication",
+              "Overall coordination"
+            ],
+            "video": "",
+            "image": ""
+          },
+          {
+            "title": "Chashi Nobanno Festival",
+            "client": "Chashi-Square",
+            "desc": "Campaign website with animated scrolling, a ring-toss mini game, quizzes and video sliders.",
+            "tech": [
+              "JavaScript",
+              "Unity WebGL",
+              "Web & mobile"
+            ],
+            "role": [
+              "Planning under tight deadlines",
+              "Client communication",
+              "Manual testing"
+            ],
+            "video": "",
+            "image": ""
+          },
+          {
+            "title": "Brand Review.AI",
+            "client": "Brand Review",
+            "desc": "AI tool that checks designs against brand and event guidelines by analysing colours, fonts and visuals.",
+            "tech": [
+              "Python",
+              "AI / LLM",
+              "Web"
+            ],
+            "role": [
+              "Researched AI models",
+              "Flagged risks & proposed fixes",
+              "Coordinated delivery"
+            ],
+            "video": "",
+            "image": ""
+          }
+        ],
+        "device": "web"
+      },
+      {
+        "name": "App",
+        "label": "Mobile & AI apps",
+        "projects": [
+          {
+            "title": "HLV Mobile App",
+            "client": "HLV (MedTech, USA)",
+            "desc": "Health and wellness app with an AI chatbot that gives tailored health guidance.",
+            "tech": [
+              "Dart",
+              "Flutter",
+              "Android & iOS"
+            ],
+            "role": [
+              "Requirements analysis",
+              "Client communication",
+              "Manual testing"
+            ],
+            "video": "",
+            "image": ""
+          },
+          {
+            "title": "Shobdomukur",
+            "client": "Shobdomukur",
+            "desc": "A bilingual (Bangla & English) e-library app for reading and discovering books on the go.",
+            "tech": [
+              "Laravel Blade",
+              "Flutter",
+              "Android & iOS"
+            ],
+            "role": [
+              "Product designer",
+              "Project coordination",
+              "Client communication"
+            ],
+            "video": "",
+            "image": ""
+          },
+          {
+            "title": "CMP Speed Detection App",
+            "client": "CMP",
+            "desc": "Measures vehicle speed in real time for accident investigation, with gyroscope elevation and AR distance tools.",
+            "tech": [
+              "C#",
+              "Unity AR",
+              "Android"
+            ],
+            "role": [
+              "Product design",
+              "Requirement fixes",
+              "Stakeholder collaboration"
+            ],
+            "video": "",
+            "image": ""
+          }
+        ],
+        "device": "app"
+      },
+      {
+        "name": "Interactive",
+        "label": "Interactive Experience",
+        "projects": [
+          {
+            "title": "TIB Virtual Gallery",
+            "client": "Transparency International Bangladesh",
+            "desc": "A WebGL interactive art gallery that exhibits TIB’s yearly anti-corruption art competition online.",
+            "tech": [
+              "WebGL",
+              "Unity",
+              "Web browser"
+            ],
+            "role": [
+              "Project coordination",
+              "Client communication"
+            ],
+            "video": "",
+            "image": ""
+          }
+        ],
+        "device": "gallery"
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Process",
+    "heading": "Seven levels from “I have an idea” to ==it’s live==.",
+    "hint": "Scroll to play",
+    "stamp": "LEVEL COMPLETE!",
+    "stampSub": "Shipped. Next one?",
+    "steps": [
+      {
+        "title": "Discover",
+        "line": "Tell me everything. Even the weird parts."
+      },
+      {
+        "title": "Define",
+        "line": "Turning “we want an app” into what we’re actually building."
+      },
+      {
+        "title": "Plan",
+        "line": "Every task, owner and deadline, before a single line of code."
+      },
+      {
+        "title": "Design",
+        "line": "See it before we build it."
+      },
+      {
+        "title": "Build",
+        "line": "Daily standups. Zero mystery."
+      },
+      {
+        "title": "Test",
+        "line": "If it breaks, it breaks with me, not with you."
+      },
+      {
+        "title": "Deliver",
+        "line": "Launch day, and the day after."
+      }
+    ]
+  },
+  "publications": {
+    "eyebrow": "Publications",
+    "heading": "Before the deadlines, there was ==research==.",
+    "sub": "HCI is my ==unfair advantage==: I know exactly what ==users want== before they click.",
+    "papers": [
+      {
+        "venue": "COMPASS 2023",
+        "place": "Cape Town, South Africa",
+        "title": "‘Khep’: Exploring Factors that Influence the Preference of Contractual Rides to Ride-Sharing Apps in Bangladesh",
+        "authors": "A. B. Alok, H. Sakib, S. A. Ullah, **F. Huq**, R. Ghosh, J. J. Mondal, M. S. I. Sakif, J. Noor",
+        "line": "Why riders cut the app and haggle with the driver instead.",
+        "url": "https://doi.org/10.1145/3588001.3609361",
+        "publisher": "ACM",
+        "year": 2023
+      },
+      {
+        "venue": "COMPASS 2024",
+        "place": "New Delhi, India",
+        "title": "Navigating Truth in the Sea of Content: Exploring Influential Factors Shaping User Perceptions of Trustworthiness in YouTube Content",
+        "authors": "A. B. Alok, **F. Huq**, S. A. Ullah, R. Ghosh, J. Noor",
+        "line": "What makes people trust a YouTube video, or scroll past it.",
+        "url": "https://dl.acm.org/action/doSearch?AllField=Navigating%20Truth%20in%20the%20Sea%20of%20Content",
+        "publisher": "ACM",
+        "year": 2024
+      },
+      {
+        "venue": "ACM JCSS 2025",
+        "place": "Journal · Vol. 3, Issue 3",
+        "title": "Comprehensive Insights into the ‘Khep’ Phenomenon: Understanding the Full Spectrum from Companies to Commuters in Transforming Gig of Ride-Sharing",
+        "authors": "A. B. Alok, **F. Huq**, S. A. Ullah, R. Ghosh, H. Sakib, J. Noor",
+        "line": "The journal follow-up: both sides of the ride, companies and commuters.",
+        "url": "https://doi.org/10.1145/3735142",
+        "publisher": "ACM",
+        "year": 2025
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Got a project that ==needs a captain==?",
+    "sub": "Let’s ship ==something great== together.",
+    "copyHint": "Click to copy",
+    "copied": "Copied! Talk soon.",
+    "buttons": [
+      {
+        "label": "Email me",
+        "href": "mailto:huqfardin7887@gmail.com",
+        "style": "outline",
+        "icon": "→"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/fardin-huq-2350361a5/",
+        "style": "outline",
+        "icon": "→"
+      },
+      {
+        "label": "WhatsApp",
+        "href": "https://wa.me/8801706975656",
+        "style": "outline",
+        "icon": "→"
+      }
+    ],
+    "meta": [
+      "Dhaka, Bangladesh",
+      "Open to remote & relocation",
+      "Replies within 24 hours"
+    ],
+    "pandaBubble": "Waiting for your message…"
+  },
+  "footer": {
+    "left": "© 2026 Fardin Huq.",
+    "right": "Built on time.",
+    "rightBold": "Obviously."
+  }
+}
