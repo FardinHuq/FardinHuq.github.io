@@ -331,9 +331,9 @@ function footer() {
       <nav class="ft-links" aria-label="Footer">
         ${C.nav.map((n) => `<a href="${esc(n.href)}">${esc(n.label.replace(/ Me$/, ''))}</a>`).join('')}
       </nav>
-      ${social}
       <button type="button" class="ft-top">Back to top ↑</button>
     </div>
+    ${social}
     <div class="ft-bot"><span>${esc(F.left)}</span><span>${esc(F.right)} <b>${esc(F.rightBold)}</b></span></div>
   </footer>`;
 }

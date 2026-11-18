@@ -313,7 +313,7 @@ video.pj-img{background:#111111}
 .ft-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;margin-top:clamp(20px,2cqw,30px);padding-top:18px;border-top:1px solid rgba(255,255,255,0.14);font-family:'Inter',sans-serif;font-size:13px;color:#8A8A8A}
 .ft-bot b{color:#FFE14D;font-weight:700}
 /* Footer profile icons: real brand marks in brand colour on white chips */
-.ft-social{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0;padding:0;list-style:none}
+.ft-social{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px;margin:clamp(18px,1.8cqw,26px) 0 0;padding:0;list-style:none}
 .ft-ico{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--b);transition:transform 200ms ease,background-color 200ms ease}
 .ft-ico svg{width:20px;height:20px;fill:currentColor;display:block}
 .ft-ico:hover,.ft-ico:focus-visible{transform:translateY(-2px);background:rgba(255,225,77,0.16);outline:none}
