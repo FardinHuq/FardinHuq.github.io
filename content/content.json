@@ -282,14 +282,14 @@
       {
         "value": 2.5,
         "decimals": 1,
-        "line": "Long enough to know exactly where projects go sideways.",
-        "label": "Years of experience"
+        "line": "Years of experience",
+        "label": "Long enough to know exactly where projects go sideways."
       },
       {
         "value": 40,
         "decimals": 0,
-        "line": "From newsrooms to VR headsets, every one of them shipped.",
-        "label": "Projects delivered"
+        "line": "Projects delivered",
+        "label": "From newsrooms to VR, every one of them shipped."
       }
     ],
     "smallStats": [
