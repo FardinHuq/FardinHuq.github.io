@@ -18,7 +18,7 @@
       "linkedin": "https://www.linkedin.com/in/fardin-huq-2350361a5/",
       "scholar": "https://scholar.google.com/citations?user=wiauzDsAAAAJ&hl=en",
       "researchgate": "https://www.researchgate.net/profile/Fardin-Huq",
-      "orcid": "https://www.researchgate.net/profile/Fardin-Huq",
+      "orcid": "https://orcid.org/0009-0002-0619-6174",
       "github": "https://github.com/FardinHuq"
     },
     "googleVerification": ""
@@ -841,6 +841,13 @@
         "icon": "→"
       }
     ],
+    "emailMenu": {
+      "gmail": "Gmail",
+      "outlook": "Outlook / Hotmail",
+      "app": "Mail app on this device",
+      "copy": "Copy email address",
+      "copied": "Copied!"
+    },
     "meta": [
       "Dhaka, Bangladesh",
       "Open to remote & relocation",

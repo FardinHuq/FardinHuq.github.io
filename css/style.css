@@ -279,6 +279,11 @@ video.pj-img{background:#111111}
 .ct-toast{position:absolute;left:50%;top:-14px;transform:translate(-50%,-80%) scale(0.6);opacity:0;pointer-events:none;background:#0A0A0A;color:#FFE14D;border-radius:999px;padding:10px 18px;font-family:'Space Grotesk','Inter',sans-serif;font-weight:700;font-size:clamp(14px,1.05cqw,17px);white-space:nowrap;transition:opacity 200ms ease,transform 420ms cubic-bezier(0.3,1.7,0.5,1)}
 .ct-toast.is-on{opacity:1;transform:translate(-50%,-100%) scale(1)}
 .ct-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:clamp(28px,2.8cqw,44px)}
+.ct .ct-ctas.is-menu{z-index:6}
+.ct-mailmenu{position:absolute;z-index:6;display:flex;flex-direction:column;min-width:230px;padding:8px;background:#FFFFFF;border:2px solid #111111;border-radius:18px;box-shadow:6px 6px 0 #111111;text-align:left}
+.ct-mailmenu[hidden]{display:none}
+.ct-mailmenu a,.ct-mailmenu button{appearance:none;display:block;width:100%;box-sizing:border-box;padding:12px 14px;border:0;border-radius:10px;background:transparent;color:#111111;font-family:'Space Grotesk','Inter',sans-serif;font-weight:700;font-size:16px;text-align:left;text-decoration:none;cursor:pointer}
+.ct-mailmenu a:hover,.ct-mailmenu button:hover,.ct-mailmenu a:focus-visible,.ct-mailmenu button:focus-visible{background:#FFE14D;outline:none}
 .ct-btn{display:inline-flex;align-items:center;gap:10px;min-height:54px;box-sizing:border-box;padding:0 28px;border:2px solid #111111;border-radius:999px;font-family:'Space Grotesk','Inter',sans-serif;font-weight:700;font-size:clamp(15px,1.2cqw,19px);text-decoration:none}
 .ct-btn i{font-style:normal;transition:transform 220ms ease}
 .ct-btn:hover i,.ct-btn:focus-visible i{transform:translateX(4px)}

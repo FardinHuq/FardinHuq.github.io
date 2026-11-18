@@ -431,6 +431,50 @@
       if (img.complete) chk();
     });
   };
-  const start = () => { media(); window.__site = new Site(); };
+  // "Email me": a mailto: link does nothing when no mail app is set up (most Windows PCs), so offer Gmail / Outlook / mail app / copy.
+  const mailMenu = () => {
+    const menu = document.querySelector('.ct-mailmenu');
+    if (!menu) return;
+    const wrap = menu.parentElement;
+    let opener = null;
+    const close = (focusBack) => {
+      if (menu.hidden) return;
+      menu.hidden = true; wrap.classList.remove('is-menu');
+      if (opener) { opener.setAttribute('aria-expanded', 'false'); if (focusBack) opener.focus(); }
+    };
+    const open = (btn) => {
+      opener = btn; menu.hidden = false; wrap.classList.add('is-menu'); btn.setAttribute('aria-expanded', 'true');
+      const W = wrap.clientWidth, mw = menu.offsetWidth;
+      const left = Math.max(0, Math.min(W - mw, btn.offsetLeft + btn.offsetWidth / 2 - mw / 2));
+      menu.style.left = left + 'px'; menu.style.top = (btn.offsetTop + btn.offsetHeight + 10) + 'px';
+      const first = menu.querySelector('a,button'); if (first) first.focus({ preventScroll: true });
+    };
+    wrap.querySelectorAll('a.ct-btn[href^="mailto:"]').forEach((a) => {
+      a.setAttribute('aria-haspopup', 'menu'); a.setAttribute('aria-expanded', 'false');
+      a.addEventListener('click', (e) => { e.preventDefault(); if (menu.hidden) open(a); else close(); });
+    });
+    menu.addEventListener('click', (e) => {
+      const c = e.target.closest('[data-copy]');
+      if (c) {
+        const t = c.getAttribute('data-copy'), label = c.textContent;
+        const done = () => { c.textContent = c.getAttribute('data-done'); setTimeout(() => { c.textContent = label; close(); }, 1200); };
+        try { navigator.clipboard.writeText(t).then(done, () => { window.prompt('Email:', t); close(); }); } catch (err) { window.prompt('Email:', t); close(); }
+        return;
+      }
+      if (e.target.closest('a')) setTimeout(() => close(), 50);
+    });
+    document.addEventListener('click', (e) => { if (!menu.hidden && !menu.contains(e.target) && !(opener && opener.contains(e.target))) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (menu.hidden) return;
+      if (e.key === 'Escape') close(true);
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        const items = [...menu.querySelectorAll('a,button')], i = items.indexOf(document.activeElement);
+        items[(i + (e.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length].focus();
+      }
+    });
+    window.addEventListener('resize', () => close());
+  };
+  const start = () => { media(); mailMenu(); window.__site = new Site(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();

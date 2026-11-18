@@ -280,6 +280,15 @@ ${sheets}
 function contact() {
   const K = C.contact;
   const btns = K.buttons.map((b) => `<a class="ct-btn ${b.style === 'yellow' ? 'is-cv' : 'nomi-btn'}" href="${esc(b.href)}"${linkAttrs(b.href)}>${esc(b.label)} <i aria-hidden="true">${esc(b.icon || '→')}</i></a>`).join('\n      ');
+  // "Email me" opens this menu (main.js) because a plain mailto: link does nothing on computers without a mail app set up
+  const EM = K.emailMenu || {};
+  const to = encodeURIComponent(S.email || '');
+  const mailMenu = `<div class="ct-mailmenu" role="menu" hidden>
+        <a role="menuitem" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=${to}" target="_blank" rel="noopener">${esc(EM.gmail || 'Gmail')}</a>
+        <a role="menuitem" href="https://outlook.live.com/mail/0/deeplink/compose?to=${to}" target="_blank" rel="noopener">${esc(EM.outlook || 'Outlook')}</a>
+        <a role="menuitem" href="mailto:${esc(S.email)}" data-mailto>${esc(EM.app || 'Mail app')}</a>
+        <button role="menuitem" type="button" data-copy="${esc(S.email)}" data-done="${esc(EM.copied || 'Copied!')}">${esc(EM.copy || 'Copy email address')}</button>
+      </div>`;
   const meta = K.meta.map((m, i) => `<span>${i === 1 ? '<i class="ct-dot" aria-hidden="true"></i>' : ''}${esc(m)}</span>`).join('');
   return `<section id="contact" class="ct" aria-labelledby="ct-title">
     <div class="deco-bb" aria-hidden="true" style="left: 1cqw; bottom: -3%; height: 66%"></div>
@@ -294,6 +303,7 @@ function contact() {
     </div>
     <div class="ct-ctas">
       ${btns}
+      ${mailMenu}
     </div>
     <p class="ct-meta">${meta}</p>
     <div class="ct-panda" aria-hidden="true">
