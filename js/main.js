@@ -416,6 +416,21 @@
     if (this.gReduce) { setTimeout(() => this.globeTick(), 60); return; }
     this.graf = requestAnimationFrame(() => this.globeTick());
   }  }
-  const start = () => { window.__site = new Site(); };
+  // Client logos: pass each logo's aspect ratio to CSS so wide and square logos get equal visual weight.
+  // Project cards: if a YouTube video has no HD thumbnail (YouTube returns a tiny 120px placeholder), use the standard one.
+  const media = () => {
+    document.querySelectorAll('.cl-logo').forEach((img) => {
+      const f = () => { if (img.naturalWidth && img.naturalHeight) img.style.setProperty('--r', (img.naturalWidth / img.naturalHeight).toFixed(3)); };
+      img.addEventListener('load', f); f();
+      if (img.decode) img.decode().then(f, () => {});
+    });
+    document.querySelectorAll('img.pj-img[data-fallback]').forEach((img) => {
+      const swap = () => { if (img.dataset.fallback) { img.src = img.dataset.fallback; img.removeAttribute('data-fallback'); } };
+      const chk = () => { if (img.naturalWidth && img.naturalWidth <= 120) swap(); };
+      img.addEventListener('error', swap); img.addEventListener('load', chk);
+      if (img.complete) chk();
+    });
+  };
+  const start = () => { media(); window.__site = new Site(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();

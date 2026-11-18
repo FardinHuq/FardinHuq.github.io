@@ -247,31 +247,67 @@
   "clients": {
     "eyebrow": "Clients",
     "heading": "I’ve shipped for names\nyou’ve ==probably heard of==.",
-    "rows": [
-      [
-        "GIZ",
-        "UNICEF",
-        "Unilever",
-        "The Financial Express",
-        "Public Works Department",
-        "TechVital Systems"
-      ],
-      [
-        "United Group",
-        "CIMMYT",
-        "Abedin Group",
-        "Light of Hope",
-        "World Without Hate",
-        "CMP Training Center"
-      ],
-      [
-        "HLV Health",
-        "Brand Review.AI",
-        "Chashi-Square",
-        "GIZ",
-        "UNICEF",
-        "Unilever"
-      ]
+    "logos": [
+      {
+        "name": "GIZ",
+        "logo": ""
+      },
+      {
+        "name": "UNICEF",
+        "logo": ""
+      },
+      {
+        "name": "Unilever",
+        "logo": ""
+      },
+      {
+        "name": "The Financial Express",
+        "logo": ""
+      },
+      {
+        "name": "Public Works Department",
+        "logo": ""
+      },
+      {
+        "name": "TechVital Systems",
+        "logo": ""
+      },
+      {
+        "name": "United Group",
+        "logo": ""
+      },
+      {
+        "name": "CIMMYT",
+        "logo": ""
+      },
+      {
+        "name": "Abedin Group",
+        "logo": ""
+      },
+      {
+        "name": "Light of Hope",
+        "logo": ""
+      },
+      {
+        "name": "World Without Hate",
+        "logo": ""
+      },
+      {
+        "name": "CMP Training Center",
+        "logo": ""
+      },
+      {
+        "name": "HLV Health",
+        "logo": ""
+      },
+      {
+        "name": "Brand Review.AI",
+        "logo": ""
+      },
+      {
+        "name": "Chashi-Square",
+        "logo": ""
+      }
     ],
     "fullList": "GIZ, UNICEF, Unilever, The Financial Express, Bangladesh Public Works Department, TechVital Systems (United Group), CIMMYT, Abedin Group, Light of Hope, World Without Hate, CMP Training Center, HLV Health, Brand Review.AI and Chashi-Square."
   },
@@ -339,7 +375,8 @@
               "Tested builds before the showcase"
             ],
             "video": "https://youtu.be/4OyQEXcdEag",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           }
         ],
         "device": "vr"
@@ -362,7 +399,8 @@
               "Managed timelines & delivery"
             ],
             "video": "https://youtu.be/MxxRTQQHq08",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           },
           {
             "title": "GIZ Fire Safety VR Simulation",
@@ -379,7 +417,8 @@
               "Overall coordination"
             ],
             "video": "",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           },
           {
             "title": "Unilever Truck Driving Simulator",
@@ -396,7 +435,8 @@
               "Planning & client communication"
             ],
             "video": "",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           },
           {
             "title": "Combine Harvester Simulator",
@@ -412,7 +452,8 @@
               "Project tracking"
             ],
             "video": "https://youtu.be/Ukm4cISSp48",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           }
         ],
         "device": "sim"
@@ -435,7 +476,8 @@
               "Campaign delivery & client comms"
             ],
             "video": "https://youtu.be/26P1Pf06MDI",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           },
           {
             "title": "Drone AR",
@@ -452,7 +494,8 @@
               "Manual testing & client comms"
             ],
             "video": "",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           }
         ],
         "device": "ar"
@@ -475,7 +518,8 @@
               "Quality assurance"
             ],
             "video": "https://youtu.be/t3rj7bnn5tQ",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           }
         ],
         "device": "game"
@@ -499,7 +543,8 @@
               "24/7 client support"
             ],
             "video": "",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           },
           {
             "title": "World Without Hate",
@@ -515,7 +560,8 @@
               "Project coordinator"
             ],
             "video": "",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           },
           {
             "title": "PWD BIMH",
@@ -531,7 +577,8 @@
               "Timelines & milestone delivery"
             ],
             "video": "",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           },
           {
             "title": "PWD DMS",
@@ -548,7 +595,8 @@
               "Overall coordination"
             ],
             "video": "",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           },
           {
             "title": "Chashi Nobanno Festival",
@@ -565,7 +613,8 @@
               "Manual testing"
             ],
             "video": "",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           },
           {
             "title": "Brand Review.AI",
@@ -582,7 +631,8 @@
               "Coordinated delivery"
             ],
             "video": "",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           }
         ],
         "device": "web"
@@ -606,7 +656,8 @@
               "Manual testing"
             ],
             "video": "",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           },
           {
             "title": "Shobdomukur",
@@ -623,7 +674,8 @@
               "Client communication"
             ],
             "video": "",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           },
           {
             "title": "CMP Speed Detection App",
@@ -640,7 +692,8 @@
               "Stakeholder collaboration"
             ],
             "video": "",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           }
         ],
         "device": "app"
@@ -663,7 +716,8 @@
               "Client communication"
             ],
             "video": "",
-            "image": ""
+            "image": "",
+            "imageSource": ""
           }
         ],
         "device": "gallery"

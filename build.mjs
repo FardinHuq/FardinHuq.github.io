@@ -19,6 +19,18 @@ const md = (s, boldTag = 'strong') => esc(s)
   .replace(/\*(.+?)\*/g, '<em>$1</em>')
   .replace(/\n/g, '<br>');
 const plain = (s) => String(s ?? '').replace(/==|\*\*|\*/g, '').replace(/\n/g, ' ');
+// YouTube id from watch / youtu.be / shorts / embed / live links
+const ytId = (u) => { const m = String(u || '').match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/|v\/))([\w-]{11})/); return m ? m[1] : ''; };
+const isVideoFile = (u) => /\.(mp4|webm|mov|m4v|ogv)(\?|#|$)/i.test(String(u || ''));
+// Card picture: uploaded image first, else the YouTube thumbnail, else a frame of an uploaded video file
+function projectThumb(p) {
+  const alt = esc(p.title) + ' preview';
+  if (p.image) return `<img class="pj-img" src="${esc(p.image)}" alt="${alt}" loading="lazy">`;
+  const id = ytId(p.video);
+  if (id) return `<img class="pj-img" src="https://i.ytimg.com/vi/${id}/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="${alt}" loading="lazy" referrerpolicy="no-referrer">`;
+  if (isVideoFile(p.video)) return `<video class="pj-img" src="${esc(p.video)}#t=1" muted playsinline preload="metadata" aria-hidden="true"></video>`;
+  return '';
+}
 const pad2 = (n) => (n < 10 ? '0' : '') + n;
 const ext = (h) => /^https?:/.test(h);
 const linkAttrs = (h) => (ext(h) ? ' target="_blank" rel="noopener"' : '');
@@ -116,16 +128,25 @@ function experience() {
 function clients() {
   const K = C.clients;
   const dirs = ['l2r', 'r2l', 'l2r slow'];
-  const rows = K.rows.map((r, i) => {
-    const four = [].concat(r, r, r, r);
-    return `<div class="cl-row ${dirs[i % 3]}">${four.map((c) => `<span class="cl-item"><span class="cl-n">${esc(c)}</span></span>`).join('')}</div>`;
+  // One list of clients (name + optional logo), dealt into 1–3 scrolling rows
+  const list = (K.logos || []).filter((c) => c && (c.name || c.logo));
+  const nRows = list.length >= 9 ? 3 : list.length >= 4 ? 2 : 1;
+  const split = Array.from({ length: nRows }, (_, i) => list.filter((_, j) => j % nRows === i));
+  const item = (c) => c.logo
+    ? `<span class="cl-item is-logo"><img class="cl-logo" src="${esc(c.logo)}" alt="${esc(c.name)}" decoding="async"></span>`
+    : `<span class="cl-item"><span class="cl-n">${esc(c.name)}</span></span>`;
+  const rows = split.filter((r) => r.length).map((r, i) => {
+    let base = r; while (base.length < 8) base = base.concat(r); // fill wide screens
+    const twice = [].concat(base, base);
+    return `<div class="cl-row ${dirs[i % 3]}">${twice.map(item).join('')}</div>`;
   }).join('\n      ');
+  const names = K.fullList || list.map((c) => c.name).filter(Boolean).join(', ');
   return `<section id="clients" class="cl" aria-labelledby="cl-title">
     <div class="cl-head">
       <p class="xp-eyebrow">${esc(K.eyebrow)}</p>
       <h2 id="cl-title" class="cl-h">${md(K.heading)}</h2>
     </div>
-    <p class="cl-sr">Clients include: ${esc(K.fullList)}</p>
+    <p class="cl-sr">Clients include: ${esc(names)}</p>
     <div class="cl-rows" aria-hidden="true">
       ${rows}
     </div>
@@ -141,10 +162,10 @@ function projects() {
   const devs = J.categories.map((c, i) => `<div class="pj-dev${i === 0 ? ' is-on' : ''}" data-k="${i}">${(P.devices[c.device] || P.devices.web).replace(/id="pjs(\d)"/g, `id="pjs$1c${i}"`).replace(/url\(#pjs(\d)\)/g, `url(#pjs$1c${i})`)}</div>`).join('\n          ');
   const cards = J.categories.map((c, ci) => c.projects.map((p) => {
     n += 1;
-    const img = p.image ? `<img class="pj-img" src="${esc(p.image)}" alt="${esc(p.title)} screenshot" loading="lazy">` : '';
+    const img = projectThumb(p);
     return `<article class="pj-card" data-cat="${ci}" data-catname="${esc(c.name)}">
              <div class="pj-in">
-              <div class="pj-thumb${p.image ? ' has-img' : ''}">
+              <div class="pj-thumb${img ? ' has-img' : ''}">
                 ${img}
                 <span class="pj-num" aria-hidden="true">${pad2(n)}</span>
                 ${p.video ? `<a class="pj-play" href="${esc(p.video)}" target="_blank" rel="noopener"><i aria-hidden="true">▶</i>Watch video</a>` : ''}

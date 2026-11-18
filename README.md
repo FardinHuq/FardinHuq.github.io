@@ -42,7 +42,9 @@ No npm installs are needed. Only Node 18+ is required.
 
 Admin tips:
 - Text tricks: `==words==` gives a yellow marker, `**words**` bold, `*words*` italic. A new line becomes a line break.
-- Project **image**: click **Upload…** to replace the striped placeholder with a screenshot.
+- Project **picture**: with no image set, the card shows the YouTube thumbnail (or a frame of an uploaded video). Click **Upload & crop…** to use your own picture and drag/zoom to pick the area shown; **Re-crop…** changes it later.
+- **Clients**: click **Upload logos…** and pick several PNGs at once. Empty margins are trimmed automatically and every logo is sized to the same visual weight. Clients without a logo show their name.
+- Adding, moving or removing items happens in place: the new item opens with the cursor ready.
 - **Download backup** saves a copy of all your content; **Import** restores it.
 - Projects, papers, process levels and nav links can all be added, removed and reordered.
 
