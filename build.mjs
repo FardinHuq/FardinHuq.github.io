@@ -315,12 +315,23 @@ function contact() {
 
 function footer() {
   const F = C.footer;
+  // Icon-only links to every profile that is filled in (Site & SEO → Profiles, WhatsApp, Email)
+  const B = P.brands || {};
+  const pr = S.profiles || {};
+  const links = [
+    ['linkedin', pr.linkedin], ['github', pr.github], ['scholar', pr.scholar], ['researchgate', pr.researchgate], ['orcid', pr.orcid],
+    ['website', pr.website], ['whatsapp', S.whatsapp ? 'https://wa.me/' + String(S.whatsapp).replace(/\D/g, '') : ''], ['email', S.email ? 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(S.email) : ''],
+  ].filter(([k, u]) => u && B[k]);
+  const social = links.length ? `<ul class="ft-social" aria-label="${esc(F.socialLabel || 'Profiles')}">
+        ${links.map(([k, u]) => `<li><a class="ft-ico" href="${esc(u)}" target="_blank" rel="noopener me" aria-label="${esc(B[k].title)}" title="${esc(B[k].title)}" style="--b:${B[k].hex}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${B[k].path}"/></svg></a></li>`).join('\n        ')}
+      </ul>` : '';
   return `<footer class="ft">
     <div class="ft-row">
       <div class="ft-name">${esc(S.name)}<span>${esc(S.jobTitle)}</span></div>
       <nav class="ft-links" aria-label="Footer">
         ${C.nav.map((n) => `<a href="${esc(n.href)}">${esc(n.label.replace(/ Me$/, ''))}</a>`).join('')}
       </nav>
+      ${social}
       <button type="button" class="ft-top">Back to top ↑</button>
     </div>
     <div class="ft-bot"><span>${esc(F.left)}</span><span>${esc(F.right)} <b>${esc(F.rightBold)}</b></span></div>

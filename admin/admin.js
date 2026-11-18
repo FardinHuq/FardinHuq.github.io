@@ -34,6 +34,7 @@
     'site.description': 'The grey text under your Google result (about 150–160 characters).',
     'site.googleVerification': 'Code from Google Search Console → Settings → Ownership verification → HTML tag (content="…").',
     'site.profiles.scholar': 'Your Google Scholar profile link.',
+    'site.profiles.website': 'Optional extra website (blog, company page…). Every filled-in profile, WhatsApp and Email appear as icons in the footer.',
     'site.whatsapp': 'Country code + number, digits only.',
     'hero.highlight': 'A new line here becomes a line break.',
     'hero.bubble': 'A new line here becomes a line break in the bubble.',
