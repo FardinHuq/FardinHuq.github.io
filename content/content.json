@@ -331,7 +331,7 @@
             "tech": [
               "C#",
               "Unity",
-              "Meta Quest"
+              "Meta Quest 3"
             ],
             "role": [
               "Coordinated end-to-end delivery",
@@ -339,16 +339,23 @@
               "Tested builds before the showcase"
             ],
             "video": "https://youtu.be/4OyQEXcdEag",
-            "image": ""
+            "image": "assets/uploads/mwmjrfuz-screenshot-2026-11-19-020021.png"
           },
           {
-            "title": "",
-            "client": "",
-            "desc": "",
-            "tech": [],
-            "role": [],
+            "title": "Tourism Board Virtual Tour",
+            "client": "Tourism Board Bangladesh",
+            "desc": "A VR-based 360 walkable tour of multiple historical places in Bangladesh",
+            "tech": [
+              "360 images",
+              "Unity",
+              "Meta Quest 3s"
+            ],
+            "role": [
+              "Project Coordination",
+              "Person of Contact"
+            ],
             "video": "",
-            "image": ""
+            "image": "assets/uploads/mwmjr3ld-whatsapp-image-2026-11-19-at-01.57.53.jpeg"
           }
         ],
         "device": "vr"
