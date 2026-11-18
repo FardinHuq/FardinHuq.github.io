@@ -332,26 +332,31 @@
     "smallStats": [
       {
         "icon": "vr",
+        "image": "assets/icons/vr.webp",
         "value": 10,
         "label": "VR projects"
       },
       {
         "icon": "sim",
+        "image": "assets/icons/sim.webp",
         "value": 6,
         "label": "Simulations"
       },
       {
         "icon": "ar",
+        "image": "assets/icons/ar.webp",
         "value": 10,
         "label": "AR projects"
       },
       {
         "icon": "web",
+        "image": "assets/icons/web.webp",
         "value": 10,
         "label": "Web projects"
       },
       {
         "icon": "app",
+        "image": "assets/icons/app.webp",
         "value": 8,
         "label": "Apps"
       }
@@ -888,6 +893,7 @@
   "footer": {
     "left": "© 2026 Fardin Huq.",
     "right": "Built on time.",
-    "rightBold": "Obviously."
+    "rightBold": "Obviously.",
+    "creditsLink": "Credits"
   }
 }

@@ -44,6 +44,7 @@
     'projects.categories.*.modelCredit': 'Required by the model’s CC BY licence: model name, author and licence.',
     'projects.categories.*.modelCreditUrl': 'Link to the model’s page (e.g. on Sketchfab).',
     'projects.categories.*.modelView': 'Optional starting angle. Empty = exact front (0deg 90deg auto). First number turns left/right, second tilts (90deg = straight on, smaller = from above).',
+    'projects.smallStats.*.image': 'Picture on the small tile (transparent PNG/WebP works best). Empty = simple line icon.',
     'clients.logos.*.logo': 'PNG with a transparent background works best (white backgrounds are fine too). Margins are trimmed automatically.',
     'clients.logos.*.name': 'Used for screen readers and Google, and shown as text if there is no logo.',
     'clients.fullList': 'Hidden sentence for Google and screen readers. Leave empty to list the names above automatically.',

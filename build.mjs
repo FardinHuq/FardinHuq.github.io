@@ -158,7 +158,7 @@ function projects() {
   const total = J.categories.reduce((a, c) => a + c.projects.length, 0);
   let n = 0;
   const big = J.bigStats.map((s) => `<div class="sc-tile is-big"><span class="sc-num"><span class="sc-n" data-to="${s.value}" data-dec="${s.decimals || 0}">${Number(s.value).toFixed(s.decimals || 0)}</span><span class="sc-plus">+</span></span><p class="sc-line">${md(s.line)}</p><span class="sc-label">${esc(s.label)}</span></div>`).join('');
-  const small = J.smallStats.map((s) => `<div class="sc-tile is-cat">${P.icons[s.icon] || P.icons.web}<span class="sc-num"><span class="sc-n" data-to="${s.value}" data-dec="0">${s.value}</span><span class="sc-plus">+</span></span><span class="sc-label">${esc(s.label)}</span></div>`).join('');
+  const small = J.smallStats.map((s) => `<div class="sc-tile is-cat">${s.image ? `<img class="sc-ico sc-pic" src="${esc(s.image)}" alt="" loading="lazy" decoding="async">` : (P.icons[s.icon] || P.icons.web)}<span class="sc-num"><span class="sc-n" data-to="${s.value}" data-dec="0">${s.value}</span><span class="sc-plus">+</span></span><span class="sc-label">${esc(s.label)}</span></div>`).join('');
   // Each category shows its 3D model (loaded by main.js only when that category is on screen); the drawing stays as a fallback until the model is ready.
   const devs = J.categories.map((c, i) => {
     const svg = (P.devices[c.device] || P.devices.web).replace(/id="pjs(\d)"/g, `id="pjs$1c${i}"`).replace(/url\(#pjs(\d)\)/g, `url(#pjs$1c${i})`);
@@ -333,7 +333,8 @@ function footer() {
   const seen = new Set();
   const mc = (C.projects.categories || []).filter((c) => c.model && c.modelCredit && !seen.has(c.model) && seen.add(c.model))
     .map((c) => `<a href="${esc(c.modelCreditUrl || '#')}" target="_blank" rel="noopener">${esc(c.modelCredit.replace(/\s*\(CC BY[^)]*\)\s*$/, ''))}</a>`);
-  const modelCredits = mc.length ? `<p class="ft-credits">${esc(C.projects.modelCreditsLabel || '3D models')} (CC BY 4.0): ${mc.join(' · ')}</p>` : '';
+  // Model licences (CC BY 4.0) are credited on credits.html, linked quietly from the footer's last line
+  const creditsLink = mc.length ? ` <a class="ft-cr" href="credits.html">${esc(F.creditsLink || 'Credits')}</a>` : '';
   return `<footer class="ft">
     <div class="ft-row">
       <div class="ft-name">${esc(S.name)}<span>${esc(S.jobTitle)}</span></div>
@@ -343,8 +344,7 @@ function footer() {
       <button type="button" class="ft-top">Back to top ↑</button>
     </div>
     ${social}
-    ${modelCredits}
-    <div class="ft-bot"><span>${esc(F.left)}</span><span>${esc(F.right)} <b>${esc(F.rightBold)}</b></span></div>
+    <div class="ft-bot"><span>${esc(F.left)}${creditsLink}</span><span>${esc(F.right)} <b>${esc(F.rightBold)}</b></span></div>
   </footer>`;
 }
 
@@ -444,5 +444,11 @@ const url = S.url.replace(/\/?$/, '/');
 const today = new Date().toISOString().slice(0, 10);
 writeFileSync(join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${url}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>\n</urlset>\n`);
 writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: ${url}sitemap.xml\n`);
+{
+  const seen = new Set();
+  const list = (C.projects.categories || []).filter((c) => c.model && c.modelCredit && !seen.has(c.model) && seen.add(c.model))
+    .map((c) => `<li><a href="${esc(c.modelCreditUrl || '#')}" target="_blank" rel="noopener">${esc(c.modelCredit)}</a></li>`).join('');
+  if (list) writeFileSync(join(OUT, 'credits.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(C.footer.creditsLink || 'Credits')} — ${esc(S.name)}</title><meta name="robots" content="noindex"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;600&display=swap"><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#EAEAEA;font-family:Inter,sans-serif;color:#111;padding:24px;box-sizing:border-box}main{max-width:640px}h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,6vw,56px);margin:0 0 8px;letter-spacing:-.03em}p{color:#555}ul{padding-left:20px;line-height:1.9}a{color:#111}.back{display:inline-block;margin-top:24px;padding:12px 24px;border:2px solid #111;border-radius:999px;text-decoration:none;font-weight:600;background:#FFE14D}</style></head><body><main><h1>${esc(C.footer.creditsLink || 'Credits')}</h1><p>${esc(C.projects.modelCreditsLabel || '3D models')} (CC BY 4.0)</p><ul>${list}</ul><a class="back" href="./">← ${esc(S.name)}</a></main></body></html>`);
+}
 writeFileSync(join(OUT, '404.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found — ${esc(S.name)}</title><meta name="robots" content="noindex"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap"><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#EAEAEA;font-family:'Space Grotesk',sans-serif;color:#111;text-align:center}h1{font-size:clamp(40px,8vw,96px);margin:0}a{display:inline-block;margin-top:24px;padding:14px 26px;border:2px solid #111;border-radius:999px;color:#111;text-decoration:none;font-weight:700;background:#FFE14D}</style></head><body><div><h1>Lost the trail.</h1><p>This page doesn’t exist.</p><a href="${url}">Back to ${esc(S.name)}</a></div></body></html>`);
 console.log('Built', join(OUT, 'index.html'));

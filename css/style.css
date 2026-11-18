@@ -125,6 +125,12 @@ video.pj-img{background:#111111}
 .pj.is-anim .sc-tile.is-cat{height:auto}
 .sc-tile.is-cat > .sc-num,.sc-tile.is-cat > .sc-label{display:block;box-sizing:border-box;width:100%;text-align:center;justify-self:stretch}
 .sc-tile.is-cat > .sc-ico{display:block;margin-left:auto;margin-right:auto;justify-self:stretch}
+/* Realistic device renders (from the 3D models) instead of line icons */
+.sc-tile.is-cat:has(> .sc-pic){grid-template-rows:44fr 40fr 16fr}
+.sc-tile.is-cat:has(> .sc-pic) > .sc-num{font-size:min(38cqh,42cqi)}
+.sc-tile.is-cat > .sc-pic{justify-self:center;align-self:end;margin-bottom:4px;height:32cqh;width:auto;max-width:72cqi;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,0.12));transition:transform 300ms cubic-bezier(0.2,0.8,0.2,1)}
+.sc-tile.is-cat:hover > .sc-pic{transform:translateY(-3px) scale(1.06) rotate(-2deg)}
+@media (prefers-reduced-motion: reduce){.sc-tile.is-cat:hover > .sc-pic{transform:none}}
 .sc-tile.is-cat > *{min-width:0}
 .sc-tile.is-cat > .sc-num{font-size:min(62cqh,58cqi)}
 .sc-tile.is-cat > .sc-label{text-indent:0.12em}
@@ -321,9 +327,8 @@ video.pj-img{background:#111111}
 .ft-top:hover,.ft-top:focus-visible{background:#FFE14D;border-color:#FFE14D;color:#111111}
 .ft-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;margin-top:clamp(20px,2cqw,30px);padding-top:18px;border-top:1px solid rgba(255,255,255,0.14);font-family:'Inter',sans-serif;font-size:13px;color:#8A8A8A}
 .ft-bot b{color:#FFE14D;font-weight:700}
-.ft-credits{margin:clamp(14px,1.4cqw,20px) 0 0;text-align:center;font-family:'Inter',sans-serif;font-size:11px;line-height:1.6;color:#6A6A6A}
-.ft-credits a{color:#8A8A8A;text-decoration:none}
-.ft-credits a:hover,.ft-credits a:focus-visible{color:#FFE14D;text-decoration:underline}
+.ft-cr{margin-left:10px;color:#6A6A6A;text-decoration:none}
+.ft-cr:hover,.ft-cr:focus-visible{color:#FFE14D;text-decoration:underline}
 /* Footer profile icons: real brand marks in brand colour on white chips */
 .ft-social{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px;margin:clamp(18px,1.8cqw,26px) 0 0;padding:0;list-style:none}
 .ft-ico{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;color:var(--b);transition:transform 200ms ease,background-color 200ms ease}
