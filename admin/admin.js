@@ -40,12 +40,16 @@
     'hero.bubble': 'A new line here becomes a line break in the bubble.',
     'projects.categories.*.projects.*.video': 'Paste a YouTube link or upload a video file. With no image set, the card shows this video’s thumbnail. Leave empty to hide the “Watch video” button.',
     'projects.categories.*.projects.*.image': 'Upload a picture and drag/zoom to choose the area shown on the card. Leave empty to use the video thumbnail.',
+    'projects.categories.*.model': '3D model (.glb) shown beside this category on computers. Upload a new .glb to replace it (smaller files load faster; under 10 MB is best).',
+    'projects.categories.*.modelCredit': 'Required by the model’s CC BY licence: model name, author and licence.',
+    'projects.categories.*.modelCreditUrl': 'Link to the model’s page (e.g. on Sketchfab).',
+    'projects.categories.*.modelView': 'Optional starting angle, e.g. "30deg 75deg auto". Leave empty for automatic.',
     'clients.logos.*.logo': 'PNG with a transparent background works best (white backgrounds are fine too). Margins are trimmed automatically.',
     'clients.logos.*.name': 'Used for screen readers and Google, and shown as text if there is no logo.',
     'clients.fullList': 'Hidden sentence for Google and screen readers. Leave empty to list the names above automatically.',
     'publications.papers.*.url': 'Link to the paper (DOI link is best).',
   };
-  const FILE_KEY = /^(image|portrait|poster|video|cv|ogImage|logo)$/;
+  const FILE_KEY = /^(image|portrait|poster|video|cv|ogImage|logo|model)$/;
   const HIDDEN_KEY = /^(imageSource)$/; // managed by the image field (original picture kept for re-cropping)
   const IMG_RE = /\.(png|jpe?g|webp|gif|svg|avif)(\?|#|$)/i;
   const openItems = new WeakSet(); // list items the user has expanded (kept across in-place redraws)

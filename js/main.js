@@ -224,8 +224,27 @@
       this.pjCat = cat;
       pin.classList.toggle('is-flip', cat % 2 === 1);
       devs.forEach((d, k) => d.classList.toggle('is-on', k === cat));
+      this.showModel(devs, cat);
       if (this.pjCatBigEl) this.pjCatBigEl.textContent = cardEl.getAttribute('data-catname') || '';
     }
+  }
+  // 3D models (desktop only): load the viewer library on first need, load the active category's model,
+  // then quietly preload the next one. Only the visible model keeps rotating.
+  showModel(devs, k) {
+    const mvs = devs.map((d) => d.querySelector('model-viewer'));
+    mvs.forEach((mv, i) => { if (mv) mv.toggleAttribute('auto-rotate', i === k); });
+    const load = (i) => new Promise((done) => {
+      const dev = devs[i], mv = mvs[i];
+      if (!mv || mv.hasAttribute('src')) return done();
+      if (!window.__mvLib) window.__mvLib = import('https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js').catch(() => null);
+      window.__mvLib.then((ok) => {
+        if (ok === null) return done();
+        mv.addEventListener('load', () => { dev.classList.add('is-ready'); done(); }, { once: true });
+        mv.addEventListener('error', () => done(), { once: true });
+        mv.setAttribute('src', mv.getAttribute('data-src'));
+      });
+    });
+    load(k).then(() => load(k + 1));
   }
   updateProcess(anim) {
     const sec = this.prEl, track = this.prTrackEl, map = this.prMapEl, done = this.prDoneEl, panda = this.prPandaEl, stamp = this.prStampEl;

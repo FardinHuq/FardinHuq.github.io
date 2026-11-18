@@ -159,7 +159,14 @@ function projects() {
   let n = 0;
   const big = J.bigStats.map((s) => `<div class="sc-tile is-big"><span class="sc-num"><span class="sc-n" data-to="${s.value}" data-dec="${s.decimals || 0}">${Number(s.value).toFixed(s.decimals || 0)}</span><span class="sc-plus">+</span></span><p class="sc-line">${md(s.line)}</p><span class="sc-label">${esc(s.label)}</span></div>`).join('');
   const small = J.smallStats.map((s) => `<div class="sc-tile is-cat">${P.icons[s.icon] || P.icons.web}<span class="sc-num"><span class="sc-n" data-to="${s.value}" data-dec="0">${s.value}</span><span class="sc-plus">+</span></span><span class="sc-label">${esc(s.label)}</span></div>`).join('');
-  const devs = J.categories.map((c, i) => `<div class="pj-dev${i === 0 ? ' is-on' : ''}" data-k="${i}">${(P.devices[c.device] || P.devices.web).replace(/id="pjs(\d)"/g, `id="pjs$1c${i}"`).replace(/url\(#pjs(\d)\)/g, `url(#pjs$1c${i})`)}</div>`).join('\n          ');
+  // Each category shows its 3D model (loaded by main.js only when that category is on screen); the drawing stays as a fallback until the model is ready.
+  const devs = J.categories.map((c, i) => {
+    const svg = (P.devices[c.device] || P.devices.web).replace(/id="pjs(\d)"/g, `id="pjs$1c${i}"`).replace(/url\(#pjs(\d)\)/g, `url(#pjs$1c${i})`);
+    const model = c.model ? `<model-viewer class="pj-model" data-src="${esc(c.model)}" alt="" aria-hidden="true" auto-rotate auto-rotate-delay="0" rotation-per-second="16deg" interaction-prompt="none" disable-zoom disable-pan disable-tap environment-image="neutral" exposure="1.05" shadow-intensity="0.9" shadow-softness="1"${c.modelView ? ` camera-orbit="${esc(c.modelView)}"` : ''}></model-viewer>` : '';
+    const credit = c.model && c.modelCredit ? `<a class="pj-credit" href="${esc(c.modelCreditUrl || '#')}" target="_blank" rel="noopener" tabindex="-1">3D: ${esc(c.modelCredit)}</a>` : '';
+    return `<div class="pj-dev${i === 0 ? ' is-on' : ''}${c.model ? ' has-model' : ''}" data-k="${i}"><div class="pj-svg">${svg}</div>${model}${credit}</div>`;
+  }).join('\n          ');
+  const credits = J.categories.filter((c) => c.model && c.modelCredit).map((c) => `<a href="${esc(c.modelCreditUrl || '#')}" target="_blank" rel="noopener">${esc(c.modelCredit)}</a>`).join(', ');
   const cards = J.categories.map((c, ci) => c.projects.map((p) => {
     n += 1;
     const img = projectThumb(p);
@@ -200,6 +207,7 @@ function projects() {
         <div class="pj-cards">
 ${cards}
         </div>
+        ${credits ? `<p class="cl-sr">${esc(J.modelCreditsLabel || '3D models')}: ${credits}</p>` : ''}
       </div>
     </div>
   </section>`;

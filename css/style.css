@@ -185,6 +185,18 @@ video.pj-img{background:#111111}
 .pj-dev svg{width:100%;height:100%;max-height:420px;animation:pjFloat 7s ease-in-out infinite}
 @keyframes pjFloat{0%,100%{transform:translateY(0) rotateY(-14deg) rotateX(5deg)}50%{transform:translateY(-18px) rotateY(14deg) rotateX(-4deg)}}
 @media (prefers-reduced-motion: reduce){.pj-dev svg{animation:none}.sc-tile:hover{transform:none}}
+/* 3D device models: drawing shows until the model has loaded, then cross-fades */
+.pj-dev{visibility:hidden;transition:opacity 600ms ease,transform 750ms cubic-bezier(0.2,0.8,0.2,1),visibility 0s linear 600ms}
+.pj-dev.is-on{visibility:visible;transition:opacity 600ms ease,transform 750ms cubic-bezier(0.2,0.8,0.2,1),visibility 0s}
+.pj-svg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:opacity 500ms ease}
+.pj-model{position:absolute;inset:-6% -4% 4%;width:auto;height:auto;background:transparent;--poster-color:transparent;--progress-bar-height:0;opacity:0;transition:opacity 700ms ease;animation:pjBob 6s ease-in-out infinite;pointer-events:none}
+.pj-dev.is-ready .pj-model{opacity:1}
+.pj-dev.is-ready .pj-svg{opacity:0}
+@keyframes pjBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.pj-credit{position:absolute;left:0;right:0;bottom:-5%;text-align:center;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.02em;color:#8A8A8A;text-decoration:none;pointer-events:auto;opacity:0;transition:opacity 400ms ease}
+.pj-dev.is-ready .pj-credit{opacity:1}
+.pj-credit:hover{color:#111111;text-decoration:underline}
+@media (prefers-reduced-motion: reduce){.pj-model{animation:none}}
 @container nomi (max-width: 640px){.pj-cards{grid-template-columns:1fr}}
 .pr{position:relative;color:#111111;padding:clamp(40px,5cqw,80px) 0 clamp(40px,4cqw,64px);overflow-x:clip}
 .pr-pin{position:relative;height:min(100vh, 62.36cqw);display:flex;flex-direction:column;align-items:center;box-sizing:border-box;padding:calc(clamp(24px,3.5%,44px) + 4.2cqw) 5cqw 2%;background-image:radial-gradient(rgba(17,17,17,0.13) 1.2px,transparent 1.4px);background-size:26px 26px}

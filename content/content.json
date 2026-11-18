@@ -397,7 +397,11 @@
             "imageSource": ""
           }
         ],
-        "device": "vr"
+        "device": "vr",
+        "model": "assets/models/meta-quest-3.glb",
+        "modelCredit": "Meta Quest 3 by vrmanABCDE (CC BY 4.0)",
+        "modelCreditUrl": "https://sketchfab.com/3d-models/meta-quest-3-64b36bbd1ec04f2d8197466072091601",
+        "modelView": ""
       },
       {
         "name": "Simulation",
@@ -474,7 +478,11 @@
             "imageSource": ""
           }
         ],
-        "device": "sim"
+        "device": "sim",
+        "model": "assets/models/racing-simulator.glb",
+        "modelCredit": "Racing Simulator by daffa.padrih (CC BY 4.0)",
+        "modelCreditUrl": "https://sketchfab.com/3d-models/racing-simulator-1-a60754837baf4a289e3b819fe84b988a",
+        "modelView": ""
       },
       {
         "name": "AR",
@@ -516,7 +524,11 @@
             "imageSource": ""
           }
         ],
-        "device": "ar"
+        "device": "ar",
+        "model": "assets/models/samsung-s24-ultra.glb",
+        "modelCredit": "Samsung S24 Ultra by me_blender (CC BY 4.0)",
+        "modelCreditUrl": "https://sketchfab.com/3d-models/samsung-s24-ultra-f642a96e26974e649da6dc64129beee7",
+        "modelView": ""
       },
       {
         "name": "Game",
@@ -540,7 +552,11 @@
             "imageSource": ""
           }
         ],
-        "device": "game"
+        "device": "game",
+        "model": "assets/models/ps5-controller.glb",
+        "modelCredit": "PS5 Controller by Taohid Animation (CC BY 4.0)",
+        "modelCreditUrl": "https://sketchfab.com/3d-models/ps5-controller-b7bb9c5102a04cb0b1966c6d02bad7d6",
+        "modelView": ""
       },
       {
         "name": "Web",
@@ -653,7 +669,11 @@
             "imageSource": ""
           }
         ],
-        "device": "web"
+        "device": "web",
+        "model": "assets/models/macbook-pro-14.glb",
+        "modelCredit": "MacBook Pro 14\" by akshatmittal (CC BY 4.0)",
+        "modelCreditUrl": "https://sketchfab.com/3d-models/2021-macbook-pro-14-m1-pro-m1-max-f6b0b940fb6a4286b18a674ef32af2d3",
+        "modelView": ""
       },
       {
         "name": "App",
@@ -714,7 +734,11 @@
             "imageSource": ""
           }
         ],
-        "device": "app"
+        "device": "app",
+        "model": "assets/models/google-pixel-7-pro.glb",
+        "modelCredit": "Google Pixel 7 Pro by Imaginequad (CC BY 4.0)",
+        "modelCreditUrl": "https://sketchfab.com/3d-models/google-pixel-7-pro-3d5d6ad9b86c462f94bf1d0b08295b30",
+        "modelView": ""
       },
       {
         "name": "Interactive",
@@ -738,9 +762,14 @@
             "imageSource": ""
           }
         ],
-        "device": "gallery"
+        "device": "gallery",
+        "model": "assets/models/electronic-kiosk.glb",
+        "modelCredit": "Electronic Kiosk by rokey.kachhua (CC BY 4.0)",
+        "modelCreditUrl": "https://sketchfab.com/3d-models/electronic-kiosk-d9e4a076aeea4634b162946e27ab367b",
+        "modelView": ""
       }
-    ]
+    ],
+    "modelCreditsLabel": "3D models"
   },
   "process": {
     "eyebrow": "Process",
