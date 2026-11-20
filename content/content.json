@@ -385,23 +385,6 @@
             "imageSource": ""
           },
           {
-            "title": "Tourism Board Virtual Tour",
-            "client": "Tourism Board Bangladesh",
-            "desc": "A VR-based 360 walkable tour of multiple historical places in Bangladesh",
-            "tech": [
-              "360 images",
-              "Unity",
-              "Meta Quest 3s"
-            ],
-            "role": [
-              "Project Coordination",
-              "Person of Contact"
-            ],
-            "video": "",
-            "image": "assets/uploads/mwpbq1wbzlg-tourism-board-virtual-tour.jpg",
-            "imageSource": "assets/uploads/mwmjr3ld-whatsapp-image-2026-11-19-at-01.57.53.jpeg"
-          },
-          {
             "title": "GIZ Construction Safety VR Training",
             "client": "GIZ",
             "desc": "VR training modules that help construction workers spot hazards and prevent accidents on site.",
@@ -417,6 +400,23 @@
             "video": "https://youtu.be/MxxRTQQHq08",
             "image": "",
             "imageSource": ""
+          },
+          {
+            "title": "Tourism Board Virtual Tour",
+            "client": "Tourism Board Bangladesh",
+            "desc": "A VR-based 360 walkable tour of multiple historical places in Bangladesh",
+            "tech": [
+              "360 images",
+              "Unity",
+              "Meta Quest 3s"
+            ],
+            "role": [
+              "Project Coordination",
+              "Person of Contact"
+            ],
+            "video": "",
+            "image": "assets/uploads/mwpbq1wbzlg-tourism-board-virtual-tour.jpg",
+            "imageSource": "assets/uploads/mwmjr3ld-whatsapp-image-2026-11-19-at-01.57.53.jpeg"
           }
         ],
         "device": "vr",
