@@ -398,20 +398,9 @@
               "Person of Contact"
             ],
             "video": "",
-            "image": "assets/uploads/mwmjr3ld-whatsapp-image-2026-11-19-at-01.57.53.jpeg",
-            "imageSource": ""
-          }
-        ],
-        "device": "vr",
-        "model": "assets/models/meta-quest-3.glb",
-        "modelCredit": "Meta Quest 3 by vrmanABCDE (CC BY 4.0)",
-        "modelCreditUrl": "https://sketchfab.com/3d-models/meta-quest-3-64b36bbd1ec04f2d8197466072091601",
-        "modelView": ""
-      },
-      {
-        "name": "Simulation",
-        "label": "Simulation",
-        "projects": [
+            "image": "assets/uploads/mwpbq1wbzlg-tourism-board-virtual-tour.jpg",
+            "imageSource": "assets/uploads/mwmjr3ld-whatsapp-image-2026-11-19-at-01.57.53.jpeg"
+          },
           {
             "title": "GIZ Construction Safety VR Training",
             "client": "GIZ",
@@ -428,7 +417,18 @@
             "video": "https://youtu.be/MxxRTQQHq08",
             "image": "",
             "imageSource": ""
-          },
+          }
+        ],
+        "device": "vr",
+        "model": "assets/models/meta-quest-3.glb",
+        "modelCredit": "Meta Quest 3 by vrmanABCDE (CC BY 4.0)",
+        "modelCreditUrl": "https://sketchfab.com/3d-models/meta-quest-3-64b36bbd1ec04f2d8197466072091601",
+        "modelView": ""
+      },
+      {
+        "name": "Simulation",
+        "label": "Simulation",
+        "projects": [
           {
             "title": "GIZ Fire Safety VR Simulation",
             "client": "GIZ",
