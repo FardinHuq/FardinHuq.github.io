@@ -97,8 +97,8 @@ a{color:#111111}a:hover{color:#555555}
 .cl-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 /* Client logos: every logo gets the same visual weight. JS sets --r (width/height); height shrinks for wide logos and grows for square ones so their areas match. White backgrounds disappear via multiply. */
 .cl-item.is-logo{justify-content:center}
-.cl-logo{--r:3;--h0:clamp(34px,3.3cqw,54px);display:block;flex:none;height:var(--h0);height:clamp(calc(var(--h0) * 0.6), calc(var(--h0) * sqrt(3 / var(--r))), calc(var(--h0) * 1.45));width:auto;max-width:calc(var(--h0) * 4.6);object-fit:contain;mix-blend-mode:multiply;filter:grayscale(1) contrast(1.1);opacity:0.62;transition:filter 220ms ease,opacity 220ms ease,transform 220ms ease}
-.cl-item.is-logo:hover .cl-logo{filter:none;opacity:1;transform:scale(1.06)}
+.cl-logo{--r:3;--h0:clamp(34px,3.3cqw,54px);display:block;flex:none;height:var(--h0);height:clamp(calc(var(--h0) * 0.6), calc(var(--h0) * sqrt(3 / var(--r))), calc(var(--h0) * 1.45));width:auto;max-width:calc(var(--h0) * 4.6);object-fit:contain;transition:transform 220ms ease}
+.cl-item.is-logo:hover .cl-logo{transform:scale(1.06)}
 video.pj-img{background:#111111}
 @media (prefers-reduced-motion: reduce){.cl-row{animation:none !important}}
 .pj{color:#111111;padding:clamp(70px,8cqw,130px) 0 clamp(60px,6cqw,100px)}

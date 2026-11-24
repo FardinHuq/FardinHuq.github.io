@@ -320,9 +320,37 @@
       {
         "name": "FeedBoss",
         "logo": "assets/clients/feedboss.webp"
+      },
+      {
+        "name": "Bangladesh Army Military Police",
+        "logo": "assets/clients/military-police.webp"
+      },
+      {
+        "name": "United Group",
+        "logo": "assets/clients/united-group.webp"
+      },
+      {
+        "name": "Unilever",
+        "logo": "assets/clients/unilever.webp"
+      },
+      {
+        "name": "TechVital Systems",
+        "logo": "assets/clients/techvital.webp"
+      },
+      {
+        "name": "World Without Hate",
+        "logo": "assets/clients/world-without-hate.webp"
+      },
+      {
+        "name": "Chashi",
+        "logo": "assets/clients/chashi.webp"
+      },
+      {
+        "name": "Bangladesh Tourism Board",
+        "logo": "assets/clients/tourism-board.webp"
       }
     ],
-    "fullList": "CIMMYT, Prime Bank, GIZ, UNICEF, The Financial Express, ICT Division, Public Works Department, Bangladesh Army, Walton, Runner, Square, Aristopharma, Asiatic 360, Mr. Noodles, ACI, STEMbotix, Shobdomukur and FeedBoss."
+    "fullList": "CIMMYT, Prime Bank, GIZ, UNICEF, The Financial Express, ICT Division, Public Works Department, Bangladesh Army, Walton, Runner, Square, Aristopharma, Asiatic 360, Mr. Noodles, ACI, STEMbotix, Shobdomukur, FeedBoss, Bangladesh Army Military Police, United Group, Unilever, TechVital Systems, World Without Hate, Chashi and Bangladesh Tourism Board."
   },
   "projects": {
     "eyebrow": "Projects",
