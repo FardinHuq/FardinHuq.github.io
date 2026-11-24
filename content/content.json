@@ -446,8 +446,9 @@
               "Web & mobile"
             ],
             "role": [
-              "Product designer",
-              "Project coordinator"
+              "Product design",
+              "Manual testing",
+              "Work plan & priorities"
             ],
             "video": "",
             "image": "assets/uploads/mwv2ixr8458-world-without-hate.jpg",
@@ -511,8 +512,8 @@
             ],
             "role": [
               "System requirements",
-              "Client communication",
-              "Project coordination"
+              "R&D on AI models",
+              "Design workflow"
             ],
             "video": "",
             "image": "assets/uploads/mwv2kqw1czo-cmp-fingerprint-matching-software.jpg",
@@ -528,8 +529,8 @@
               "Web"
             ],
             "role": [
-              "Requirements from gov. stakeholders",
-              "Timelines & milestone delivery"
+              "Requirements analysis",
+              "Timelines & milestones"
             ],
             "video": "",
             "image": "assets/uploads/mwv2l1vbf11-pwd-bimh.jpg",
@@ -546,8 +547,7 @@
             ],
             "role": [
               "Requirements analysis",
-              "Client communication",
-              "Overall coordination"
+              "Timelines & milestones"
             ],
             "video": "",
             "image": "assets/uploads/mwv2lg604ee-pwd-dms.jpg",
@@ -593,8 +593,8 @@
             ],
             "role": [
               "Product designer",
-              "Project coordination",
-              "Client communication"
+              "Tester",
+              "Work plan"
             ],
             "video": "",
             "image": "assets/uploads/mwv2m6xa0l1-shobdomukur.jpg",
@@ -721,7 +721,6 @@
             ],
             "role": [
               "Product designer & coordinator",
-              "Led a cross-functional team of 8",
               "Planning & client communication"
             ],
             "video": "",
@@ -739,7 +738,8 @@
             ],
             "role": [
               "Software requirements analysis",
-              "Project tracking"
+              "Project tracking",
+              "Tester"
             ],
             "video": "https://youtu.be/Ukm4cISSp48",
             "image": "assets/uploads/mwv2qd3qugd-combine-harvester-simulator.jpg",
@@ -841,7 +841,8 @@
             ],
             "role": [
               "Project coordination",
-              "Client communication"
+              "Client communication",
+              "QA"
             ],
             "video": "",
             "image": "assets/uploads/mwv2s2ub8kz-tib-virtual-gallery.jpg",
