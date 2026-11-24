@@ -24,7 +24,7 @@
   ];
   const OPTIONS = {
     'about.panels.*.style': ['intro', 'statement', 'pitch', 'quote', 'cta'],
-    'projects.categories.*.device': ['vr', 'sim', 'ar', 'game', 'web', 'app', 'gallery'],
+    'projects.categories.*.device': ['vr', 'sim', 'ar', 'game', 'db', 'web', 'app', 'gallery'],
     'projects.smallStats.*.icon': ['vr', 'sim', 'ar', 'web', 'app'],
     'contact.buttons.*.style': ['outline', 'yellow'],
   };

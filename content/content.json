@@ -564,6 +564,52 @@
         "modelView": ""
       },
       {
+        "name": "Database",
+        "label": "Database Management Systems",
+        "projects": [
+          {
+            "title": "PWD BIMH",
+            "client": "Public Works Department (Government)",
+            "desc": "Asset and workflow management system that centralises asset data and automates work for PWD’s Civil and E/M divisions.",
+            "tech": [
+              "PHP",
+              "Laravel",
+              "Web"
+            ],
+            "role": [
+              "Requirements from gov. stakeholders",
+              "Timelines & milestone delivery"
+            ],
+            "video": "",
+            "image": "",
+            "imageSource": ""
+          },
+          {
+            "title": "PWD DMS",
+            "client": "Public Works Department (Government)",
+            "desc": "Document management system that stores project files, tracks actions and speeds up approvals.",
+            "tech": [
+              "PHP",
+              "Laravel",
+              "Web"
+            ],
+            "role": [
+              "Requirements analysis",
+              "Client communication",
+              "Overall coordination"
+            ],
+            "video": "",
+            "image": "",
+            "imageSource": ""
+          }
+        ],
+        "device": "db",
+        "model": "assets/models/database.glb",
+        "modelCredit": "",
+        "modelCreditUrl": "",
+        "modelView": ""
+      },
+      {
         "name": "Web",
         "label": "Web",
         "projects": [
@@ -597,41 +643,6 @@
             "role": [
               "Product designer",
               "Project coordinator"
-            ],
-            "video": "",
-            "image": "",
-            "imageSource": ""
-          },
-          {
-            "title": "PWD BIMH",
-            "client": "Public Works Department (Government)",
-            "desc": "Asset and workflow management system that centralises asset data and automates work for PWD’s Civil and E/M divisions.",
-            "tech": [
-              "PHP",
-              "Laravel",
-              "Web"
-            ],
-            "role": [
-              "Requirements from gov. stakeholders",
-              "Timelines & milestone delivery"
-            ],
-            "video": "",
-            "image": "",
-            "imageSource": ""
-          },
-          {
-            "title": "PWD DMS",
-            "client": "Public Works Department (Government)",
-            "desc": "Document management system that stores project files, tracks actions and speeds up approvals.",
-            "tech": [
-              "PHP",
-              "Laravel",
-              "Web"
-            ],
-            "role": [
-              "Requirements analysis",
-              "Client communication",
-              "Overall coordination"
             ],
             "video": "",
             "image": "",
