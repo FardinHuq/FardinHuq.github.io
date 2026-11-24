@@ -363,6 +363,217 @@
     ],
     "categories": [
       {
+        "name": "Web",
+        "label": "Web",
+        "projects": [
+          {
+            "title": "The Financial Express",
+            "client": "The Financial Express (News Website)",
+            "desc": "News website for one of Bangladesh’s leading newspapers.",
+            "tech": [
+              "PHP",
+              "Laravel",
+              "Web & mobile"
+            ],
+            "role": [
+              "Work plans & priorities",
+              "Manual testing",
+              "24/7 client support"
+            ],
+            "video": "",
+            "image": "",
+            "imageSource": ""
+          },
+          {
+            "title": "World Without Hate",
+            "client": "WWH (Non-profit Organization)",
+            "desc": "Website in English, Spanish and Arabic with donations, store, events and impact pages.",
+            "tech": [
+              "JavaScript",
+              "React",
+              "Web & mobile"
+            ],
+            "role": [
+              "Product designer",
+              "Project coordinator"
+            ],
+            "video": "",
+            "image": "",
+            "imageSource": ""
+          },
+          {
+            "title": "Chashi Nobanno Festival",
+            "client": "Chashi-Square",
+            "desc": "Campaign website with animated scrolling, a ring-toss mini game, quizzes and video sliders.",
+            "tech": [
+              "JavaScript",
+              "Unity WebGL",
+              "Web & mobile"
+            ],
+            "role": [
+              "Planning under tight deadlines",
+              "Client communication",
+              "Manual testing"
+            ],
+            "video": "",
+            "image": "",
+            "imageSource": ""
+          },
+          {
+            "title": "Brand Review.AI",
+            "client": "Brand Review",
+            "desc": "AI tool that checks designs against brand and event guidelines by analysing colours, fonts and visuals.",
+            "tech": [
+              "Python",
+              "AI / LLM",
+              "Web"
+            ],
+            "role": [
+              "Researched AI models",
+              "Flagged risks & proposed fixes",
+              "Coordinated delivery"
+            ],
+            "video": "",
+            "image": "",
+            "imageSource": ""
+          }
+        ],
+        "device": "web",
+        "model": "assets/models/macbook-pro-14.glb",
+        "modelCredit": "MacBook Pro 14\" by akshatmittal (CC BY 4.0)",
+        "modelCreditUrl": "https://sketchfab.com/3d-models/2021-macbook-pro-14-m1-pro-m1-max-f6b0b940fb6a4286b18a674ef32af2d3",
+        "modelView": ""
+      },
+      {
+        "name": "Database",
+        "label": "Database Management Systems",
+        "projects": [
+          {
+            "title": "CMP Fingerprint Matching Software",
+            "client": "CMP",
+            "desc": "Fingerprint matching software that uses AI models to identify and verify prints, running on PC and on the web.",
+            "tech": [
+              "Node.js",
+              "AI models",
+              "PC & Web"
+            ],
+            "role": [
+              "System requirements",
+              "Client communication",
+              "Project coordination"
+            ],
+            "video": "",
+            "image": "",
+            "imageSource": ""
+          },
+          {
+            "title": "PWD BIMH",
+            "client": "Public Works Department (Government)",
+            "desc": "Asset and workflow management system that centralises asset data and automates work for PWD’s Civil and E/M divisions.",
+            "tech": [
+              "PHP",
+              "Laravel",
+              "Web"
+            ],
+            "role": [
+              "Requirements from gov. stakeholders",
+              "Timelines & milestone delivery"
+            ],
+            "video": "",
+            "image": "",
+            "imageSource": ""
+          },
+          {
+            "title": "PWD DMS",
+            "client": "Public Works Department (Government)",
+            "desc": "Document management system that stores project files, tracks actions and speeds up approvals.",
+            "tech": [
+              "PHP",
+              "Laravel",
+              "Web"
+            ],
+            "role": [
+              "Requirements analysis",
+              "Client communication",
+              "Overall coordination"
+            ],
+            "video": "",
+            "image": "",
+            "imageSource": ""
+          }
+        ],
+        "device": "db",
+        "model": "assets/models/database.glb",
+        "modelCredit": "",
+        "modelCreditUrl": "",
+        "modelView": ""
+      },
+      {
+        "name": "App",
+        "label": "Mobile & AI apps",
+        "projects": [
+          {
+            "title": "HLV Mobile App",
+            "client": "HLV (MedTech, USA)",
+            "desc": "Health and wellness app with an AI chatbot that gives tailored health guidance.",
+            "tech": [
+              "Dart",
+              "Flutter",
+              "Android & iOS"
+            ],
+            "role": [
+              "Requirements analysis",
+              "Client communication",
+              "Manual testing"
+            ],
+            "video": "",
+            "image": "",
+            "imageSource": ""
+          },
+          {
+            "title": "Shobdomukur",
+            "client": "Shobdomukur",
+            "desc": "A bilingual (Bangla & English) e-library app for reading and discovering books on the go.",
+            "tech": [
+              "Laravel Blade",
+              "Flutter",
+              "Android & iOS"
+            ],
+            "role": [
+              "Product designer",
+              "Project coordination",
+              "Client communication"
+            ],
+            "video": "",
+            "image": "",
+            "imageSource": ""
+          },
+          {
+            "title": "CMP Speed Detection App",
+            "client": "CMP",
+            "desc": "Measures vehicle speed in real time for accident investigation, with gyroscope elevation and AR distance tools.",
+            "tech": [
+              "C#",
+              "Unity AR",
+              "Android"
+            ],
+            "role": [
+              "Product design",
+              "Requirement fixes",
+              "Stakeholder collaboration"
+            ],
+            "video": "",
+            "image": "",
+            "imageSource": ""
+          }
+        ],
+        "device": "app",
+        "model": "assets/models/google-pixel-7-pro.glb",
+        "modelCredit": "Google Pixel 7 Pro by Imaginequad (CC BY 4.0)",
+        "modelCreditUrl": "https://sketchfab.com/3d-models/google-pixel-7-pro-3d5d6ad9b86c462f94bf1d0b08295b30",
+        "modelView": ""
+      },
+      {
         "name": "VR",
         "label": "Virtual Reality",
         "projects": [
@@ -561,199 +772,6 @@
         "model": "assets/models/ps5-controller.glb",
         "modelCredit": "PS5 Controller by Taohid Animation (CC BY 4.0)",
         "modelCreditUrl": "https://sketchfab.com/3d-models/ps5-controller-b7bb9c5102a04cb0b1966c6d02bad7d6",
-        "modelView": ""
-      },
-      {
-        "name": "Database",
-        "label": "Database Management Systems",
-        "projects": [
-          {
-            "title": "PWD BIMH",
-            "client": "Public Works Department (Government)",
-            "desc": "Asset and workflow management system that centralises asset data and automates work for PWD’s Civil and E/M divisions.",
-            "tech": [
-              "PHP",
-              "Laravel",
-              "Web"
-            ],
-            "role": [
-              "Requirements from gov. stakeholders",
-              "Timelines & milestone delivery"
-            ],
-            "video": "",
-            "image": "",
-            "imageSource": ""
-          },
-          {
-            "title": "PWD DMS",
-            "client": "Public Works Department (Government)",
-            "desc": "Document management system that stores project files, tracks actions and speeds up approvals.",
-            "tech": [
-              "PHP",
-              "Laravel",
-              "Web"
-            ],
-            "role": [
-              "Requirements analysis",
-              "Client communication",
-              "Overall coordination"
-            ],
-            "video": "",
-            "image": "",
-            "imageSource": ""
-          }
-        ],
-        "device": "db",
-        "model": "assets/models/database.glb",
-        "modelCredit": "",
-        "modelCreditUrl": "",
-        "modelView": ""
-      },
-      {
-        "name": "Web",
-        "label": "Web",
-        "projects": [
-          {
-            "title": "The Financial Express",
-            "client": "The Financial Express (News Website)",
-            "desc": "News website for one of Bangladesh’s leading newspapers.",
-            "tech": [
-              "PHP",
-              "Laravel",
-              "Web & mobile"
-            ],
-            "role": [
-              "Work plans & priorities",
-              "Manual testing",
-              "24/7 client support"
-            ],
-            "video": "",
-            "image": "",
-            "imageSource": ""
-          },
-          {
-            "title": "World Without Hate",
-            "client": "WWH (Non-profit Organization)",
-            "desc": "Website in English, Spanish and Arabic with donations, store, events and impact pages.",
-            "tech": [
-              "JavaScript",
-              "React",
-              "Web & mobile"
-            ],
-            "role": [
-              "Product designer",
-              "Project coordinator"
-            ],
-            "video": "",
-            "image": "",
-            "imageSource": ""
-          },
-          {
-            "title": "Chashi Nobanno Festival",
-            "client": "Chashi-Square",
-            "desc": "Campaign website with animated scrolling, a ring-toss mini game, quizzes and video sliders.",
-            "tech": [
-              "JavaScript",
-              "Unity WebGL",
-              "Web & mobile"
-            ],
-            "role": [
-              "Planning under tight deadlines",
-              "Client communication",
-              "Manual testing"
-            ],
-            "video": "",
-            "image": "",
-            "imageSource": ""
-          },
-          {
-            "title": "Brand Review.AI",
-            "client": "Brand Review",
-            "desc": "AI tool that checks designs against brand and event guidelines by analysing colours, fonts and visuals.",
-            "tech": [
-              "Python",
-              "AI / LLM",
-              "Web"
-            ],
-            "role": [
-              "Researched AI models",
-              "Flagged risks & proposed fixes",
-              "Coordinated delivery"
-            ],
-            "video": "",
-            "image": "",
-            "imageSource": ""
-          }
-        ],
-        "device": "web",
-        "model": "assets/models/macbook-pro-14.glb",
-        "modelCredit": "MacBook Pro 14\" by akshatmittal (CC BY 4.0)",
-        "modelCreditUrl": "https://sketchfab.com/3d-models/2021-macbook-pro-14-m1-pro-m1-max-f6b0b940fb6a4286b18a674ef32af2d3",
-        "modelView": ""
-      },
-      {
-        "name": "App",
-        "label": "Mobile & AI apps",
-        "projects": [
-          {
-            "title": "HLV Mobile App",
-            "client": "HLV (MedTech, USA)",
-            "desc": "Health and wellness app with an AI chatbot that gives tailored health guidance.",
-            "tech": [
-              "Dart",
-              "Flutter",
-              "Android & iOS"
-            ],
-            "role": [
-              "Requirements analysis",
-              "Client communication",
-              "Manual testing"
-            ],
-            "video": "",
-            "image": "",
-            "imageSource": ""
-          },
-          {
-            "title": "Shobdomukur",
-            "client": "Shobdomukur",
-            "desc": "A bilingual (Bangla & English) e-library app for reading and discovering books on the go.",
-            "tech": [
-              "Laravel Blade",
-              "Flutter",
-              "Android & iOS"
-            ],
-            "role": [
-              "Product designer",
-              "Project coordination",
-              "Client communication"
-            ],
-            "video": "",
-            "image": "",
-            "imageSource": ""
-          },
-          {
-            "title": "CMP Speed Detection App",
-            "client": "CMP",
-            "desc": "Measures vehicle speed in real time for accident investigation, with gyroscope elevation and AR distance tools.",
-            "tech": [
-              "C#",
-              "Unity AR",
-              "Android"
-            ],
-            "role": [
-              "Product design",
-              "Requirement fixes",
-              "Stakeholder collaboration"
-            ],
-            "video": "",
-            "image": "",
-            "imageSource": ""
-          }
-        ],
-        "device": "app",
-        "model": "assets/models/google-pixel-7-pro.glb",
-        "modelCredit": "Google Pixel 7 Pro by Imaginequad (CC BY 4.0)",
-        "modelCreditUrl": "https://sketchfab.com/3d-models/google-pixel-7-pro-3d5d6ad9b86c462f94bf1d0b08295b30",
         "modelView": ""
       },
       {
