@@ -416,7 +416,7 @@ section[id]{scroll-margin-top:72px}
 /* Project thumbnails with a real image */
 .pj-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:0}
 .pj-thumb.has-img::before,.pj-thumb.has-img::after{display:none}
-.pj-thumb.has-img .pj-num{-webkit-text-stroke-color:#FFFFFF;text-shadow:0 2px 18px rgba(0,0,0,0.35)}
+.pj-thumb.has-img .pj-num{right:auto;bottom:auto;left:14px;top:14px;padding:5px 10px 4px;font-size:clamp(15px,1.25cqw,22px);letter-spacing:0;color:#111111;-webkit-text-stroke:0;background:#FFE14D;border:2px solid #111111;border-radius:8px;box-shadow:3px 3px 0 #111111;filter:none;text-shadow:none}
 
 /* ===== Nav: desktop keeps the original pill; brand + Menu button only show on small screens ===== */
 .nomi-nav .nav-brand,.nomi-nav .nav-toggle{display:none}
@@ -487,6 +487,7 @@ section[id]{scroll-margin-top:72px}
   .pj-card{height:auto}
   .pj-thumb{flex:none;aspect-ratio:16 / 9}
   .pj-num{font-size:clamp(84px,22cqw,170px)}
+  .pj-thumb.has-img .pj-num{font-size:15px;left:10px;top:10px}
   .pj-desc{-webkit-line-clamp:4}
 
   /* ---- Process: vertical level list ---- */
