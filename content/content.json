@@ -250,67 +250,79 @@
     "heading": "I’ve shipped for names\nyou’ve ==probably heard of==.",
     "logos": [
       {
+        "name": "CIMMYT",
+        "logo": "assets/clients/cimmyt.webp"
+      },
+      {
+        "name": "Prime Bank",
+        "logo": "assets/clients/prime-bank.webp"
+      },
+      {
         "name": "GIZ",
-        "logo": ""
+        "logo": "assets/clients/giz.webp"
       },
       {
         "name": "UNICEF",
-        "logo": ""
-      },
-      {
-        "name": "Unilever",
-        "logo": ""
+        "logo": "assets/clients/unicef.webp"
       },
       {
         "name": "The Financial Express",
-        "logo": ""
+        "logo": "assets/clients/financial-express.webp"
+      },
+      {
+        "name": "ICT Division",
+        "logo": "assets/clients/ict-division.webp"
       },
       {
         "name": "Public Works Department",
-        "logo": ""
+        "logo": "assets/clients/pwd.webp"
       },
       {
-        "name": "TechVital Systems",
-        "logo": ""
+        "name": "Bangladesh Army",
+        "logo": "assets/clients/bangladesh-army.webp"
       },
       {
-        "name": "United Group",
-        "logo": ""
+        "name": "Walton",
+        "logo": "assets/clients/walton.webp"
       },
       {
-        "name": "CIMMYT",
-        "logo": ""
+        "name": "Runner",
+        "logo": "assets/clients/runner.webp"
       },
       {
-        "name": "Abedin Group",
-        "logo": ""
+        "name": "Square",
+        "logo": "assets/clients/square.webp"
       },
       {
-        "name": "Light of Hope",
-        "logo": ""
+        "name": "Aristopharma",
+        "logo": "assets/clients/aristopharma.webp"
       },
       {
-        "name": "World Without Hate",
-        "logo": ""
+        "name": "Asiatic 360",
+        "logo": "assets/clients/asiatic.webp"
       },
       {
-        "name": "CMP Training Center",
-        "logo": ""
+        "name": "Mr. Noodles",
+        "logo": "assets/clients/mr-noodles.webp"
       },
       {
-        "name": "HLV Health",
-        "logo": ""
+        "name": "ACI",
+        "logo": "assets/clients/aci.webp"
       },
       {
-        "name": "Brand Review.AI",
-        "logo": ""
+        "name": "STEMbotix",
+        "logo": "assets/clients/stembotix.webp"
       },
       {
-        "name": "Chashi-Square",
-        "logo": ""
+        "name": "Shobdomukur",
+        "logo": "assets/clients/shobdomukur.webp"
+      },
+      {
+        "name": "FeedBoss",
+        "logo": "assets/clients/feedboss.webp"
       }
     ],
-    "fullList": "GIZ, UNICEF, Unilever, The Financial Express, Bangladesh Public Works Department, TechVital Systems (United Group), CIMMYT, Abedin Group, Light of Hope, World Without Hate, CMP Training Center, HLV Health, Brand Review.AI and Chashi-Square."
+    "fullList": "CIMMYT, Prime Bank, GIZ, UNICEF, The Financial Express, ICT Division, Public Works Department, Bangladesh Army, Walton, Runner, Square, Aristopharma, Asiatic 360, Mr. Noodles, ACI, STEMbotix, Shobdomukur and FeedBoss."
   },
   "projects": {
     "eyebrow": "Projects",
