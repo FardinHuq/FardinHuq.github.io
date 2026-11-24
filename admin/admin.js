@@ -447,8 +447,9 @@
     return new Promise((resolve) => {
       const zoom = h('input', { type: 'range', min: '1', max: '4', step: '0.01', value: '1', 'aria-label': 'Zoom' });
       const pic = h('img', { class: 'cm-img', src: img.src, alt: '', draggable: 'false' });
+      const bg = h('img', { class: 'cm-bg', src: img.src, alt: '', draggable: 'false' });
       const bandTop = (1 - o.band) / 2 * 100;
-      const stage = h('div', { class: 'cm-stage', style: `aspect-ratio:${o.aspect}` }, pic,
+      const stage = h('div', { class: 'cm-stage', style: `aspect-ratio:${o.aspect}` }, bg, pic,
         h('div', { class: 'cm-band', style: `top:${bandTop}%;bottom:${bandTop}%` }, h('span', {}, 'Computer screens show this band')),
         h('div', { class: 'cm-grid' }));
       const done = (v) => { document.removeEventListener('keydown', onKey); ov.remove(); resolve(v); };
@@ -456,7 +457,7 @@
       const ov = h('div', { class: 'cm', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Crop picture' },
         h('div', { class: 'cm-box' },
           h('h3', {}, 'Choose what shows on the card'),
-          h('p', { class: 'tip' }, 'Drag the picture to move it. Use the slider (or scroll / pinch) to zoom. Phones show the whole frame; computers show the area between the dashed lines.'),
+          h('p', { class: 'tip' }, 'Drag the picture up, down or sideways to move it. Use the slider (or scroll / pinch) to zoom. Computers show the area between the dashed lines; phones show the whole frame, and any gap is filled with a soft blur of the picture.'),
           stage,
           h('div', { class: 'cm-z' }, h('span', {}, '−'), zoom, h('span', {}, '+')),
           h('div', { class: 'cm-a' },
@@ -466,7 +467,12 @@
               const outH = Math.round(o.outW / o.aspect);
               const c = document.createElement('canvas'); c.width = o.outW; c.height = outH;
               const x = c.getContext('2d'); x.fillStyle = '#FFFFFF'; x.fillRect(0, 0, o.outW, outH); x.imageSmoothingQuality = 'high';
-              x.drawImage(img, -st.x / sc, -st.y / sc, W / sc, H / sc, 0, 0, o.outW, outH);
+              const cv = Math.max(o.outW / img.naturalWidth, outH / img.naturalHeight) * 1.1;
+              x.filter = 'blur(28px) brightness(0.85)';
+              x.drawImage(img, (o.outW - img.naturalWidth * cv) / 2, (outH - img.naturalHeight * cv) / 2, img.naturalWidth * cv, img.naturalHeight * cv);
+              x.filter = 'none';
+              const k = o.outW / W;
+              x.drawImage(img, st.x * k, st.y * k, img.naturalWidth * sc * k, img.naturalHeight * sc * k);
               done(await canvasBlob(c, 'image/jpeg', 0.88));
             } }, 'Use this crop'))));
       document.body.appendChild(ov);
@@ -475,19 +481,23 @@
       let base = 1;
       const clamp = () => {
         const W = stage.clientWidth, H = stage.clientHeight, dw = img.naturalWidth * base * st.s, dh = img.naturalHeight * base * st.s;
-        st.x = Math.min(0, Math.max(W - dw, st.x)); st.y = Math.min(0, Math.max(H - dh, st.y));
+        // The picture must always fill the computer band (dashed lines); above/below it may leave a gap (filled with blur).
+        const bt = H * (1 - o.band) / 2, bb = H - bt;
+        st.x = dw >= W ? Math.min(0, Math.max(W - dw, st.x)) : Math.max(0, Math.min(W - dw, st.x));
+        st.y = Math.min(bt, Math.max(bb - dh, st.y));
         pic.style.width = dw + 'px'; pic.style.height = dh + 'px';
         pic.style.transform = `translate(${st.x}px,${st.y}px)`;
       };
       const setZoom = (s, cx, cy) => {
         const W = stage.clientWidth, H = stage.clientHeight;
         cx = cx == null ? W / 2 : cx; cy = cy == null ? H / 2 : cy;
-        const ns = Math.min(4, Math.max(1, s)), r = ns / st.s;
+        const ns = Math.min(Number(zoom.max), Math.max(Number(zoom.min), s)), r = ns / st.s;
         st.x = cx - (cx - st.x) * r; st.y = cy - (cy - st.y) * r; st.s = ns; zoom.value = ns; clamp();
       };
       const init = () => {
         const W = stage.clientWidth, H = stage.clientHeight;
-        base = Math.max(W / img.naturalWidth, H / img.naturalHeight);
+        base = Math.max(W / img.naturalWidth, H * o.band / img.naturalHeight);
+        st.s = Math.max(1, H / (img.naturalHeight * base), W / (img.naturalWidth * base)); zoom.min = String(Math.max(W / (img.naturalWidth * base), 1)); zoom.max = String(st.s * 4); zoom.value = st.s;
         st.x = (W - img.naturalWidth * base * st.s) / 2; st.y = (H - img.naturalHeight * base * st.s) / 2; clamp();
       };
       requestAnimationFrame(init);
