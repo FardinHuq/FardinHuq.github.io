@@ -381,8 +381,8 @@
               "24/7 client support"
             ],
             "video": "",
-            "image": "assets/covers/the-financial-express.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2ib9z8wp-the-financial-express.jpg",
+            "imageSource": "assets/covers/the-financial-express.jpg"
           },
           {
             "title": "World Without Hate",
@@ -398,8 +398,8 @@
               "Project coordinator"
             ],
             "video": "",
-            "image": "assets/covers/world-without-hate.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2ixr8458-world-without-hate.jpg",
+            "imageSource": "assets/covers/world-without-hate.jpg"
           },
           {
             "title": "Chashi Nobanno Festival",
@@ -416,8 +416,8 @@
               "Manual testing"
             ],
             "video": "",
-            "image": "assets/covers/chashi-nobanno-festival.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2jhzty5w-chashi-nobanno-festival.jpg",
+            "imageSource": "assets/covers/chashi-nobanno-festival.jpg"
           },
           {
             "title": "Brand Review.AI",
@@ -434,8 +434,8 @@
               "Coordinated delivery"
             ],
             "video": "",
-            "image": "assets/covers/brand-review-ai.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2jyi59i5-brand-review.jpg",
+            "imageSource": "assets/covers/brand-review-ai.jpg"
           }
         ],
         "device": "web",
@@ -463,8 +463,8 @@
               "Project coordination"
             ],
             "video": "",
-            "image": "assets/covers/cmp-fingerprint-matching-software.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2kqw1czo-cmp-fingerprint-matching-software.jpg",
+            "imageSource": "assets/covers/cmp-fingerprint-matching-software.jpg"
           },
           {
             "title": "PWD BIMH",
@@ -480,8 +480,8 @@
               "Timelines & milestone delivery"
             ],
             "video": "",
-            "image": "assets/covers/pwd-bimh.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2l1vbf11-pwd-bimh.jpg",
+            "imageSource": "assets/covers/pwd-bimh.jpg"
           },
           {
             "title": "PWD DMS",
@@ -498,8 +498,8 @@
               "Overall coordination"
             ],
             "video": "",
-            "image": "assets/covers/pwd-dms.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2lg604ee-pwd-dms.jpg",
+            "imageSource": "assets/covers/pwd-dms.jpg"
           }
         ],
         "device": "db",
@@ -527,8 +527,8 @@
               "Manual testing"
             ],
             "video": "",
-            "image": "assets/covers/hlv-mobile-app.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2lv5q4wl-hlv-mobile-app.jpg",
+            "imageSource": "assets/covers/hlv-mobile-app.jpg"
           },
           {
             "title": "Shobdomukur",
@@ -545,8 +545,8 @@
               "Client communication"
             ],
             "video": "",
-            "image": "assets/covers/shobdomukur.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2m6xa0l1-shobdomukur.jpg",
+            "imageSource": "assets/covers/shobdomukur.jpg"
           },
           {
             "title": "CMP Speed Detection App",
@@ -563,8 +563,8 @@
               "Stakeholder collaboration"
             ],
             "video": "",
-            "image": "assets/covers/cmp-speed-detection-app.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2mgqypjn-cmp-speed-detection-app.jpg",
+            "imageSource": "assets/covers/cmp-speed-detection-app.jpg"
           }
         ],
         "device": "app",
@@ -592,7 +592,7 @@
               "Tested builds before the showcase"
             ],
             "video": "https://youtu.be/4OyQEXcdEag",
-            "image": "assets/covers/techvital-vr-healthcare.jpg",
+            "image": "",
             "imageSource": ""
           },
           {
@@ -609,8 +609,8 @@
               "Managed timelines & delivery"
             ],
             "video": "https://youtu.be/MxxRTQQHq08",
-            "image": "assets/covers/giz-construction-safety-vr-training.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2o7fmc1l-giz-construction-safety-vr-training.jpg",
+            "imageSource": "assets/covers/giz-construction-safety-vr-training.jpg"
           },
           {
             "title": "Tourism Board Virtual Tour",
@@ -626,8 +626,8 @@
               "Person of Contact"
             ],
             "video": "",
-            "image": "assets/covers/tourism-board-virtual-tour.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2oxdqlec-tourism-board-virtual-tour.jpg",
+            "imageSource": "assets/covers/tourism-board-virtual-tour.jpg"
           }
         ],
         "device": "vr",
@@ -655,8 +655,8 @@
               "Overall coordination"
             ],
             "video": "",
-            "image": "assets/covers/giz-fire-safety-vr-simulation.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2pchsetj-giz-fire-safety-vr-simulation.jpg",
+            "imageSource": "assets/covers/giz-fire-safety-vr-simulation.jpg"
           },
           {
             "title": "Unilever Truck Driving Simulator",
@@ -673,8 +673,8 @@
               "Planning & client communication"
             ],
             "video": "",
-            "image": "assets/covers/unilever-truck-driving-simulator.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2pop9juu-unilever-truck-driving-simulator.jpg",
+            "imageSource": "assets/covers/unilever-truck-driving-simulator.jpg"
           },
           {
             "title": "Combine Harvester Simulator",
@@ -690,8 +690,8 @@
               "Project tracking"
             ],
             "video": "https://youtu.be/Ukm4cISSp48",
-            "image": "assets/covers/combine-harvester-simulator.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2qd3qugd-combine-harvester-simulator.jpg",
+            "imageSource": "assets/covers/combine-harvester-simulator.jpg"
           }
         ],
         "device": "sim",
@@ -718,8 +718,8 @@
               "Campaign delivery & client comms"
             ],
             "video": "https://youtu.be/26P1Pf06MDI",
-            "image": "assets/covers/techvital-ar-print-campaign.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2qrkekby-techvital-ar-print-campaign.jpg",
+            "imageSource": "assets/covers/techvital-ar-print-campaign.jpg"
           },
           {
             "title": "Drone AR",
@@ -736,8 +736,8 @@
               "Manual testing & client comms"
             ],
             "video": "",
-            "image": "assets/covers/drone-ar.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2r2xfe4j-drone-ar.jpg",
+            "imageSource": "assets/covers/drone-ar.jpg"
           }
         ],
         "device": "ar",
@@ -764,8 +764,8 @@
               "Quality assurance"
             ],
             "video": "https://youtu.be/t3rj7bnn5tQ",
-            "image": "assets/covers/unicef-change-agent.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2rj5ncwc-unicef-change-agent.jpg",
+            "imageSource": "assets/covers/unicef-change-agent.jpg"
           }
         ],
         "device": "game",
@@ -792,8 +792,8 @@
               "Client communication"
             ],
             "video": "",
-            "image": "assets/covers/tib-virtual-gallery.jpg",
-            "imageSource": ""
+            "image": "assets/uploads/mwv2s2ub8kz-tib-virtual-gallery.jpg",
+            "imageSource": "assets/covers/tib-virtual-gallery.jpg"
           }
         ],
         "device": "gallery",
