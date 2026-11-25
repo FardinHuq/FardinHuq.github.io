@@ -38,7 +38,7 @@
       "href": "projects.html"
     },
     {
-      "label": "Case Studies",
+      "label": "Case Study",
       "href": "case-studies.html"
     },
     {
@@ -1157,7 +1157,8 @@
               "Replaced manual comparison with AI-assisted matching."
             ]
           }
-        ]
+        ],
+        "short": "CMP"
       },
       {
         "title": "Brand Review.AI",
@@ -1222,7 +1223,8 @@
               "Faster reviews, with fewer off-brand designs reaching publication."
             ]
           }
-        ]
+        ],
+        "short": "Brand Review"
       },
       {
         "title": "Combine Harvester Simulator",
@@ -1281,7 +1283,8 @@
               "The process carried over to our Unilever truck and GIZ VR safety simulators."
             ]
           }
-        ]
+        ],
+        "short": "Harvester"
       },
       {
         "title": "TechVital VR Medical Equipment Showcase",
@@ -1339,7 +1342,8 @@
               "Brochures replaced by interactive 3D demos."
             ]
           }
-        ]
+        ],
+        "short": "TechVital"
       },
       {
         "title": "Unilever Truck Driving Simulator",
@@ -1396,7 +1400,8 @@
               "Drivers practise safe driving and company policy without risk on real roads."
             ]
           }
-        ]
+        ],
+        "short": "Unilever"
       }
     ],
     "homeEyebrow": "Case studies",

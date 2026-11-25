@@ -391,7 +391,7 @@ function caseStudiesPage() {
           <span class="cs-file-t">${esc(it.title)}</span>
           <span class="cs-file-go" aria-hidden="true">→</span>
         </a></li>`).join('\n        ');
-  const jump = items.map((it, i) => `<a href="#${slug(it.title)}" data-slug="${slug(it.title)}"><b>${pad2(i + 1)}</b>${esc(short(it.title))}</a>`).join('');
+  const jump = items.map((it) => `<a href="#${slug(it.title)}" data-slug="${slug(it.title)}"><span class="cs-jl">${esc(short(it.title))}</span><span class="cs-js">${esc(it.short || short(it.title))}</span></a>`).join('');
   const cases = items.map((it, i) => {
     const secs = (it.sections || []).filter((s) => s && (s.heading || s.body || (s.points || []).length));
     const notResults = secs.filter((s) => s.kind !== 'results').length;
@@ -442,7 +442,7 @@ function caseStudiesPage() {
         ${index}
         </ol>
       </header>
-      <nav class="cs-jump" aria-label="${esc(K.eyebrow || 'Case studies')}"><a class="cs-all" href="#">← ${esc(K.allLabel || 'All cases')}</a>${jump}</nav>
+      <nav class="cs-jump" aria-label="${esc(K.eyebrow || 'Case studies')}"><a class="cs-all" href="#">← <span class="cs-jl">${esc(K.allLabel || 'All cases')}</span><span class="cs-js">All</span></a>${jump}</nav>
       ${cases}
     </div>
   </section>`;

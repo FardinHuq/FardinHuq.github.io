@@ -753,3 +753,21 @@ a.sc-tile:hover .sc-go,a.sc-tile:focus-visible .sc-go{opacity:1;transform:none}
 
 /* Arriving on a #section link: stay hidden for a moment until the page is placed there (see landOnHash in main.js) */
 html.is-jumping body{visibility:hidden}
+
+/* Case bar labels: longer name on computers, short name on phones */
+.cs-js{display:none}
+/* Phones and small tablets: both secondary bars become two even rows (no sideways scrolling) */
+@container nomi (max-width: 999px){
+  .pj-jump{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;overflow:visible;padding-bottom:0}
+  .pj-jump a{justify-content:center;min-height:34px;padding:0 3px;font-size:12px;letter-spacing:-0.01em;text-align:center;white-space:nowrap}
+  .pj.is-page .pj-head{padding-top:8px;padding-bottom:10px}
+  .cs.is-case .cs-jump{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;width:auto;overflow:visible;border-radius:16px;padding:5px}
+  .cs.is-case .cs-jump a{justify-content:center;min-height:34px;padding:0 6px;font-size:13px;gap:4px}
+  .cs.is-case .cs-jump .cs-all{margin-right:0}
+  .cs-jl{display:none}
+  .cs-js{display:inline}
+}
+/* Two-column card grids on phones: an odd last card sits in the centre */
+@container nomi (max-width: 640px){
+  .cs-index > li:last-child:nth-child(odd){grid-column:1 / -1;justify-self:center;width:calc(50% - 6px)}
+}
