@@ -584,7 +584,7 @@
           },
           {
             "title": "Shobdomukur",
-            "client": "Shobdomukur",
+            "client": "Shobdomukur (E-Library, UK)",
             "desc": "A bilingual (Bangla & English) e-library app for reading and discovering books on the go.",
             "tech": [
               "Laravel Blade",
