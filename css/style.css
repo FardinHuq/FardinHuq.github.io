@@ -725,3 +725,29 @@ a.sc-tile:hover .sc-go,a.sc-tile:focus-visible .sc-go{opacity:1;transform:none}
   .cs-photo{box-shadow:6px 6px 0 #111111}
   .cs-index{grid-template-columns:1fr 1fr}
 }
+
+/* Case Studies: one case at a time (js-router) */
+.cs.js-router .cs-jump{display:none}
+.cs.js-router .cs-case{border-top:0}
+.cs.is-case{padding-top:clamp(100px,8.5cqw,130px)}
+.cs.is-case .cs-head{display:none}
+.cs.is-case .cs-jump{display:flex;margin:0 auto clamp(20px,2cqw,32px);padding:6px;gap:6px;background:#111111;border-color:#111111;box-shadow:5px 5px 0 #FFE14D}
+.cs.is-case .cs-jump a{color:#FFFFFF;min-height:40px}
+.cs.is-case .cs-jump a b{color:#FFE14D;opacity:0.9}
+.cs.is-case .cs-jump a:hover{background:#2A2A2A;color:#FFFFFF}
+.cs.is-case .cs-jump a.is-on{background:#FFE14D;color:#111111}
+.cs.is-case .cs-jump a.is-on b{color:#111111}
+.cs-all{border:1.5px solid rgba(255,255,255,0.35);margin-right:4px}
+.cs.is-case .cs-jump a.cs-all:hover{background:#FFFFFF;color:#111111}
+.cs.is-case .cs-case{padding-top:clamp(16px,1.6cqw,24px)}
+.cs-case[hidden]{display:none !important}
+/* Next case: arrow sits right beside the project name */
+.cs-next{align-items:flex-start}
+.cs-next-t{display:inline-flex;align-items:center;gap:10px}
+.cs-next-t i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#111111;color:#FFE14D;font-style:normal;font-size:15px;transition:transform 220ms ease}
+.cs-next:hover .cs-next-t i{transform:translateX(4px)}
+/* Home: case studies glimpse */
+.cs-home{color:#111111;padding:clamp(56px,6cqw,100px) max(20px,5cqw) clamp(40px,4cqw,70px)}
+.cs-home-head{text-align:center;margin:0 auto clamp(28px,3cqw,44px)}
+.cs-home .cs-index{margin-bottom:clamp(30px,3cqw,48px)}
+@container nomi (max-width: 999px){.cs.is-case{padding-top:84px}.cs.is-case .cs-jump{top:70px;box-shadow:3px 3px 0 #FFE14D}}

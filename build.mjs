@@ -355,6 +355,30 @@ function publicationsPage() {
   </section>`;
 }
 
+// Home: a short glimpse of the case studies (cards open that case on the Case Studies page).
+function caseStudiesGlimpse() {
+  const K = C.caseStudies || { items: [] };
+  const items = (K.items || []).filter((it) => it && it.title);
+  if (!items.length) return '';
+  return `<section id="case-studies" class="cs-home" aria-labelledby="csh-title">
+    <div class="cs-wrap">
+      <div class="cs-home-head">
+        <p class="xp-eyebrow">${esc(K.homeEyebrow || K.eyebrow || 'Case studies')}</p>
+        <h2 id="csh-title" class="pj-h">${md(K.homeHeading || K.heading || 'Case studies')}</h2>
+      </div>
+      <ol class="cs-index">
+        ${items.map((it, i) => `<li><a class="cs-file" href="case-studies.html#${slug(it.title)}">
+          <span class="cs-file-pic"><img src="${esc(it.image)}" alt="" loading="lazy" decoding="async"></span>
+          <span class="cs-file-n">${pad2(i + 1)}</span>
+          <span class="cs-file-t">${esc(it.title)}</span>
+          <span class="cs-file-go" aria-hidden="true">→</span>
+        </a></li>`).join('\n        ')}
+      </ol>
+      <p class="pj-all"><a class="nomi-btn" href="case-studies.html">${esc(K.homeLink || 'See all case studies')} <i aria-hidden="true">→</i></a></p>
+    </div>
+  </section>`;
+}
+
 // Case Studies page: index of case files, a sticky case bar, then each case as a photo header + story cards.
 function caseStudiesPage() {
   const K = C.caseStudies || { items: [] };
@@ -384,7 +408,7 @@ function caseStudiesPage() {
               ${pts.length ? `<ul class="cs-sec-ul">${pts.map((p) => `<li>${md(p)}</li>`).join('')}</ul>` : ''}
             </div>`;
     }).join('\n            ');
-    const next = items[i + 1];
+    const next = items[(i + 1) % items.length];   // the last case loops back to the first
     return `<article class="cs-case" id="${slug(it.title)}" aria-labelledby="cs-t-${i}">
         <div class="cs-top">
           <figure class="cs-photo" data-reveal>
@@ -403,7 +427,7 @@ function caseStudiesPage() {
             ${cards}
         </div>
         <div class="cs-foot">
-          ${next ? `<a class="cs-next" href="#${slug(next.title)}"><small>${esc(K.nextLabel || 'Next case')}</small>${esc(next.title)} <i aria-hidden="true">→</i></a>` : `<a class="cs-next" href="#top"><small>${esc(K.topLabel || 'Back to all cases')}</small>${esc(K.heading ? plain(K.heading) : 'Case studies')} <i aria-hidden="true">↑</i></a>`}
+          <a class="cs-next" href="#${slug(next.title)}"><small>${esc(K.nextLabel || 'Next case')}</small><span class="cs-next-t">${esc(next.title)}<i aria-hidden="true">→</i></span></a>
         </div>
       </article>`;
   }).join('\n      ');
@@ -418,7 +442,7 @@ function caseStudiesPage() {
         ${index}
         </ol>
       </header>
-      <nav class="cs-jump" aria-label="${esc(K.eyebrow || 'Case studies')}">${jump}</nav>
+      <nav class="cs-jump" aria-label="${esc(K.eyebrow || 'Case studies')}"><a class="cs-all" href="#">← ${esc(K.allLabel || 'All cases')}</a>${jump}</nav>
       ${cases}
     </div>
   </section>`;
@@ -577,7 +601,7 @@ ${head({ path, title, description, ld })}
 }
 const PG = C.pages || {};
 const pages = {
-  'index.html': page({ cur: 'home', skip: '#about', body: [about(), experience(), clients(), projectsSummary(), processSec(), publications(), contact()].join('\n  ') }),
+  'index.html': page({ cur: 'home', skip: '#about', body: [about(), experience(), clients(), projectsSummary(), caseStudiesGlimpse(), processSec(), publications(), contact()].join('\n  ') }),
   'projects.html': page({ cur: 'projects', path: 'projects.html', title: (PG.projects || {}).title, description: (PG.projects || {}).description, body: projects() }),
   'about.html': page({ cur: 'about', path: 'about.html', title: (PG.about || {}).title, description: (PG.about || {}).description, body: about() }),
   'case-studies.html': page({ cur: 'case-studies', path: 'case-studies.html', title: (C.caseStudies || {}).title, description: (C.caseStudies || {}).description, body: caseStudiesPage() }),

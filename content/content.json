@@ -1109,16 +1109,8 @@
             "v": "Battery Low Interactive Ltd."
           },
           {
-            "k": "Role",
-            "v": "Project Coordinator"
-          },
-          {
             "k": "Stack",
             "v": "Node.js, AI models"
-          },
-          {
-            "k": "Platform",
-            "v": "PC and web"
           }
         ],
         "sections": [
@@ -1182,16 +1174,8 @@
             "v": "Battery Low Interactive Ltd."
           },
           {
-            "k": "Role",
-            "v": "Project Coordinator"
-          },
-          {
             "k": "Stack",
             "v": "Python, AI/LLM"
-          },
-          {
-            "k": "Platform",
-            "v": "Web"
           }
         ],
         "sections": [
@@ -1255,14 +1239,6 @@
             "v": "Battery Low Interactive Ltd."
           },
           {
-            "k": "Role",
-            "v": "Project Coordinator"
-          },
-          {
-            "k": "Team",
-            "v": "~8"
-          },
-          {
             "k": "Stack",
             "v": "Unity, C#, hardware rig"
           }
@@ -1320,14 +1296,6 @@
           {
             "k": "Studio",
             "v": "Battery Low Interactive Ltd."
-          },
-          {
-            "k": "Role",
-            "v": "Project Coordinator"
-          },
-          {
-            "k": "Team",
-            "v": "~3–4"
           },
           {
             "k": "Stack",
@@ -1388,14 +1356,6 @@
             "v": "Battery Low Interactive Ltd."
           },
           {
-            "k": "Role",
-            "v": "Product Designer & Project Coordinator"
-          },
-          {
-            "k": "Team",
-            "v": "8"
-          },
-          {
             "k": "Stack",
             "v": "Unity, C#, steering wheel and pedal rig"
           }
@@ -1438,6 +1398,10 @@
           }
         ]
       }
-    ]
+    ],
+    "homeEyebrow": "Case studies",
+    "homeHeading": "The full story, ==start to finish==.",
+    "homeLink": "See all case studies",
+    "allLabel": "All cases"
   }
 }
