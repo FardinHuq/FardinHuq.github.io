@@ -443,12 +443,14 @@
     const r = line.getBoundingClientRect();
     const prog = Math.min(1, Math.max(0, (trigger - r.top) / Math.max(1, r.height)));
     if (fill) fill.style.transform = 'scaleY(' + prog.toFixed(4) + ')';
+    // A badge levels up when the filling line reaches it, and resets when you scroll back above it,
+    // so the LEVEL UP pop replays every time you scroll down past it (a small margin stops flicker).
     items.forEach((it) => {
-      if (it.classList.contains('is-up')) return;
       const b = it.querySelector('.xp-badge');
       if (!b) return;
-      const br = b.getBoundingClientRect();
-      if (br.top + br.height / 2 < trigger) it.classList.add('is-up');
+      const br = b.getBoundingClientRect(), c = br.top + br.height / 2;
+      if (!it.classList.contains('is-up')) { if (c < trigger) it.classList.add('is-up'); }
+      else if (c > trigger + 40) it.classList.remove('is-up');
     });
   }
   globeTick() {
