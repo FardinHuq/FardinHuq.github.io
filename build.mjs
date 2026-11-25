@@ -37,10 +37,18 @@ const linkAttrs = (h) => (ext(h) ? ' target="_blank" rel="noopener"' : '');
 const S = C.site;
 
 // ---------- sections ----------
-function nav() {
-  const links = C.nav.map((n) => `<a class="nomi-navlink" href="${esc(n.href)}">${esc(n.label)}</a>`).join('\n      ');
+const slug = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+// Section links (#experience) work on the home page; on the other pages they point back to it.
+const navHref = (h, home) => (!home && /^#/.test(h) ? './' + h : h);
+function nav(cur = 'home') {
+  const home = cur === 'home';
+  const links = C.nav.map((n) => {
+    const h = navHref(n.href, home);
+    const on = !home && h === cur + '.html';
+    return `<a class="nomi-navlink${on ? ' is-cur' : ''}" href="${esc(h)}"${on ? ' aria-current="page"' : ''}>${esc(n.label)}</a>`;
+  }).join('\n      ');
   return `<nav class="nomi-nav" aria-label="Main">
-      <a class="nav-brand" href="#top">${esc(S.name)}</a>
+      <a class="nav-brand" href="${home ? '#top' : './'}">${esc(S.name)}</a>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links"><span class="nav-burger" aria-hidden="true"></span>Menu</button>
       <div class="nav-links" id="nav-links">
       ${links}
@@ -153,22 +161,43 @@ function clients() {
   </section>`;
 }
 
+// Home: the numbers only. Each category tile opens that category on the Projects page.
+function projectsSummary() {
+  const J = C.projects;
+  const big = J.bigStats.map((s) => `<div class="sc-tile is-big"><span class="sc-num"><span class="sc-n" data-to="${s.value}" data-dec="${s.decimals || 0}">${Number(s.value).toFixed(s.decimals || 0)}</span><span class="sc-plus">+</span></span><p class="sc-line">${md(s.line)}</p><span class="sc-label">${esc(s.label)}</span></div>`).join('');
+  const small = J.smallStats.map((s) => {
+    const cat = J.categories.find((c) => c.name === s.category);
+    const inner = `${s.image ? `<img class="sc-ico sc-pic" src="${esc(s.image)}" alt="" loading="lazy" decoding="async">` : (P.icons[s.icon] || P.icons.web)}<span class="sc-num"><span class="sc-n" data-to="${s.value}" data-dec="0">${s.value}</span><span class="sc-plus">+</span></span><span class="sc-label">${esc(s.label)}</span>`;
+    return cat ? `<a class="sc-tile is-cat is-link" href="projects.html#${slug(cat.name)}" aria-label="${esc(s.value + '+ ' + s.label)}: see projects">${inner}<span class="sc-go" aria-hidden="true">→</span></a>` : `<div class="sc-tile is-cat">${inner}</div>`;
+  }).join('');
+  return `<section id="projects" class="pj is-summary" aria-labelledby="pj-title">
+    <div class="pj-head">
+      <p class="xp-eyebrow">${esc(J.eyebrow)}</p>
+      <h2 id="pj-title" class="pj-h">${md(J.heading)}</h2>
+    </div>
+    <div class="pj-pin">
+      <div class="pj-score" role="group" aria-label="Career in numbers">${big}${small}</div>
+      <p class="pj-all"><a class="nomi-btn" href="projects.html">${esc(J.allLabel || 'See all projects')} <i aria-hidden="true">→</i></a></p>
+    </div>
+  </section>`;
+}
+
+// Projects page: every project with its 3D device, grouped by category (each category has an anchor).
 function projects() {
   const J = C.projects;
   const total = J.categories.reduce((a, c) => a + c.projects.length, 0);
   let n = 0;
-  const big = J.bigStats.map((s) => `<div class="sc-tile is-big"><span class="sc-num"><span class="sc-n" data-to="${s.value}" data-dec="${s.decimals || 0}">${Number(s.value).toFixed(s.decimals || 0)}</span><span class="sc-plus">+</span></span><p class="sc-line">${md(s.line)}</p><span class="sc-label">${esc(s.label)}</span></div>`).join('');
-  const small = J.smallStats.map((s) => `<div class="sc-tile is-cat">${s.image ? `<img class="sc-ico sc-pic" src="${esc(s.image)}" alt="" loading="lazy" decoding="async">` : (P.icons[s.icon] || P.icons.web)}<span class="sc-num"><span class="sc-n" data-to="${s.value}" data-dec="0">${s.value}</span><span class="sc-plus">+</span></span><span class="sc-label">${esc(s.label)}</span></div>`).join('');
+  const jump = `<nav class="pj-jump" aria-label="${esc((C.pages && C.pages.projects && C.pages.projects.jumpLabel) || 'Jump to')}">${J.categories.filter((c) => c.projects.length).map((c) => `<a href="#${slug(c.name)}" data-slug="${slug(c.name)}">${esc(c.name)}</a>`).join('')}</nav>`;
   // Each category shows its 3D model (loaded by main.js only when that category is on screen); the drawing stays as a fallback until the model is ready.
   const devs = J.categories.map((c, i) => {
     const svg = (P.devices[c.device] || P.devices.web).replace(/id="pjs(\d)"/g, `id="pjs$1c${i}"`).replace(/url\(#pjs(\d)\)/g, `url(#pjs$1c${i})`);
     const model = c.model ? `<model-viewer class="pj-model" data-src="${esc(c.model)}" alt="" aria-hidden="true" rotation-per-second="16deg" interaction-prompt="none" disable-zoom disable-pan disable-tap environment-image="neutral" exposure="1.05" shadow-intensity="0.9" shadow-softness="1" camera-orbit="${esc(c.modelView || '0deg 90deg auto')}"></model-viewer>` : '';
     return `<div class="pj-dev${i === 0 ? ' is-on' : ''}${c.model ? ' has-model' : ''}" data-k="${i}"><div class="pj-svg">${svg}</div>${model}</div>`;
   }).join('\n          ');
-  const cards = J.categories.map((c, ci) => c.projects.map((p) => {
+  const cards = J.categories.map((c, ci) => c.projects.map((p, pi) => {
     n += 1;
     const img = projectThumb(p);
-    return `<article class="pj-card" data-cat="${ci}" data-catname="${esc(c.name)}">
+    return `<article class="pj-card"${pi === 0 ? ` id="${slug(c.name)}"` : ''} data-cat="${ci}" data-slug="${slug(c.name)}" data-catname="${esc(c.name)}">
              <div class="pj-in">
               <div class="pj-thumb${img ? ' has-img' : ''}">
                 ${img}
@@ -186,14 +215,14 @@ function projects() {
              </div>
             </article>`;
   }).join('\n')).join('\n');
-  return `<section id="projects" class="pj" aria-labelledby="pj-title" data-total="${total}">
+  return `<section id="projects" class="pj is-page" aria-labelledby="pj-title" data-total="${total}">
     <div class="pj-track">
       <div class="pj-pin">
         <div class="pj-head">
           <p class="xp-eyebrow">${esc(J.eyebrow)}</p>
-          <h2 id="pj-title" class="pj-h">${md(J.heading)}</h2>
+          <h1 id="pj-title" class="pj-h">${md(J.heading)}</h1>
+          ${jump}
         </div>
-        <div class="pj-score" role="group" aria-label="Career in numbers">${big}${small}</div>
         <div class="pj-stage-side" aria-hidden="true">
           <div class="pj-st is-top"></div>
           <div class="pj-st is-bot"></div>
@@ -271,12 +300,57 @@ function publications() {
           <p class="xp-eyebrow">${esc(B.eyebrow)}</p>
           <h2 id="pb-title" class="pb-h">${md(B.heading)}</h2>
           <p class="pb-sub">${md(B.sub)}</p>
+          ${B.pageLink ? `<a class="pb-all" href="publications.html">${esc(B.pageLink)} <i aria-hidden="true">→</i></a>` : ''}
         </div>
         <div class="pb-stage">
           <ol class="pb-deck">
 ${sheets}
           </ol>
         </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+// Publications page: the experience-style timeline, one large card per paper with what the paper page holds
+// (venue, date, pages, method, abstract, findings, tags, DOI, PDF, citation).
+function publicationsPage() {
+  const B = C.publications, G = (C.pages && C.pages.publications) || {};
+  const cite = (p) => `${plain(p.authors)}. ${p.year}. ${plain(p.title)}. ${p.proceedings || p.venue}${p.pages ? ', ' + p.pages : ''}. ${p.publisher || 'ACM'}.${p.doi ? ' https://doi.org/' + p.doi : ''}`;
+  const papers = [...B.papers].map((p, i) => ({ p, i })).sort((a, b) => (b.p.year || 0) - (a.p.year || 0));
+  const items = papers.map(({ p, i }) => {
+    const facts = [['Published', p.date || p.year], ['Venue', p.place], ['Pages', p.pages], ['Method', p.method]].filter((f) => f[1]);
+    const id = 'paper-' + (i + 1);
+    return `<article class="xp-item pp-item" id="${id}">
+          <div class="xp-badge${/journal/i.test(p.type || '') ? ' is-side' : ''}"><span>${esc(p.year)}</span></div>
+          <div class="xp-card pp-card">
+            <div class="pp-top"><span class="pp-venue">${esc(p.venue)}</span>${p.type ? `<span class="pp-type">${esc(p.type)}</span>` : ''}<span class="pp-pub">${esc(p.publisher || 'ACM')}</span></div>
+            <h2 class="pp-title"><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a></h2>
+            <p class="pp-auth">${md(p.authors, 'b')}</p>
+            ${p.proceedings ? `<p class="pp-proc">${esc(p.proceedings)}</p>` : ''}
+            ${facts.length ? `<dl class="pp-facts">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : ''}
+            <div class="pp-cols">
+              ${p.abstract ? `<div class="pp-abs"><h3 class="pp-h3">${esc(G.abstractLabel || 'Abstract')}</h3><div class="pp-abs-t" id="${id}-abs"><p>${esc(p.abstract)}</p></div><button type="button" class="pp-more" aria-expanded="false" aria-controls="${id}-abs" data-less="${esc(G.lessLabel || 'Show less')}">${esc(G.moreLabel || 'Read full abstract')}</button></div>` : ''}
+              ${(p.findings || []).filter(Boolean).length ? `<div class="pp-key"><h3 class="pp-h3">${esc(G.findingsLabel || 'Key findings')}</h3><ul class="xp-list">${p.findings.filter(Boolean).map((t) => `<li>${md(t)}</li>`).join('')}</ul>${p.line ? `<p class="pp-line">${md(p.line)}</p>` : ''}</div>` : ''}
+            </div>
+            ${(p.tags || []).filter(Boolean).length ? `<div class="pp-tags">${p.tags.filter(Boolean).map((t) => `<span class="xp-chip">${esc(t)}</span>`).join('')}</div>` : ''}
+            <div class="pp-foot">
+              <a class="nomi-btn pp-read" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(G.readLabel || 'Read paper')} <i aria-hidden="true">→</i></a>
+              ${p.pdf ? `<a class="pp-btn" href="${esc(p.pdf)}" target="_blank" rel="noopener">${esc(G.pdfLabel || 'PDF')} <i aria-hidden="true">↓</i></a>` : ''}
+              <button type="button" class="pp-btn pp-cite" data-cite="${esc(cite(p))}" data-done="${esc(G.citedLabel || 'Copied!')}">${esc(G.citeLabel || 'Copy citation')}</button>
+              ${p.doi ? `<span class="pp-doi">DOI <a href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener">${esc(p.doi)}</a></span>` : ''}
+            </div>
+          </div>
+        </article>`;
+  }).join('\n        ');
+  return `<section id="publications" class="xp pp" aria-labelledby="pp-title">
+    <div class="xp-wrap">
+      <p class="xp-eyebrow">${esc(G.eyebrow || B.eyebrow)}</p>
+      <h1 id="pp-title" class="xp-h2">${md(G.heading || B.heading)}</h1>
+      <p class="xp-intro">${md(G.intro || B.sub)}</p>
+      <div class="xp-line">
+        <div class="xp-fill" aria-hidden="true"></div>
+        ${items}
       </div>
     </div>
   </section>`;
@@ -318,7 +392,7 @@ function contact() {
   </section>`;
 }
 
-function footer() {
+function footer(home = true) {
   const F = C.footer;
   // Icon-only links to every profile that is filled in (Site & SEO → Profiles, WhatsApp, Email)
   const B = P.brands || {};
@@ -339,7 +413,7 @@ function footer() {
     <div class="ft-row">
       <div class="ft-name">${esc(S.name)}<span>${esc(S.jobTitle)}</span></div>
       <nav class="ft-links" aria-label="Footer">
-        ${C.nav.map((n) => `<a href="${esc(n.href)}">${esc(n.label.replace(/ Me$/, ''))}</a>`).join('')}
+        ${C.nav.map((n) => `<a href="${esc(navHref(n.href, home))}">${esc(n.label.replace(/ Me$/, ''))}</a>`).join('')}
       </nav>
       <button type="button" class="ft-top">Back to top ↑</button>
     </div>
@@ -349,8 +423,10 @@ function footer() {
 }
 
 // ---------- SEO ----------
-function head() {
+function head(pg = {}) {
   const url = S.url.replace(/\/?$/, '/');
+  const pageUrl = url + (pg.path || '');
+  const title = pg.title || S.title, desc = pg.description || S.description;
   const sameAs = Object.values(S.profiles || {}).filter(Boolean);
   const person = {
     '@context': 'https://schema.org',
@@ -373,65 +449,70 @@ function head() {
     datePublished: String(p.year || ''), publisher: { '@type': 'Organization', name: p.publisher || 'ACM' },
     author: plain(p.authors).split(',').map((a) => ({ '@type': 'Person', name: a.trim() === 'F. Huq' ? S.name : a.trim() })),
   }));
-  const ld = [{ '@context': 'https://schema.org', '@type': 'ProfilePage', mainEntity: person, url }, site, ...papers];
+  const ld = pg.ld === 'papers' ? papers : pg.path ? [site] : [{ '@context': 'https://schema.org', '@type': 'ProfilePage', mainEntity: person, url }, site, ...papers];
   return `<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>${esc(S.title)}</title>
-<meta name="description" content="${esc(S.description)}">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
 <meta name="keywords" content="${esc(S.keywords)}">
 <meta name="author" content="${esc(S.name)}">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="${esc(url)}">
+<link rel="canonical" href="${esc(pageUrl)}">
 <meta name="theme-color" content="#EAEAEA">
 ${S.googleVerification ? `<meta name="google-site-verification" content="${esc(S.googleVerification)}">` : ''}
-<meta property="og:type" content="profile">
-<meta property="og:title" content="${esc(S.title)}">
-<meta property="og:description" content="${esc(S.description)}">
-<meta property="og:url" content="${esc(url)}">
+<meta property="og:type" content="${pg.path ? 'website' : 'profile'}">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:url" content="${esc(pageUrl)}">
 <meta property="og:image" content="${esc(url + S.ogImage)}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="profile:first_name" content="${esc(S.name.split(' ')[0])}">
 <meta property="profile:last_name" content="${esc(S.name.split(' ').slice(1).join(' '))}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${esc(S.title)}">
-<meta name="twitter:description" content="${esc(S.description)}">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${esc(url + S.ogImage)}">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,800&family=Space+Grotesk:wght@500;600;700&display=swap">
-<link rel="preload" as="image" href="${esc(C.hero.poster)}">
+${pg.path ? '' : `<link rel="preload" as="image" href="${esc(C.hero.poster)}">`}
 <link rel="stylesheet" href="css/style.css">
 <script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`;
 }
 
-const html = `<!doctype html>
+// ---------- pages ----------
+function page({ path = '', cur = 'home', title, description, ld, body, skip = '#main' }) {
+  const home = cur === 'home';
+  return `<!doctype html>
 <html lang="en">
 <head>
-${head()}
+${head({ path, title, description, ld })}
 </head>
-<body>
-<a class="skip" href="#about">Skip to content</a>
+<body class="pg-${cur}">
+<a class="skip" href="${skip}">Skip to content</a>
 <div class="nomi-root">
-  ${hero()}
-  <main>
-  ${about()}
-  ${experience()}
-  ${clients()}
-  ${projects()}
-  ${processSec()}
-  ${publications()}
-  ${contact()}
+  ${home ? hero() : `<header class="pg-top">${nav(cur)}</header>`}
+  <main id="main">
+  ${body}
   </main>
-  ${footer()}
+  ${footer(home)}
 </div>
 <script>window.SITE=${JSON.stringify({ bubble: C.hero.bubble, email: S.email }).replace(/</g, '\\u003c')};</script>
 <script src="js/main.js" defer></script>
 </body>
 </html>
 `;
+}
+const PG = C.pages || {};
+const pages = {
+  'index.html': page({ cur: 'home', skip: '#about', body: [about(), experience(), clients(), projectsSummary(), processSec(), publications(), contact()].join('\n  ') }),
+  'projects.html': page({ cur: 'projects', path: 'projects.html', title: (PG.projects || {}).title, description: (PG.projects || {}).description, body: projects() }),
+  'about.html': page({ cur: 'about', path: 'about.html', title: (PG.about || {}).title, description: (PG.about || {}).description, body: about() }),
+  'publications.html': page({ cur: 'publications', path: 'publications.html', title: (PG.publications || {}).title, description: (PG.publications || {}).description, ld: 'papers', body: publicationsPage() }),
+};
 
 // ---------- write ----------
 mkdirSync(OUT, { recursive: true });
@@ -439,10 +520,10 @@ if (OUT !== ROOT) {
   for (const d of ['assets', 'css', 'js', 'admin', 'content']) if (existsSync(join(ROOT, d))) cpSync(join(ROOT, d), join(OUT, d), { recursive: true });
   for (const f of ['.nojekyll', 'CNAME']) if (existsSync(join(ROOT, f))) cpSync(join(ROOT, f), join(OUT, f));
 }
-writeFileSync(join(OUT, 'index.html'), html);
+for (const [f, h] of Object.entries(pages)) writeFileSync(join(OUT, f), h);
 const url = S.url.replace(/\/?$/, '/');
 const today = new Date().toISOString().slice(0, 10);
-writeFileSync(join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${url}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>\n</urlset>\n`);
+writeFileSync(join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  ${Object.keys(pages).map((f) => `<url><loc>${url}${f === 'index.html' ? '' : f}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>${f === 'index.html' ? '1.0' : '0.8'}</priority></url>`).join('\n  ')}\n</urlset>\n`);
 writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: ${url}sitemap.xml\n`);
 {
   const seen = new Set();

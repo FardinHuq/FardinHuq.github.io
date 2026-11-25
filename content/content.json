@@ -27,7 +27,7 @@
   "nav": [
     {
       "label": "About Me",
-      "href": "#about"
+      "href": "about.html"
     },
     {
       "label": "Experience",
@@ -35,11 +35,11 @@
     },
     {
       "label": "Projects",
-      "href": "#projects"
+      "href": "projects.html"
     },
     {
       "label": "Publications",
-      "href": "#publications"
+      "href": "publications.html"
     },
     {
       "label": "Contact",
@@ -386,31 +386,43 @@
         "icon": "vr",
         "image": "assets/icons/vr.webp",
         "value": 10,
-        "label": "VR projects"
+        "label": "VR projects",
+        "category": "VR"
       },
       {
         "icon": "sim",
         "image": "assets/icons/sim.webp",
         "value": 6,
-        "label": "Simulations"
+        "label": "Simulations",
+        "category": "Simulation"
       },
       {
         "icon": "ar",
         "image": "assets/icons/ar.webp",
-        "value": 10,
-        "label": "AR projects"
+        "value": 6,
+        "label": "AR projects",
+        "category": "AR"
       },
       {
         "icon": "web",
         "image": "assets/icons/web.webp",
         "value": 10,
-        "label": "Web projects"
+        "label": "Web projects",
+        "category": "Web"
+      },
+      {
+        "icon": "db",
+        "image": "assets/icons/db.webp",
+        "value": 3,
+        "label": "Databases",
+        "category": "Database"
       },
       {
         "icon": "app",
         "image": "assets/icons/app.webp",
         "value": 8,
-        "label": "Apps"
+        "label": "Apps",
+        "category": "App"
       }
     ],
     "categories": [
@@ -856,7 +868,8 @@
         "modelView": ""
       }
     ],
-    "modelCreditsLabel": "3D models"
+    "modelCreditsLabel": "3D models",
+    "allLabel": "See all projects"
   },
   "process": {
     "eyebrow": "Process",
@@ -908,7 +921,27 @@
         "line": "Why riders cut the app and haggle with the driver instead.",
         "url": "https://doi.org/10.1145/3588001.3609361",
         "publisher": "ACM",
-        "year": 2023
+        "year": 2023,
+        "type": "Conference paper",
+        "proceedings": "Proceedings of the 6th ACM SIGCAS/SIGCHI Conference on Computing and Sustainable Societies (COMPASS ’23)",
+        "date": "16 Aug 2023",
+        "pages": "43–53",
+        "doi": "10.1145/3588001.3609361",
+        "pdf": "https://dl.acm.org/doi/pdf/10.1145/3588001.3609361",
+        "method": "Survey + interviews",
+        "abstract": "With rapid urbanization and increasing traffic congestion in major cities, alternative modes of transportation have gained significant attention. The ride-sharing app revolution also has sparked a significant transformation in the transportation industry, along with “Khep”, an unusual ride-sharing approach where individuals negotiate fares directly with drivers personally, which has become a popular means of transportation. In this research, we investigate various factors that influence the preference for such unconventional contractual rides over ride-sharing apps, such as cultural norms, trust issues, affordability, and accessibility. Moreover, we explore the role of technology literacy, marketing strategies, and regulatory frameworks in shaping the adoption landscape. After conducting a survey and interviews, we conduct a thorough analysis to determine the expected findings and uncover meaningful insights regarding the utilization, preferences, and challenges within the ride-sharing industry in Bangladesh. The findings of this study reveal that cultural factors, such as the preference for bargaining and personal connections, strongly influence the popularity of contractual rides. Additionally, concerns related to safety, data privacy, and trust act as barriers to ride-sharing app adoption. Being associated with UN SDG Goals 11 and 9, the implications of this research extend beyond Bangladesh and can provide insights for policymakers, transportation companies, and technology developers seeking to understand the factors shaping the adoption of ride-sharing apps in similar contexts.",
+        "findings": [
+          "Bargaining culture and personal connections make “khep” rides popular.",
+          "Safety, data-privacy and trust concerns hold back ride-sharing app adoption.",
+          "Linked to UN SDGs 9 and 11, with lessons beyond Bangladesh."
+        ],
+        "tags": [
+          "HCI",
+          "ICT4D",
+          "Ride-sharing",
+          "Gig economy",
+          "Bangladesh"
+        ]
       },
       {
         "venue": "COMPASS 2024",
@@ -916,9 +949,29 @@
         "title": "Navigating Truth in the Sea of Content: Exploring Influential Factors Shaping User Perceptions of Trustworthiness in YouTube Content",
         "authors": "A. B. Alok, **F. Huq**, S. A. Ullah, R. Ghosh, J. Noor",
         "line": "What makes people trust a YouTube video, or scroll past it.",
-        "url": "https://dl.acm.org/action/doSearch?AllField=Navigating%20Truth%20in%20the%20Sea%20of%20Content",
+        "url": "https://doi.org/10.1145/3674829.3675065",
         "publisher": "ACM",
-        "year": 2024
+        "year": 2024,
+        "type": "Conference paper",
+        "proceedings": "Proceedings of the 7th ACM SIGCAS/SIGCHI Conference on Computing and Sustainable Societies (COMPASS ’24)",
+        "date": "8 Jul 2024",
+        "pages": "107–116",
+        "doi": "10.1145/3674829.3675065",
+        "pdf": "https://dl.acm.org/doi/pdf/10.1145/3674829.3675065",
+        "method": "Mixed methods: survey (n=71) + interviews (n=19)",
+        "abstract": "In today’s digital age, YouTube stands as a vital hub for information across various domains, from entertainment to education. However, the persistent challenge of misinformation threatens its integrity. This study explores the complex dynamics of trust and legitimacy within YouTube’s content ecosystem, uncovering factors shaping user perceptions in Bangladesh. We highlight the crucial roles of creator reputation, content presentation, and social validation in building trust while emphasizing the need to address misleading content effectively. Employing a mixed-methods approach, we conducted surveys (n=71) and interviews (n=19) to gain insights into user experiences comprehensively. By addressing gaps in current research, our study contributes to the HCI and ICT4D communities, illuminating critical issues in the digital realm. As YouTube continues to influence our online landscape, grasping trust and misinformation becomes essential for fostering an informed and trustworthy online community.",
+        "findings": [
+          "Creator reputation is the strongest signal of trust.",
+          "Presentation and social validation (views, likes, comments) shape credibility.",
+          "Misleading content must be tackled to keep the platform trustworthy."
+        ],
+        "tags": [
+          "HCI",
+          "ICT4D",
+          "Misinformation",
+          "Trust",
+          "YouTube"
+        ]
       },
       {
         "venue": "ACM JCSS 2025",
@@ -928,9 +981,30 @@
         "line": "The journal follow-up: both sides of the ride, companies and commuters.",
         "url": "https://doi.org/10.1145/3735142",
         "publisher": "ACM",
-        "year": 2025
+        "year": 2025,
+        "type": "Journal article",
+        "proceedings": "ACM Journal on Computing and Sustainable Societies, Vol. 3, Issue 3",
+        "date": "6 Jun 2025",
+        "pages": "1–30",
+        "doi": "10.1145/3735142",
+        "pdf": "https://dl.acm.org/doi/pdf/10.1145/3735142",
+        "method": "Two-phase study: surveys + interviews",
+        "abstract": "In the face of escalating urbanization and traffic congestion, the emergence of ride-sharing applications has triggered a transformative shift in transportation and the gig economy, with “khep” (a new form of contractual rides) emerging as a distinctive and popular ride-sharing phenomenon in Bangladesh. Having a lack of prior research on “khep” phenomenon in the context of HCI and ICT4D, we conduct comprehensive research involving a two-phase data collection to unravel the intricacies of khep. We present the context from the perspectives of both companies and commuters, examining factors influencing the preference for contractual rides over conventional ride-sharing apps. Cultural norms, trust dynamics, affordability, and accessibility are scrutinized alongside the role of technology literacy, marketing strategies, and regulatory frameworks in shaping the adoption landscape. Through a blend of surveys and interviews in each phase, the study provides nuanced insights into utilization patterns, preferences, and challenges within the Bangladeshi ride-sharing industry, with a specific focus on the khep phenomenon. Aligned with HCI labor work, the study’s implications transcend Bangladesh, offering valuable insights for ICT4D and HCI researchers, policymakers, transportation companies, and technology developers seeking a holistic understanding of the factors shaping the preference for contractual rides within the unique context of the khep phenomenon.",
+        "findings": [
+          "Looks at both sides of khep: ride-sharing companies and commuters.",
+          "Cultural norms, trust, affordability and access drive the choice of contractual rides.",
+          "Tech literacy, marketing and regulation shape how the apps get adopted."
+        ],
+        "tags": [
+          "HCI",
+          "ICT4D",
+          "Gig economy",
+          "Ride-sharing",
+          "Bangladesh"
+        ]
       }
-    ]
+    ],
+    "pageLink": "See all papers"
   },
   "contact": {
     "eyebrow": "Contact",
@@ -977,5 +1051,31 @@
     "right": "Built on time.",
     "rightBold": "Obviously.",
     "creditsLink": "Credits"
+  },
+  "pages": {
+    "projects": {
+      "title": "Projects — Fardin Huq",
+      "description": "VR, AR, simulation, web, database and app projects coordinated and delivered by Fardin Huq.",
+      "jumpLabel": "Jump to"
+    },
+    "about": {
+      "title": "About — Fardin Huq",
+      "description": "About Fardin Huq: project coordinator for web, app, XR and simulation delivery in Dhaka, Bangladesh."
+    },
+    "publications": {
+      "title": "Publications — Fardin Huq",
+      "description": "Peer-reviewed ACM research by Fardin Huq on HCI, ride-sharing and online trust in Bangladesh.",
+      "eyebrow": "Publications",
+      "heading": "Research, ==peer-reviewed==.",
+      "intro": "Three ACM papers on how people in Bangladesh really use technology: why riders skip the app, and what makes a YouTube video feel trustworthy.",
+      "abstractLabel": "Abstract",
+      "findingsLabel": "Key findings",
+      "moreLabel": "Read full abstract",
+      "lessLabel": "Show less",
+      "readLabel": "Read paper",
+      "pdfLabel": "PDF",
+      "citeLabel": "Copy citation",
+      "citedLabel": "Copied!"
+    }
   }
 }

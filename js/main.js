@@ -12,7 +12,7 @@
       this.panels = $$('.st-panel', this.storyEl);
       this.stage = $('.nomi-stage');
       this.head = $('.nomi-h1');
-      this.xpEl = $('#experience'); this.xpLineEl = $('.xp-line'); this.xpFillEl = $('.xp-fill');
+      this.xpEl = $('#experience'); this.xpLineEl = $$('.xp-line'); this.xpFillEl = $('.xp-fill');
       this.globeEl = $('.tg-globe'); this.tagEls = $$('.tg-tag');
       this.pjEl = $('#projects'); this.pjTrackEl = $('.pj-track'); this.pjPinEl = $('.pj-pin'); this.pjCardsEl = $('.pj-cards'); this.pjScoreEl = $('.pj-score'); this.pjCatBigEl = $('.pj-catbig');
       this.prEl = $('#process'); this.prTrackEl = $('.pr-track'); this.prMapEl = $('.pr-map'); this.prDoneEl = $('.pr-done'); this.prPandaEl = $('.pr-panda'); this.prStampEl = $('.pr-stamp'); this.prHintEl = $('.pr-hint');
@@ -57,6 +57,39 @@
         const el = this.ctToastEl; if (!el) return;
         el.classList.add('is-on'); clearTimeout(this.ctToastT);
         this.ctToastT = setTimeout(() => el.classList.remove('is-on'), 1700);
+      });
+      const jumpTo = (h, smooth) => { const sl = (h || '').replace(/^#/, ''); if (sl && this.goCat(sl, smooth)) this.markJump(sl); };
+      $$('.pj-jump a').forEach((a) => a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const h = a.getAttribute('href');
+        try { history.replaceState(null, '', h); } catch (er) {}
+        jumpTo(h, true);
+      }));
+      if (this.pjCardsEl && location.hash) {
+        // let the layout settle (the pinned track height is set on the first update), then jump
+        const h = location.hash;
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        setTimeout(() => { this.updateStory(); jumpTo(h, false); }, 80);
+        window.addEventListener('load', () => setTimeout(() => jumpTo(h, false), 60), { once: true });
+      }
+      window.addEventListener('hashchange', () => jumpTo(location.hash, true));
+      $$('.pp-more').forEach((b) => {
+        const label = b.textContent;
+        b.addEventListener('click', () => {
+          const box = document.getElementById(b.getAttribute('aria-controls'));
+          const open = b.getAttribute('aria-expanded') !== 'true';
+          b.setAttribute('aria-expanded', String(open));
+          if (box) box.classList.toggle('is-open', open);
+          b.textContent = open ? b.getAttribute('data-less') : label;
+        });
+      });
+      $$('.pp-cite').forEach((b) => {
+        const label = b.textContent;
+        b.addEventListener('click', () => {
+          const t = b.getAttribute('data-cite');
+          const done = () => { b.textContent = b.getAttribute('data-done'); b.classList.add('is-done'); setTimeout(() => { b.textContent = label; b.classList.remove('is-done'); }, 1600); };
+          try { navigator.clipboard.writeText(t).then(done, () => window.prompt('Citation:', t)); } catch (er) { window.prompt('Citation:', t); }
+        });
       });
       const top = $('.ft-top');
       if (top) top.addEventListener('click', () => { try { window.scrollTo({ top: 0, behavior: REDUCE ? 'auto' : 'smooth' }); } catch (e) { window.scrollTo(0, 0); } });
@@ -117,7 +150,6 @@
   pinOff() { return Math.max(0, (window.innerHeight - this.pageH()) / 2); }
   updateStory() {
     const w = this.storyEl;
-    if (!w) return;
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const de = document.documentElement;
     const ok = !reduce && de.scrollHeight > window.innerHeight + 80;
@@ -128,6 +160,7 @@
     this.updateProcess(big);
     this.updatePubs(big);
     this.updateContact(ok);
+    if (!w) return;
     w.classList.toggle('is-anim', anim);
     const ps = this.panels;
     if (!anim) { ps.forEach((el) => { if (el) { el.style.transform = ''; el.style.opacity = ''; el.style.visibility = ''; } }); return; }
@@ -178,6 +211,7 @@
     return cats;
   }
   updateProjects(anim) {
+    this.countUp();
     const sec = this.pjEl, pin = this.pjPinEl, track = this.pjTrackEl, wrap = this.pjCardsEl;
     if (!sec || !pin || !track || !wrap) return;
     const cards = Array.prototype.slice.call(wrap.querySelectorAll('.pj-card'));
@@ -185,12 +219,15 @@
     const score = this.pjScoreEl;
     const side = pin.querySelector('.pj-stage-side');
     const items = (score ? [score] : []).concat(cards);
-    this.countUp();
     if (!anim || !cards.length) {
       sec.classList.remove('is-anim');
       track.style.height = '';
       items.forEach((el) => { el.style.transform = ''; el.style.opacity = ''; el.style.visibility = ''; el.style.pointerEvents = ''; });
       if (side) side.style.opacity = '';
+      // stacked layout: highlight the category the reader is looking at
+      let cur = cards[0];
+      cards.forEach((c) => { if (c.getBoundingClientRect().top < window.innerHeight * 0.45) cur = c; });
+      if (cur) this.markJump(cur.getAttribute('data-slug'));
       return;
     }
     sec.classList.add('is-anim');
@@ -227,6 +264,30 @@
       this.showModel(devs, cat);
       if (this.pjCatBigEl) this.pjCatBigEl.textContent = cardEl.getAttribute('data-catname') || '';
     }
+    this.markJump(cardEl.getAttribute('data-slug'));
+  }
+  markJump(sl) {
+    if (sl === this.pjJumpCur) return;
+    this.pjJumpCur = sl;
+    $$('.pj-jump a').forEach((a) => { const on = a.getAttribute('data-slug') === sl; a.classList.toggle('is-on', on); if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+  }
+  // Projects page: go to the first project of a category (#web, #vr…). While the section is pinned the
+  // cards sit on top of each other, so work out the scroll position that brings that card up.
+  goCat(sl, smooth) {
+    const wrap = this.pjCardsEl, track = this.pjTrackEl;
+    if (!wrap || !track || !sl) return false;
+    const cards = $$('.pj-card', wrap);
+    const i = cards.findIndex((c) => c.getAttribute('data-slug') === sl);
+    if (i < 0) return false;
+    const behavior = smooth && !REDUCE ? 'smooth' : 'auto';
+    if (this.pjEl.classList.contains('is-anim') && cards.length > 1) {
+      const r = track.getBoundingClientRect();
+      const y = r.top + window.scrollY - this.pinOff() + (i / (cards.length - 1)) * (r.height - this.pageH()) + 2;
+      window.scrollTo({ top: Math.max(0, y), behavior });
+    } else {
+      cards[i].scrollIntoView({ behavior, block: 'start' });
+    }
+    return true;
   }
   // 3D models (desktop only): load the viewer library on first need, load the active category's model,
   // then quietly preload the next one. Only the visible model keeps rotating.
@@ -367,8 +428,9 @@
     this.ctTmr = setTimeout(tick, 1100);
   }
   updateXp(anim) {
-    const sec = this.xpEl, line = this.xpLineEl, fill = this.xpFillEl;
-    if (!sec || !line) return;
+    $$('.xp-line').forEach((line) => this.updateXpLine(anim, line.closest('section') || line, line, line.querySelector('.xp-fill')));
+  }
+  updateXpLine(anim, sec, line, fill) {
     const items = Array.prototype.slice.call(line.querySelectorAll('.xp-item'));
     if (!anim) {
       sec.classList.remove('xp-js');
