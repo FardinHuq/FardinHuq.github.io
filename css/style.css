@@ -668,8 +668,6 @@ a.sc-tile:hover .sc-go,a.sc-tile:focus-visible .sc-go{opacity:1;transform:none}
 .cs-photo:hover{transform:rotate(0deg) translateY(-4px);box-shadow:14px 14px 0 #111111}
 .cs-photo:hover img{transform:scale(1.04)}
 .cs-tag{position:absolute;top:14px;left:14px;z-index:2;font-family:'Space Grotesk','Inter',sans-serif;font-weight:700;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;background:#111111;color:#FFFFFF;padding:8px 14px;border-radius:8px;box-shadow:4px 4px 0 #FFE14D;transform:rotate(-4deg)}
-.cs-play{top:auto;bottom:18px;left:auto;right:18px;transform:none}
-.cs-play:hover{transform:scale(1.06)}
 .cs-n{margin:0 0 6px;font-family:'Space Grotesk','Inter',sans-serif;font-weight:700;font-size:clamp(64px,7cqw,120px);line-height:0.85;letter-spacing:-0.06em;color:transparent;-webkit-text-stroke:2px #111111}
 .cs-n small{font-size:0.28em;letter-spacing:0;-webkit-text-stroke:0;color:#6A6A6A;margin-left:6px}
 .cs-t{font-family:'Space Grotesk','Inter',sans-serif;font-weight:700;font-size:clamp(28px,2.9cqw,46px);line-height:1.06;letter-spacing:-0.03em;margin:0 0 12px}

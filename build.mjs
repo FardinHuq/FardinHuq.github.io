@@ -414,7 +414,6 @@ function caseStudiesPage() {
           <figure class="cs-photo" data-reveal>
             <img src="${esc(it.image)}" alt="${esc(it.title)}" loading="${i === 0 ? 'eager' : 'lazy'}" decoding="async">
             <figcaption class="cs-tag">${esc(K.indexLabel || 'Case')} ${pad2(i + 1)}</figcaption>
-            ${it.video ? `<a class="pj-play cs-play" href="${esc(it.video)}" target="_blank" rel="noopener"><i aria-hidden="true">▶</i>${esc(K.videoLabel || 'Watch demo')}</a>` : ''}
           </figure>
           <div class="cs-intro" data-reveal>
             <p class="cs-n" aria-hidden="true">${pad2(i + 1)}<small>/${pad2(items.length)}</small></p>

@@ -1090,7 +1090,6 @@
     "intro": "Five projects, start to finish: the problem, what we built, my part in it, what got in the way, and how it landed.",
     "indexLabel": "Case",
     "readLabel": "Read case study",
-    "videoLabel": "Watch demo",
     "nextLabel": "Next case",
     "topLabel": "Back to all cases",
     "items": [
@@ -1098,7 +1097,6 @@
         "title": "CMP Fingerprint Matching Software",
         "tagline": "AI-assisted fingerprint records, crime scene matching and suspect verification for the Corps of Military Police.",
         "image": "assets/covers/cmp-fingerprint-matching-software.jpg",
-        "video": "",
         "meta": [
           {
             "k": "Client",
@@ -1164,7 +1162,6 @@
         "title": "Brand Review.AI",
         "tagline": "Checking designs against brand guidelines automatically with AI.",
         "image": "assets/covers/brand-review-ai.jpg",
-        "video": "",
         "meta": [
           {
             "k": "Client",
@@ -1230,7 +1227,6 @@
         "title": "Combine Harvester Simulator",
         "tagline": "Training combine harvester operators safely, without a real machine.",
         "image": "assets/covers/combine-harvester-simulator.jpg",
-        "video": "https://youtu.be/Ukm4cISSp48",
         "meta": [
           {
             "k": "Client",
@@ -1290,7 +1286,6 @@
         "title": "TechVital VR Medical Equipment Showcase",
         "tagline": "Showing a full range of medical equipment without a trip to the warehouse.",
         "image": "assets/covers/techvital-vr-healthcare.jpg",
-        "video": "https://youtu.be/4OyQEXcdEag",
         "meta": [
           {
             "k": "Client",
@@ -1349,7 +1344,6 @@
         "title": "Unilever Truck Driving Simulator",
         "tagline": "Training Unilever’s truck drivers on a realistic simulator before they hit the road.",
         "image": "assets/covers/unilever-truck-driving-simulator.jpg",
-        "video": "",
         "meta": [
           {
             "k": "Client",
