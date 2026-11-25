@@ -48,7 +48,7 @@ function nav(cur = 'home') {
     return `<a class="nomi-navlink${on ? ' is-cur' : ''}" href="${esc(h)}"${on ? ' aria-current="page"' : ''}>${esc(n.label)}</a>`;
   }).join('\n      ');
   return `<nav class="nomi-nav" aria-label="Main">
-      <a class="nav-brand" href="${home ? '#top' : './'}"><img class="nav-panda" src="assets/fh-logo.svg" alt="" width="23" height="22">${esc(S.name)}</a>
+      <a class="nav-brand" href="${home ? '#top' : './'}" aria-label="${esc(S.name)}: home"><img class="nav-panda" src="assets/fh-logo.svg" alt="" width="31" height="30"></a>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links"><span class="nav-burger" aria-hidden="true"></span>Menu</button>
       <div class="nav-links" id="nav-links">
       ${links}
