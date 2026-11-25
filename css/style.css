@@ -391,7 +391,7 @@ section[id]{scroll-margin-top:72px}
 .nomi-role{position:absolute;left:0.15cqw;top:100%;margin-top:1.5cqw;font-family:'Inter',sans-serif;font-weight:600;font-size:2.1cqw;line-height:1;letter-spacing:-0.01em;-webkit-text-stroke:0;white-space:nowrap;color:#111111}
 .nomi-pron{position:absolute;right:0.2cqw;top:100%;margin-top:0.4cqw;font-family:'Inter',sans-serif;font-weight:300;font-size:1.05cqw;line-height:1;letter-spacing:0.02em;-webkit-text-stroke:0;color:#555555}
 .nomi-copy{position:absolute;left:1.74cqw;top:30cqw;width:42cqw;margin:0;font-size:1.5cqw;line-height:2.1cqw;font-weight:500;color:#0A0A0A;white-space:nowrap;z-index:2}
-.nomi-ctas{position:absolute;left:1.74cqw;top:44.6cqw;height:3.5cqw;display:flex;align-items:center;gap:1.2cqw;font-size:1.35cqw;font-weight:600;letter-spacing:0.01em;z-index:2}
+.nomi-ctas{position:absolute;left:1.74cqw;top:41.1cqw;height:3.5cqw;display:flex;align-items:center;gap:1.2cqw;font-size:1.35cqw;font-weight:600;letter-spacing:0.01em;z-index:2}
 .nomi-ctas a{display:flex;align-items:center;justify-content:center;gap:0.6cqw;box-sizing:border-box;padding:0 2cqw;height:100%;border:0.17cqw solid #0A0A0A;text-decoration:none;border-radius:999px}
 .nomi-ctas svg{width:0.55cqw;height:auto}
 .nomi-bubble{position:absolute;left:70.67cqw;top:8.43cqw;width:18.6cqw;z-index:2}
