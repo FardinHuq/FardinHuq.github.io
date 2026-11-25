@@ -48,7 +48,7 @@ function nav(cur = 'home') {
     return `<a class="nomi-navlink${on ? ' is-cur' : ''}" href="${esc(h)}"${on ? ' aria-current="page"' : ''}>${esc(n.label)}</a>`;
   }).join('\n      ');
   return `<nav class="nomi-nav" aria-label="Main">
-      <a class="nav-brand" href="${home ? '#top' : './'}">${esc(S.name)}</a>
+      <a class="nav-brand" href="${home ? '#top' : './'}"><img class="nav-panda" src="assets/panda-logo.webp" alt="" width="26" height="23">${esc(S.name)}</a>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links"><span class="nav-burger" aria-hidden="true"></span>Menu</button>
       <div class="nav-links" id="nav-links">
       ${links}
@@ -61,7 +61,6 @@ function hero() {
   const H = C.hero;
   return `<header class="nomi-stage" id="top">
     <video class="nomi-video" src="${esc(H.video)}" poster="${esc(H.poster)}" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
-    <a class="nomi-logo" href="#top" aria-label="${esc(S.name)} — home">${P.logo}</a>
     ${nav()}
     <h1 class="nomi-h1">${esc(H.name)}<span class="nomi-role">${esc(H.role)}</span><span class="nomi-pron">${esc(H.pronouns)}</span></h1>
     <p class="nomi-copy">${md(H.highlight)}</p>
@@ -473,7 +472,7 @@ ${S.googleVerification ? `<meta name="google-site-verification" content="${esc(S
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${esc(url + S.ogImage)}">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="96x96">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -494,6 +493,7 @@ ${head({ path, title, description, ld })}
 <body class="pg-${cur}">
 <a class="skip" href="${skip}">Skip to content</a>
 <div class="nomi-root">
+  <a class="nomi-logo" href="./" aria-label="${esc(S.name)}: home"><img src="assets/panda-logo.webp" alt="" width="330" height="288"></a>
   ${home ? hero() : `<header class="pg-top">${nav(cur)}</header>`}
   <main id="main">
   ${body}

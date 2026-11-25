@@ -380,7 +380,10 @@ section[id]{scroll-margin-top:72px}
 /* ===== Hero ===== */
 .nomi-stage{position:relative;width:100%;height:max(min(100vh, 62.36cqw), 49cqw);overflow:hidden;background:#EAEAEA}
 .nomi-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0%;display:block}
-.nomi-logo{position:absolute;left:1.963cqw;top:2.540cqw;width:2.079cqw;display:block;color:#111111;z-index:2}
+.nomi-logo{position:fixed;left:1.963cqw;top:1.42cqw;width:2.9cqw;min-width:38px;display:block;color:#111111;z-index:61;transition:transform 260ms cubic-bezier(0.2,1.5,0.4,1)}
+.nomi-logo:hover,.nomi-logo:focus-visible{transform:scale(1.1) rotate(-4deg)}
+.nomi-logo img{display:block;width:100%;height:auto}
+.nav-panda{height:22px;width:auto;margin-right:8px;vertical-align:-5px}
 .nomi-logo svg{display:block;width:100%;height:auto}
 .nomi-nav{position:fixed;left:50%;top:1.2cqw;transform:translateX(-50%);z-index:60;box-sizing:border-box;width:62%;display:flex;align-items:center;justify-content:space-evenly;gap:0.3cqw;padding:0.32cqw;border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0.04));backdrop-filter:blur(10px) saturate(160%);-webkit-backdrop-filter:blur(10px) saturate(160%);border:1px solid rgba(17,17,17,0.14);box-shadow:0 0.5cqw 2.4cqw rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.55),inset 0 -1px 0 rgba(0,0,0,0.04);font-family:'Space Grotesk','Inter',sans-serif;font-weight:600;font-size:1.02cqw;line-height:1;white-space:nowrap}
 .nomi-nav a{display:block;padding:0.62cqw 1.15cqw;border-radius:999px;text-decoration:none}
