@@ -366,8 +366,7 @@ video.pj-img{background:#111111}
 @media (prefers-reduced-motion: reduce){.nomi-caret{animation:none}}
 
 /* ===== Site shell (was inline in the design file) ===== */
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
 body{overflow-x:hidden}
 .nomi-root{width:100%;background:#EAEAEA;container-type:inline-size;container-name:nomi;color:#111111;font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;overflow-x:clip}
 .hl{background:linear-gradient(transparent 60%,#FFE14D 60%);padding:0 0.12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
@@ -751,3 +750,6 @@ a.sc-tile:hover .sc-go,a.sc-tile:focus-visible .sc-go{opacity:1;transform:none}
 .cs-home-head{text-align:center;margin:0 auto clamp(28px,3cqw,44px)}
 .cs-home .cs-index{margin-bottom:clamp(30px,3cqw,48px)}
 @container nomi (max-width: 999px){.cs.is-case{padding-top:84px}.cs.is-case .cs-jump{top:70px;box-shadow:3px 3px 0 #FFE14D}}
+
+/* Arriving on a #section link: stay hidden for a moment until the page is placed there (see landOnHash in main.js) */
+html.is-jumping body{visibility:hidden}

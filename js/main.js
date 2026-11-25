@@ -279,7 +279,7 @@
     const cards = $$('.pj-card', wrap);
     const i = cards.findIndex((c) => c.getAttribute('data-slug') === sl);
     if (i < 0) return false;
-    const behavior = smooth && !REDUCE ? 'smooth' : 'auto';
+    const behavior = 'auto';   // jump straight there, like a page change (no scroll-through)
     if (this.pjEl.classList.contains('is-anim') && cards.length > 1) {
       const r = track.getBoundingClientRect();
       const y = r.top + window.scrollY - this.pinOff() + (i / (cards.length - 1)) * (r.height - this.pageH()) + 2;
@@ -621,6 +621,21 @@
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     show();
   };
-  const start = () => { media(); mailMenu(); caseStudies(); window.__site = new Site(); };
+  // Arriving with #section from another page: place the page there once the pinned sections have their
+  // heights, then show it — a straight jump, without the scroll-through glimpse.
+  const landOnHash = () => {
+    const root = document.documentElement;
+    if (!root.classList.contains('is-jumping')) return;
+    const id = decodeURIComponent(location.hash.slice(1));
+    const done = () => root.classList.remove('is-jumping');
+    setTimeout(() => {
+      const site = window.__site;
+      if (site && site.updateStory) site.updateStory();
+      if (site && site.pjCardsEl && site.goCat(id, false)) { site.markJump(id); }
+      else { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: 'auto', block: 'start' }); }
+      requestAnimationFrame(done);
+    }, 140);
+  };
+  const start = () => { media(); mailMenu(); caseStudies(); window.__site = new Site(); landOnHash(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();

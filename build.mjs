@@ -543,6 +543,7 @@ function head(pg = {}) {
   }));
   const ld = pg.ld === 'papers' ? papers : pg.path ? [site] : [{ '@context': 'https://schema.org', '@type': 'ProfilePage', mainEntity: person, url }, site, ...papers];
   return `<meta charset="utf-8">
+<script>if(location.hash.length>1&&!/case-studies.html$/.test(location.pathname)){document.documentElement.className+=' is-jumping';setTimeout(function(){document.documentElement.classList.remove('is-jumping')},1500)}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
