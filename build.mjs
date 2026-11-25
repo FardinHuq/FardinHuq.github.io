@@ -25,9 +25,9 @@ const isVideoFile = (u) => /\.(mp4|webm|mov|m4v|ogv)(\?|#|$)/i.test(String(u || 
 // Card picture: uploaded image first, else the YouTube thumbnail, else a frame of an uploaded video file
 function projectThumb(p) {
   const alt = esc(p.title) + ' preview';
-  if (p.image) return `<img class="pj-img" src="${esc(p.image)}" alt="${alt}" loading="lazy">`;
+  if (p.image) return `<img class="pj-blur" src="${esc(p.image)}" alt="" aria-hidden="true" loading="lazy"><img class="pj-img" src="${esc(p.image)}" alt="${alt}" loading="lazy">`;
   const id = ytId(p.video);
-  if (id) return `<img class="pj-img" src="https://i.ytimg.com/vi/${id}/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="${alt}" loading="lazy" referrerpolicy="no-referrer">`;
+  if (id) return `<img class="pj-blur" src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" aria-hidden="true" loading="lazy" referrerpolicy="no-referrer"><img class="pj-img" src="https://i.ytimg.com/vi/${id}/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="${alt}" loading="lazy" referrerpolicy="no-referrer">`;
   if (isVideoFile(p.video)) return `<video class="pj-img" src="${esc(p.video)}#t=1" muted playsinline preload="metadata" aria-hidden="true"></video>`;
   return '';
 }

@@ -231,6 +231,8 @@
       return;
     }
     sec.classList.add('is-anim');
+    const fitKey = window.innerWidth + 'x' + window.innerHeight;
+    if (this.pjFitKey !== fitKey) { this.pjFitKey = fitKey; this.fitCards(); }
     const vh = this.pageH();
     const N = items.length;
     const want = (N * 620 + vh) + 'px';
@@ -265,6 +267,22 @@
       if (this.pjCatBigEl) this.pjCatBigEl.textContent = cardEl.getAttribute('data-catname') || '';
     }
     this.markJump(cardEl.getAttribute('data-slug'));
+  }
+  // Projects page on computers: show each card's full 16:9 picture when the tallest card fits between the
+  // heading and the bottom of the screen; otherwise keep the shorter card, where the whole picture sits
+  // in the strip with a blurred copy filling the sides (CSS). Re-checked whenever the window size changes.
+  fitCards() {
+    const sec = this.pjEl, pin = this.pjPinEl, wrap = this.pjCardsEl;
+    if (!sec || !pin || !wrap || !sec.classList.contains('is-page')) return;
+    const head = sec.querySelector('.pj-head');
+    sec.classList.add('pj-full');
+    const pinR = pin.getBoundingClientRect(), H = pinR.height;
+    const top = (head ? head.getBoundingClientRect().bottom - pinR.top : 0) + 14, bottom = H - 14;
+    let tallest = 0;
+    wrap.querySelectorAll('.pj-card').forEach((c) => { tallest = Math.max(tallest, c.offsetHeight); });
+    const fits = tallest > 0 && tallest <= bottom - top;
+    sec.classList.toggle('pj-full', fits);
+    if (fits) sec.style.setProperty('--pj-top', Math.round((top + bottom) / 2) + 'px'); else sec.style.removeProperty('--pj-top');
   }
   markJump(sl) {
     if (sl === this.pjJumpCur) return;
