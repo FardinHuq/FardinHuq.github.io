@@ -38,6 +38,10 @@
       "href": "projects.html"
     },
     {
+      "label": "Case Studies",
+      "href": "case-studies.html"
+    },
+    {
       "label": "Publications",
       "href": "publications.html"
     },
@@ -1077,5 +1081,363 @@
       "citeLabel": "Copy citation",
       "citedLabel": "Copied!"
     }
+  },
+  "caseStudies": {
+    "title": "Case Studies — Fardin Huq",
+    "description": "Case studies by Fardin Huq: AI fingerprint matching, AI brand review, harvester and truck simulators, and a VR medical equipment showroom.",
+    "eyebrow": "Case studies",
+    "heading": "How the work ==actually== got done.",
+    "intro": "Five projects, start to finish: the problem, what we built, my part in it, what got in the way, and how it landed.",
+    "indexLabel": "Case",
+    "readLabel": "Read case study",
+    "videoLabel": "Watch demo",
+    "nextLabel": "Next case",
+    "topLabel": "Back to all cases",
+    "items": [
+      {
+        "title": "CMP Fingerprint Matching Software",
+        "tagline": "AI-assisted fingerprint records, crime scene matching and suspect verification for the Corps of Military Police.",
+        "image": "assets/covers/cmp-fingerprint-matching-software.jpg",
+        "video": "",
+        "meta": [
+          {
+            "k": "Client",
+            "v": "CMP (Corps of Military Police)"
+          },
+          {
+            "k": "Studio",
+            "v": "Battery Low Interactive Ltd."
+          },
+          {
+            "k": "Role",
+            "v": "Project Coordinator"
+          },
+          {
+            "k": "Stack",
+            "v": "Node.js, AI models"
+          },
+          {
+            "k": "Platform",
+            "v": "PC and web"
+          }
+        ],
+        "sections": [
+          {
+            "kind": "problem",
+            "heading": "The problem",
+            "body": "Comparing fingerprints by hand is slow and error-prone. CMP needed one system to keep fingerprint records, find matches for crime scene evidence, and confirm a suspect’s identity.",
+            "points": []
+          },
+          {
+            "kind": "solution",
+            "heading": "The solution",
+            "body": "Software with three core functions:",
+            "points": [
+              "**Fingerprint records:** a central database of prints from individuals with prior offences and other persons of interest.",
+              "**Crime scene matching:** latent prints lifted from a crime scene are searched against the database to find likely matches.",
+              "**Suspect verification:** a match is confirmed by comparing it with prints taken from the suspect."
+            ]
+          },
+          {
+            "kind": "role",
+            "heading": "My role",
+            "body": "",
+            "points": [
+              "Defined the system requirements for all three functions with the client.",
+              "Researched AI models for fingerprint matching and helped choose the approach.",
+              "Designed the workflow from fingerprint input to verified result."
+            ]
+          },
+          {
+            "kind": "challenge",
+            "heading": "Challenge",
+            "body": "",
+            "points": [
+              "**Getting better results from the AI models:** out-of-the-box accuracy wasn’t good enough, so the models had to be tweaked and re-tested repeatedly to improve matching results."
+            ]
+          },
+          {
+            "kind": "results",
+            "heading": "Results",
+            "body": "",
+            "points": [
+              "Delivered fingerprint storage, matching and verification software for PC and web.",
+              "Replaced manual comparison with AI-assisted matching."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Brand Review.AI",
+        "tagline": "Checking designs against brand guidelines automatically with AI.",
+        "image": "assets/covers/brand-review-ai.jpg",
+        "video": "",
+        "meta": [
+          {
+            "k": "Client",
+            "v": "Brand Review"
+          },
+          {
+            "k": "Studio",
+            "v": "Battery Low Interactive Ltd."
+          },
+          {
+            "k": "Role",
+            "v": "Project Coordinator"
+          },
+          {
+            "k": "Stack",
+            "v": "Python, AI/LLM"
+          },
+          {
+            "k": "Platform",
+            "v": "Web"
+          }
+        ],
+        "sections": [
+          {
+            "kind": "problem",
+            "heading": "The problem",
+            "body": "Checking every design against brand and event guidelines by hand is slow, and small mistakes in colours, fonts or visuals slip through.",
+            "points": []
+          },
+          {
+            "kind": "solution",
+            "heading": "The solution",
+            "body": "A web tool that uses AI to review a design and flag where it breaks the guidelines, covering:",
+            "points": [
+              "**Colours:** off-brand shades and palettes.",
+              "**Fonts:** wrong typefaces or styles.",
+              "**Visuals:** imagery and layout that don’t follow the rules."
+            ]
+          },
+          {
+            "kind": "role",
+            "heading": "My role",
+            "body": "",
+            "points": [
+              "Researched AI models for design analysis.",
+              "Flagged technical risks early and proposed fixes.",
+              "Coordinated delivery and client communication."
+            ]
+          },
+          {
+            "kind": "challenge",
+            "heading": "Challenge",
+            "body": "",
+            "points": [
+              "**Reliable AI judgment:** guidelines are often subjective, so the models had to be tested to give consistent, useful feedback rather than false alarms."
+            ]
+          },
+          {
+            "kind": "results",
+            "heading": "Results",
+            "body": "",
+            "points": [
+              "Delivered a web tool that automates brand compliance checks.",
+              "Faster reviews, with fewer off-brand designs reaching publication."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Combine Harvester Simulator",
+        "tagline": "Training combine harvester operators safely, without a real machine.",
+        "image": "assets/covers/combine-harvester-simulator.jpg",
+        "video": "https://youtu.be/Ukm4cISSp48",
+        "meta": [
+          {
+            "k": "Client",
+            "v": "CIMMYT & Abedin Group"
+          },
+          {
+            "k": "Studio",
+            "v": "Battery Low Interactive Ltd."
+          },
+          {
+            "k": "Role",
+            "v": "Project Coordinator"
+          },
+          {
+            "k": "Team",
+            "v": "~8"
+          },
+          {
+            "k": "Stack",
+            "v": "Unity, C#, hardware rig"
+          }
+        ],
+        "sections": [
+          {
+            "kind": "problem",
+            "heading": "The problem",
+            "body": "Operators learn on real harvesters: risky, costly in fuel and wear, and only possible at harvest time. The client needed a simulator real enough for skills to carry over.",
+            "points": []
+          },
+          {
+            "kind": "role",
+            "heading": "My role",
+            "body": "",
+            "points": [
+              "Turned training goals into documented software requirements.",
+              "Ran daily Scrum and sprints in Jira and GitHub Projects; main client contact.",
+              "Tested every build on the physical rig before release."
+            ]
+          },
+          {
+            "kind": "challenge",
+            "heading": "Approach and challenges",
+            "body": "",
+            "points": [
+              "**Defined “realistic”** as testable requirements, reviewed with the client each sprint.",
+              "**Built hardware and software in parallel** against a shared list of control signals.",
+              "**Shipped a playable build every sprint** so issues were caught early.",
+              "**Used client experts’ knowledge**, documented so the whole team shared it."
+            ]
+          },
+          {
+            "kind": "results",
+            "heading": "Results",
+            "body": "",
+            "points": [
+              "Risk-free operator training on a working hardware simulator.",
+              "Lower training costs and year-round practice.",
+              "The process carried over to our Unilever truck and GIZ VR safety simulators."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "TechVital VR Medical Equipment Showcase",
+        "tagline": "Showing a full range of medical equipment without a trip to the warehouse.",
+        "image": "assets/covers/techvital-vr-healthcare.jpg",
+        "video": "https://youtu.be/4OyQEXcdEag",
+        "meta": [
+          {
+            "k": "Client",
+            "v": "TechVital Systems (United Group)"
+          },
+          {
+            "k": "Studio",
+            "v": "Battery Low Interactive Ltd."
+          },
+          {
+            "k": "Role",
+            "v": "Project Coordinator"
+          },
+          {
+            "k": "Team",
+            "v": "~3–4"
+          },
+          {
+            "k": "Stack",
+            "v": "Unity, C#, Meta Quest 3"
+          }
+        ],
+        "sections": [
+          {
+            "kind": "problem",
+            "heading": "The problem",
+            "body": "Medical equipment is large, expensive and hard to move. To see the full product range, TechVital’s clients had to visit a warehouse or factory, and even then they couldn’t look inside a machine.",
+            "points": []
+          },
+          {
+            "kind": "solution",
+            "heading": "The solution",
+            "body": "A VR showroom on Meta Quest 3 where clients can:",
+            "points": [
+              "**Browse every product type** in one place, anywhere.",
+              "**View each machine in 360°**, in full detail.",
+              "**Take equipment apart part by part** and inspect each component separately."
+            ]
+          },
+          {
+            "kind": "role",
+            "heading": "My role",
+            "body": "",
+            "points": [
+              "Coordinated end-to-end delivery; main client contact.",
+              "Turned the product range into requirements: which equipment, which parts, which details to show.",
+              "Tested every build before the showcase."
+            ]
+          },
+          {
+            "kind": "results",
+            "heading": "Results",
+            "body": "",
+            "points": [
+              "Delivered **Bangladesh’s first VR healthcare showcase**.",
+              "Clients explore the whole range, inside and out, without a warehouse or factory visit.",
+              "Brochures replaced by interactive 3D demos."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Unilever Truck Driving Simulator",
+        "tagline": "Training Unilever’s truck drivers on a realistic simulator before they hit the road.",
+        "image": "assets/covers/unilever-truck-driving-simulator.jpg",
+        "video": "",
+        "meta": [
+          {
+            "k": "Client",
+            "v": "Unilever"
+          },
+          {
+            "k": "Studio",
+            "v": "Battery Low Interactive Ltd."
+          },
+          {
+            "k": "Role",
+            "v": "Product Designer & Project Coordinator"
+          },
+          {
+            "k": "Team",
+            "v": "8"
+          },
+          {
+            "k": "Stack",
+            "v": "Unity, C#, steering wheel and pedal rig"
+          }
+        ],
+        "sections": [
+          {
+            "kind": "problem",
+            "heading": "The problem",
+            "body": "Unilever needed a real-life truck driving simulator for driver training. It had to drive like a real truck and enforce strict road safety rules and company driving policies, all on a short timeline.",
+            "points": []
+          },
+          {
+            "kind": "role",
+            "heading": "My role",
+            "body": "",
+            "points": [
+              "Designed the product and planned the delivery for a cross-functional team of 8.",
+              "Main client contact: gathered and managed the safety and policy requirements.",
+              "Ran daily Scrum and tracked work in Jira and GitHub Projects."
+            ]
+          },
+          {
+            "kind": "challenge",
+            "heading": "Challenges",
+            "body": "",
+            "points": [
+              "**Short timeline, heavy detail:** a long list of requirements had to be prioritised and tracked closely to fit the deadline.",
+              "**Realistic truck physics:** steering, braking and handling had to feel like a real truck on the wheel and pedal rig.",
+              "**Extensive safety and policy rules:** road safety standards and Unilever’s own driving policies had to be built into the simulator."
+            ]
+          },
+          {
+            "kind": "results",
+            "heading": "Results",
+            "body": "",
+            "points": [
+              "Delivered a working **truck driving simulator** for Unilever driver training.",
+              "Drivers practise safe driving and company policy without risk on real roads."
+            ]
+          }
+        ]
+      }
+    ]
   }
 }

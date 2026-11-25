@@ -567,6 +567,56 @@
     });
     window.addEventListener('resize', () => close());
   };
-  const start = () => { media(); mailMenu(); window.__site = new Site(); };
+  // Case Studies page: cards reveal as they scroll in, a reading-progress bar, and the sticky case bar
+  // highlights the case on screen (and scrolls itself so the active chip stays visible on phones).
+  const caseStudies = () => {
+    const sec = document.querySelector('.cs');
+    if (!sec) return;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.prototype.slice.call(sec.querySelectorAll('[data-reveal]'));
+    if (!reduce && 'IntersectionObserver' in window) {
+      sec.classList.add('js');
+      const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target, sib = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+        el.style.transitionDelay = Math.min(sib, 4) * 90 + 'ms';
+        el.classList.add('is-in'); io.unobserve(el);
+      }), { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+      els.forEach((el) => io.observe(el));
+    }
+    const bar = document.querySelector('.cs-progress span');
+    const cases = Array.prototype.slice.call(sec.querySelectorAll('.cs-case'));
+    const links = Array.prototype.slice.call(sec.querySelectorAll('.cs-jump a'));
+    const jump = sec.querySelector('.cs-jump');
+    let cur = null, raf = null;
+    const tick = () => {
+      raf = null;
+      const de = document.documentElement, max = Math.max(1, de.scrollHeight - window.innerHeight);
+      if (bar) bar.style.transform = 'scaleX(' + Math.min(1, window.scrollY / max).toFixed(4) + ')';
+      let on = null; const line = window.innerHeight * 0.35;
+      cases.forEach((c) => { if (c.getBoundingClientRect().top < line) on = c; });
+      const id = on ? on.id : null;
+      if (id === cur) return;
+      cur = id;
+      links.forEach((a) => {
+        const hit = a.getAttribute('data-slug') === id;
+        a.classList.toggle('is-on', hit);
+        if (hit) { a.setAttribute('aria-current', 'true'); if (jump && jump.scrollWidth > jump.clientWidth) jump.scrollTo({ left: a.offsetLeft - 16, behavior: reduce ? 'auto' : 'smooth' }); } else a.removeAttribute('aria-current');
+      });
+    };
+    window.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(tick); }, { passive: true });
+    window.addEventListener('resize', tick);
+    sec.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const t = document.getElementById(a.getAttribute('href').slice(1));
+      if (!t) return;
+      e.preventDefault();
+      t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      try { history.replaceState(null, '', a.getAttribute('href')); } catch (er) {}
+    });
+    tick();
+  };
+  const start = () => { media(); mailMenu(); caseStudies(); window.__site = new Site(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();

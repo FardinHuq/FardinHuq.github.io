@@ -355,6 +355,75 @@ function publicationsPage() {
   </section>`;
 }
 
+// Case Studies page: index of case files, a sticky case bar, then each case as a photo header + story cards.
+function caseStudiesPage() {
+  const K = C.caseStudies || { items: [] };
+  const items = (K.items || []).filter((it) => it && it.title);
+  const short = (t) => String(t).split(/\s+/).slice(0, 2).join(' ');
+  const kindLabel = { problem: 'Problem', solution: 'Solution', role: 'My role', challenge: 'Challenge', results: 'Results' };
+  const index = items.map((it, i) => `<li><a class="cs-file" href="#${slug(it.title)}">
+          <span class="cs-file-pic"><img src="${esc(it.image)}" alt="" loading="lazy" decoding="async"></span>
+          <span class="cs-file-n">${pad2(i + 1)}</span>
+          <span class="cs-file-t">${esc(it.title)}</span>
+          <span class="cs-file-go" aria-hidden="true">→</span>
+        </a></li>`).join('\n        ');
+  const jump = items.map((it, i) => `<a href="#${slug(it.title)}" data-slug="${slug(it.title)}"><b>${pad2(i + 1)}</b>${esc(short(it.title))}</a>`).join('');
+  const cases = items.map((it, i) => {
+    const secs = (it.sections || []).filter((s) => s && (s.heading || s.body || (s.points || []).length));
+    const notResults = secs.filter((s) => s.kind !== 'results').length;
+    let n = 0;
+    const cards = secs.map((s) => {
+      n += 1;
+      const isRes = s.kind === 'results';
+      const wide = isRes || (notResults % 2 === 1 && n === notResults);
+      const pts = (s.points || []).filter(Boolean);
+      return `<div class="cs-sec k-${esc(s.kind || 'note')}${wide ? ' is-wide' : ''}" data-reveal>
+              <p class="cs-sec-k"><span>${pad2(n)}</span>${esc(kindLabel[s.kind] || s.kind || '')}</p>
+              <h3 class="cs-sec-h">${md(s.heading)}</h3>
+              ${s.body ? `<p class="cs-sec-p">${md(s.body)}</p>` : ''}
+              ${pts.length ? `<ul class="cs-sec-ul">${pts.map((p) => `<li>${md(p)}</li>`).join('')}</ul>` : ''}
+            </div>`;
+    }).join('\n            ');
+    const next = items[i + 1];
+    return `<article class="cs-case" id="${slug(it.title)}" aria-labelledby="cs-t-${i}">
+        <div class="cs-top">
+          <figure class="cs-photo" data-reveal>
+            <img src="${esc(it.image)}" alt="${esc(it.title)}" loading="${i === 0 ? 'eager' : 'lazy'}" decoding="async">
+            <figcaption class="cs-tag">${esc(K.indexLabel || 'Case')} ${pad2(i + 1)}</figcaption>
+            ${it.video ? `<a class="pj-play cs-play" href="${esc(it.video)}" target="_blank" rel="noopener"><i aria-hidden="true">▶</i>${esc(K.videoLabel || 'Watch demo')}</a>` : ''}
+          </figure>
+          <div class="cs-intro" data-reveal>
+            <p class="cs-n" aria-hidden="true">${pad2(i + 1)}<small>/${pad2(items.length)}</small></p>
+            <h2 class="cs-t" id="cs-t-${i}">${esc(it.title)}</h2>
+            <p class="cs-tagline">${md(it.tagline)}</p>
+            <dl class="cs-meta">${(it.meta || []).filter((m) => m && m.v).map((m) => `<div><dt>${esc(m.k)}</dt><dd>${esc(m.v)}</dd></div>`).join('')}</dl>
+          </div>
+        </div>
+        <div class="cs-story">
+            ${cards}
+        </div>
+        <div class="cs-foot">
+          ${next ? `<a class="cs-next" href="#${slug(next.title)}"><small>${esc(K.nextLabel || 'Next case')}</small>${esc(next.title)} <i aria-hidden="true">→</i></a>` : `<a class="cs-next" href="#top"><small>${esc(K.topLabel || 'Back to all cases')}</small>${esc(K.heading ? plain(K.heading) : 'Case studies')} <i aria-hidden="true">↑</i></a>`}
+        </div>
+      </article>`;
+  }).join('\n      ');
+  return `<div class="cs-progress" aria-hidden="true"><span></span></div>
+  <section class="cs" id="top" aria-labelledby="cs-title">
+    <div class="cs-wrap">
+      <header class="cs-head">
+        <p class="xp-eyebrow">${esc(K.eyebrow || 'Case studies')}</p>
+        <h1 id="cs-title" class="xp-h2">${md(K.heading || 'Case studies')}</h1>
+        <p class="xp-intro">${md(K.intro || '')}</p>
+        <ol class="cs-index">
+        ${index}
+        </ol>
+      </header>
+      <nav class="cs-jump" aria-label="${esc(K.eyebrow || 'Case studies')}">${jump}</nav>
+      ${cases}
+    </div>
+  </section>`;
+}
+
 function contact() {
   const K = C.contact;
   const btns = K.buttons.map((b) => `<a class="ct-btn ${b.style === 'yellow' ? 'is-cv' : 'nomi-btn'}" href="${esc(b.href)}"${linkAttrs(b.href)}>${esc(b.label)} <i aria-hidden="true">${esc(b.icon || '→')}</i></a>`).join('\n      ');
@@ -511,6 +580,7 @@ const pages = {
   'index.html': page({ cur: 'home', skip: '#about', body: [about(), experience(), clients(), projectsSummary(), processSec(), publications(), contact()].join('\n  ') }),
   'projects.html': page({ cur: 'projects', path: 'projects.html', title: (PG.projects || {}).title, description: (PG.projects || {}).description, body: projects() }),
   'about.html': page({ cur: 'about', path: 'about.html', title: (PG.about || {}).title, description: (PG.about || {}).description, body: about() }),
+  'case-studies.html': page({ cur: 'case-studies', path: 'case-studies.html', title: (C.caseStudies || {}).title, description: (C.caseStudies || {}).description, body: caseStudiesPage() }),
   'publications.html': page({ cur: 'publications', path: 'publications.html', title: (PG.publications || {}).title, description: (PG.publications || {}).description, ld: 'papers', body: publicationsPage() }),
 };
 
