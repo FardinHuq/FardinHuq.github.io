@@ -774,24 +774,8 @@ html.is-jumping body{visibility:hidden}
 
 /* ---------- Project card pictures: never cropped ---------- */
 .pj-blur{display:none;position:absolute;left:-8%;top:-8%;width:116%;height:116%;object-fit:cover;filter:blur(18px) brightness(0.82) saturate(1.1);z-index:0;pointer-events:none}
-/* Computers, shorter screens: the whole 16:9 picture sits in the strip, blurred copy fills the sides */
+/* Computers: the whole 16:9 picture sits in the strip, a blurred copy fills the sides */
 .pj.is-anim .pj-thumb.has-img .pj-blur{display:block}
 .pj.is-anim .pj-thumb.has-img .pj-img{object-fit:contain;z-index:1}
 .pj.is-anim .pj-thumb{flex-basis:46%}
 .pj.is-anim .pj-desc{-webkit-line-clamp:2;flex:none}
-/* Computers, tall enough screens (chosen in main.js → fitCards): the card grows to show the full picture */
-.pj.is-anim.pj-full .pj-cards{width:38cqw}
-.pj.is-anim.pj-full .pj-pin.is-flip .pj-cards{left:57cqw}
-.pj.is-anim.pj-full .pj-card{height:auto;top:var(--pj-top,63%)}
-.pj.is-anim.pj-full .pj-in{height:auto}
-.pj.is-anim.pj-full .pj-thumb{flex:none;aspect-ratio:16 / 9}
-.pj.is-anim.pj-full .pj-thumb.has-img .pj-blur{display:none}
-.pj.is-anim.pj-full .pj-thumb.has-img .pj-img{object-fit:cover}
-.pj.is-anim.pj-full .pj-body{flex:none;overflow:visible;padding-top:clamp(14px,1.3cqw,22px);padding-bottom:clamp(16px,1.4cqw,24px)}
-.pj.is-anim.pj-full .pj-client{margin-bottom:8px}
-.pj.is-anim.pj-full .pj-desc{margin-bottom:10px;-webkit-line-clamp:3}
-.pj.is-anim.pj-full .pj-role-label{padding-top:8px;margin-top:10px}
-.pj.is-anim.pj-full .pj-chip{min-height:30px;padding:0 12px;font-size:13px}
-.pj.is-anim.pj-full .pj-chips{gap:6px}
-.pj.is-anim.pj-full .pj-title{font-size:clamp(20px,1.7cqw,28px)}
-.pj.is-anim.pj-full .pj-desc{font-size:clamp(14px,1.05cqw,16px);line-height:1.45}
