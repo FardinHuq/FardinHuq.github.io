@@ -364,9 +364,13 @@
       {
         "name": "HLV",
         "logo": "assets/clients/hlv.webp"
+      },
+      {
+        "name": "MediaTech Bangladesh",
+        "logo": "assets/clients/mediatech.webp"
       }
     ],
-    "fullList": "CIMMYT, Prime Bank, GIZ, UNICEF, The Financial Express, ICT Division, Public Works Department, Bangladesh Army, Walton, Runner, Square, Aristopharma, Asiatic 360, Mr. Noodles, ACI, STEMbotix, Shobdomukur, FeedBoss, Bangladesh Army Military Police, United Group, Unilever, TechVital Systems, World Without Hate, Chashi, Bangladesh Tourism Board, JTI, Grey Dhaka, Atharo Ana Bangaliana and HLV."
+    "fullList": "CIMMYT, Prime Bank, GIZ, UNICEF, The Financial Express, ICT Division, Public Works Department, Bangladesh Army, Walton, Runner, Square, Aristopharma, Asiatic 360, Mr. Noodles, ACI, STEMbotix, Shobdomukur, FeedBoss, Bangladesh Army Military Police, United Group, Unilever, TechVital Systems, World Without Hate, Chashi, Bangladesh Tourism Board, JTI, Grey Dhaka, Atharo Ana Bangaliana, HLV and MediaTech Bangladesh."
   },
   "projects": {
     "eyebrow": "Projects",
